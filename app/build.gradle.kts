@@ -24,14 +24,14 @@ android {
         }
     }
 
-    sourceSets {
-        getByName("main") {
-            java.srcDir("src/main/java/com/genius/tdlibandroid")
-            java.srcDir("src/main/java/org/drinkless")
-            jniLibs.srcDirs("src/main/jniLibs")
-            jni.srcDirs()
-        }
-    }
+//    sourceSets {
+//        getByName("main") {
+//            java.srcDir("src/main/java/com/genius/tdlibandroid")
+//            java.srcDir("src/main/java/org/drinkless/td")
+//            jniLibs.srcDirs("src/main/libs")
+//            jni.srcDirs()
+//        }
+//    }
 
     tasks.register<JavaCompile>("generateJNIHeaders") {
         source = fileTree("src/main/java")
