@@ -3,7 +3,6 @@ package com.genius.tdlibandroid
 import android.app.Application
 import android.util.Log
 
-
 /**
  * @Author: Thulasirajan P
  * @github: https:github.com/itsgeniuS

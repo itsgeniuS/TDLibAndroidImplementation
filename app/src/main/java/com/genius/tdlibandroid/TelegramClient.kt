@@ -4,7 +4,8 @@ import android.util.Log
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
-import org.drinkless.td.*
+import org.drinkless.td.Client
+import org.drinkless.td.TdApi
 
 /*
  * Go to https://my.telegram.org to obtain api id (integer) and api hash (string).
@@ -16,7 +17,7 @@ import org.drinkless.td.*
  */
 @OptIn(ExperimentalCoroutinesApi::class)
 class TelegramClient(
-    private val tdLibParameters: org.drinkless.td.TdApi.TdlibParameters
+    private val tdLibParameters: TdApi.SetTdlibParameters
 ) : Client.ResultHandler {
 
     private val TAG = TelegramClient::class.java.simpleName
@@ -32,7 +33,7 @@ class TelegramClient(
     }
 
     fun close() {
-        client.close()
+
     }
 
     private val requestScope = CoroutineScope(Dispatchers.IO)
@@ -60,46 +61,51 @@ class TelegramClient(
         requestScope.launch { job() }
     }
 
-    fun startAuthentication() {
-        Log.d(TAG, "startAuthentication called")
-        if (_authState.value != Authentication.UNAUTHENTICATED) {
-            throw IllegalStateException("Start authentication called but client already authenticated. State: ${_authState.value}.")
-        }
+//    fun startAuthentication() {
+//        Log.d(TAG, "startAuthentication called")
+//        if (_authState.value != Authentication.UNAUTHENTICATED) {
+//            throw IllegalStateException("Start authentication called but client already authenticated. State: ${_authState.value}.")
+//        }
+//
+//        doAsync {
+//            client.send(TdApi.SetTdlibParameters(
+//                false,
+//
+//
+//                tdLibParameters
+//            )) {
+//                Log.d(TAG, "SetTdlibParameters result: $it")
+//                when (it.constructor) {
+//                    TdApi.Ok.CONSTRUCTOR -> {
+//                        //result.postValue(true)
+//                    }
+//                    TdApi.Error.CONSTRUCTOR -> {
+//                        //result.postValue(false)
+//                    }
+//                }
+//            }
+//        }
+//    }
 
-        doAsync {
-            client.send(TdApi.SetTdlibParameters(tdLibParameters)) {
-                Log.d(TAG, "SetTdlibParameters result: $it")
-                when (it.constructor) {
-                    TdApi.Ok.CONSTRUCTOR -> {
-                        //result.postValue(true)
-                    }
-                    TdApi.Error.CONSTRUCTOR -> {
-                        //result.postValue(false)
-                    }
-                }
-            }
-        }
-    }
-
-    fun insertPhoneNumber(phoneNumber: String) {
-        Log.d("TelegramClient", "phoneNumber: $phoneNumber")
-        val settings = TdApi.PhoneNumberAuthenticationSettings(
-            false,
-            false,
-            false
-        )
-        client.send(TdApi.SetAuthenticationPhoneNumber(phoneNumber, settings)) {
-            Log.d("TelegramClient", "phoneNumber. result: $it")
-            when (it.constructor) {
-                TdApi.Ok.CONSTRUCTOR -> {
-
-                }
-                TdApi.Error.CONSTRUCTOR -> {
-
-                }
-            }
-        }
-    }
+//    fun insertPhoneNumber(phoneNumber: String) {
+//        Log.d("TelegramClient", "phoneNumber: $phoneNumber")
+//        val settings = TdApi.PhoneNumberAuthenticationSettings(
+//            false,
+//            false,
+//            false
+//        )
+//        client.send(TdApi.SetAuthenticationPhoneNumber(phoneNumber, settings)) {
+//            Log.d("TelegramClient", "phoneNumber. result: $it")
+//            when (it.constructor) {
+//                TdApi.Ok.CONSTRUCTOR -> {
+//
+//                }
+//                TdApi.Error.CONSTRUCTOR -> {
+//
+//                }
+//            }
+//        }
+//    }
 
     fun insertCode(code: String) {
         Log.d("TelegramClient", "code: $code")
@@ -142,19 +148,19 @@ class TelegramClient(
                 )
                 setAuth(Authentication.UNAUTHENTICATED)
             }
-            TdApi.AuthorizationStateWaitEncryptionKey.CONSTRUCTOR -> {
-                Log.d(TAG, "onResult: AuthorizationStateWaitEncryptionKey")
-                client.send(TdApi.CheckDatabaseEncryptionKey()) {
-                    when (it.constructor) {
-                        TdApi.Ok.CONSTRUCTOR -> {
-                            Log.d(TAG, "CheckDatabaseEncryptionKey: OK")
-                        }
-                        TdApi.Error.CONSTRUCTOR -> {
-                            Log.d(TAG, "CheckDatabaseEncryptionKey: Error")
-                        }
-                    }
-                }
-            }
+//            TdApi.AuthorizationStateWaitEncryptionKey.CONSTRUCTOR -> {
+//                Log.d(TAG, "onResult: AuthorizationStateWaitEncryptionKey")
+//                client.send(TdApi.CheckDatabaseEncryptionKey()) {
+//                    when (it.constructor) {
+//                        TdApi.Ok.CONSTRUCTOR -> {
+//                            Log.d(TAG, "CheckDatabaseEncryptionKey: OK")
+//                        }
+//                        TdApi.Error.CONSTRUCTOR -> {
+//                            Log.d(TAG, "CheckDatabaseEncryptionKey: Error")
+//                        }
+//                    }
+//                }
+//            }
             TdApi.AuthorizationStateWaitPhoneNumber.CONSTRUCTOR -> {
                 Log.d(TAG, "onResult: AuthorizationStateWaitPhoneNumber -> state = WAIT_FOR_NUMBER")
                 setAuth(Authentication.WAIT_FOR_NUMBER)
@@ -207,21 +213,21 @@ class TelegramClient(
         awaitClose()
     }
 
-    fun sendAsFlow(query: TdApi.Function): Flow<TdApi.Object> = callbackFlow {
-        client.send(query) {
-            when (it.constructor) {
-                TdApi.Error.CONSTRUCTOR -> {
-                    error("")
-                }
-                else -> {
-                    trySend(it).isSuccess
-                }
-            }
-            //close()
-        }
-        awaitClose { }
-    }
+//    fun sendAsFlow(query: TdApi.Function): Flow<TdApi.Object> = callbackFlow {
+//        client.send(query) {
+//            when (it.constructor) {
+//                TdApi.Error.CONSTRUCTOR -> {
+//                    error("")
+//                }
+//                else -> {
+//                    trySend(it).isSuccess
+//                }
+//            }
+//            //close()
+//        }
+//        awaitClose { }
+//    }
 
-    inline fun <reified T : TdApi.Object> send(query: TdApi.Function): Flow<T> =
-        sendAsFlow(query).map { it as T }
+//    inline fun <reified T : TdApi.Object> send(query: TdApi.Function): Flow<T> =
+//        sendAsFlow(query).map { it as T }
 }
