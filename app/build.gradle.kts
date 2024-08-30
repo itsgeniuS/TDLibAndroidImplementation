@@ -20,18 +20,18 @@ android {
         }
 
         ndk {
-            abiFilters.addAll(listOf("x86", "x86_64", "armeabi-v7a", "arm64-v8a"))
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
         }
+
+        multiDexEnabled = true
     }
 
-//    sourceSets {
-//        getByName("main") {
-//            java.srcDir("src/main/java/com/genius/tdlibandroid")
-//            java.srcDir("src/main/java/org/drinkless/td")
-//            jniLibs.srcDirs("src/main/libs")
-//            jni.srcDirs()
-//        }
-//    }
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDir("src/main/libs")
+            jni.srcDirs(emptyList<String>())
+        }
+    }
 
     tasks.register<JavaCompile>("generateJNIHeaders") {
         source = fileTree("src/main/java")
@@ -94,4 +94,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.androidx.annotation)
+    implementation(libs.androidx.multidex)
 }

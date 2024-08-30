@@ -1,5 +1,11 @@
 package org.drinkless.tdlib;
 
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * This class contains as static nested classes all other TDLib interface
  * type-classes and function-classes.
@@ -49,6 +55,803 @@ public class TdApi {
      * @param <R> The object type that is returned by the function
      */
     public abstract static class Function<R extends Object> extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                AcceptCall.CONSTRUCTOR,
+                AcceptTermsOfService.CONSTRUCTOR,
+                ActivateStoryStealthMode.CONSTRUCTOR,
+                AddBotMediaPreview.CONSTRUCTOR,
+                AddChatFolderByInviteLink.CONSTRUCTOR,
+                AddChatMember.CONSTRUCTOR,
+                AddChatMembers.CONSTRUCTOR,
+                AddChatToList.CONSTRUCTOR,
+                AddContact.CONSTRUCTOR,
+                AddCustomServerLanguagePack.CONSTRUCTOR,
+                AddFavoriteSticker.CONSTRUCTOR,
+                AddFileToDownloads.CONSTRUCTOR,
+                AddLocalMessage.CONSTRUCTOR,
+                AddLogMessage.CONSTRUCTOR,
+                AddMessageReaction.CONSTRUCTOR,
+                AddNetworkStatistics.CONSTRUCTOR,
+                AddPaidMessageReaction.CONSTRUCTOR,
+                AddProxy.CONSTRUCTOR,
+                AddQuickReplyShortcutInlineQueryResultMessage.CONSTRUCTOR,
+                AddQuickReplyShortcutMessage.CONSTRUCTOR,
+                AddQuickReplyShortcutMessageAlbum.CONSTRUCTOR,
+                AddRecentSticker.CONSTRUCTOR,
+                AddRecentlyFoundChat.CONSTRUCTOR,
+                AddSavedAnimation.CONSTRUCTOR,
+                AddSavedNotificationSound.CONSTRUCTOR,
+                AddStickerToSet.CONSTRUCTOR,
+                AllowBotToSendMessages.CONSTRUCTOR,
+                AnswerCallbackQuery.CONSTRUCTOR,
+                AnswerCustomQuery.CONSTRUCTOR,
+                AnswerInlineQuery.CONSTRUCTOR,
+                AnswerPreCheckoutQuery.CONSTRUCTOR,
+                AnswerShippingQuery.CONSTRUCTOR,
+                AnswerWebAppQuery.CONSTRUCTOR,
+                ApplyPremiumGiftCode.CONSTRUCTOR,
+                AssignAppStoreTransaction.CONSTRUCTOR,
+                AssignGooglePlayTransaction.CONSTRUCTOR,
+                BanChatMember.CONSTRUCTOR,
+                BlockMessageSenderFromReplies.CONSTRUCTOR,
+                BoostChat.CONSTRUCTOR,
+                CanBotSendMessages.CONSTRUCTOR,
+                CanPurchaseFromStore.CONSTRUCTOR,
+                CanSendMessageToUser.CONSTRUCTOR,
+                CanSendStory.CONSTRUCTOR,
+                CanTransferOwnership.CONSTRUCTOR,
+                CancelDownloadFile.CONSTRUCTOR,
+                CancelPasswordReset.CONSTRUCTOR,
+                CancelPreliminaryUploadFile.CONSTRUCTOR,
+                CancelRecoveryEmailAddressVerification.CONSTRUCTOR,
+                ChangeImportedContacts.CONSTRUCTOR,
+                ChangeStickerSet.CONSTRUCTOR,
+                CheckAuthenticationBotToken.CONSTRUCTOR,
+                CheckAuthenticationCode.CONSTRUCTOR,
+                CheckAuthenticationEmailCode.CONSTRUCTOR,
+                CheckAuthenticationPassword.CONSTRUCTOR,
+                CheckAuthenticationPasswordRecoveryCode.CONSTRUCTOR,
+                CheckChatFolderInviteLink.CONSTRUCTOR,
+                CheckChatInviteLink.CONSTRUCTOR,
+                CheckChatUsername.CONSTRUCTOR,
+                CheckCreatedPublicChatsLimit.CONSTRUCTOR,
+                CheckEmailAddressVerificationCode.CONSTRUCTOR,
+                CheckLoginEmailAddressCode.CONSTRUCTOR,
+                CheckPasswordRecoveryCode.CONSTRUCTOR,
+                CheckPhoneNumberCode.CONSTRUCTOR,
+                CheckPremiumGiftCode.CONSTRUCTOR,
+                CheckQuickReplyShortcutName.CONSTRUCTOR,
+                CheckRecoveryEmailAddressCode.CONSTRUCTOR,
+                CheckStickerSetName.CONSTRUCTOR,
+                CleanFileName.CONSTRUCTOR,
+                ClearAllDraftMessages.CONSTRUCTOR,
+                ClearAutosaveSettingsExceptions.CONSTRUCTOR,
+                ClearImportedContacts.CONSTRUCTOR,
+                ClearRecentEmojiStatuses.CONSTRUCTOR,
+                ClearRecentReactions.CONSTRUCTOR,
+                ClearRecentStickers.CONSTRUCTOR,
+                ClearRecentlyFoundChats.CONSTRUCTOR,
+                ClearSearchedForTags.CONSTRUCTOR,
+                ClickAnimatedEmojiMessage.CONSTRUCTOR,
+                ClickChatSponsoredMessage.CONSTRUCTOR,
+                ClickPremiumSubscriptionButton.CONSTRUCTOR,
+                Close.CONSTRUCTOR,
+                CloseChat.CONSTRUCTOR,
+                CloseSecretChat.CONSTRUCTOR,
+                CloseStory.CONSTRUCTOR,
+                CloseWebApp.CONSTRUCTOR,
+                ConfirmQrCodeAuthentication.CONSTRUCTOR,
+                ConfirmSession.CONSTRUCTOR,
+                CreateBasicGroupChat.CONSTRUCTOR,
+                CreateBusinessChatLink.CONSTRUCTOR,
+                CreateCall.CONSTRUCTOR,
+                CreateChatFolder.CONSTRUCTOR,
+                CreateChatFolderInviteLink.CONSTRUCTOR,
+                CreateChatInviteLink.CONSTRUCTOR,
+                CreateChatSubscriptionInviteLink.CONSTRUCTOR,
+                CreateForumTopic.CONSTRUCTOR,
+                CreateInvoiceLink.CONSTRUCTOR,
+                CreateNewBasicGroupChat.CONSTRUCTOR,
+                CreateNewSecretChat.CONSTRUCTOR,
+                CreateNewStickerSet.CONSTRUCTOR,
+                CreateNewSupergroupChat.CONSTRUCTOR,
+                CreatePrivateChat.CONSTRUCTOR,
+                CreateSecretChat.CONSTRUCTOR,
+                CreateSupergroupChat.CONSTRUCTOR,
+                CreateTemporaryPassword.CONSTRUCTOR,
+                CreateVideoChat.CONSTRUCTOR,
+                DeleteAccount.CONSTRUCTOR,
+                DeleteAllCallMessages.CONSTRUCTOR,
+                DeleteAllRevokedChatInviteLinks.CONSTRUCTOR,
+                DeleteBotMediaPreviews.CONSTRUCTOR,
+                DeleteBusinessChatLink.CONSTRUCTOR,
+                DeleteBusinessConnectedBot.CONSTRUCTOR,
+                DeleteChat.CONSTRUCTOR,
+                DeleteChatBackground.CONSTRUCTOR,
+                DeleteChatFolder.CONSTRUCTOR,
+                DeleteChatFolderInviteLink.CONSTRUCTOR,
+                DeleteChatHistory.CONSTRUCTOR,
+                DeleteChatMessagesByDate.CONSTRUCTOR,
+                DeleteChatMessagesBySender.CONSTRUCTOR,
+                DeleteChatReplyMarkup.CONSTRUCTOR,
+                DeleteCommands.CONSTRUCTOR,
+                DeleteDefaultBackground.CONSTRUCTOR,
+                DeleteFile.CONSTRUCTOR,
+                DeleteForumTopic.CONSTRUCTOR,
+                DeleteLanguagePack.CONSTRUCTOR,
+                DeleteMessages.CONSTRUCTOR,
+                DeletePassportElement.CONSTRUCTOR,
+                DeleteProfilePhoto.CONSTRUCTOR,
+                DeleteQuickReplyShortcut.CONSTRUCTOR,
+                DeleteQuickReplyShortcutMessages.CONSTRUCTOR,
+                DeleteRevokedChatInviteLink.CONSTRUCTOR,
+                DeleteSavedCredentials.CONSTRUCTOR,
+                DeleteSavedMessagesTopicHistory.CONSTRUCTOR,
+                DeleteSavedMessagesTopicMessagesByDate.CONSTRUCTOR,
+                DeleteSavedOrderInfo.CONSTRUCTOR,
+                DeleteStickerSet.CONSTRUCTOR,
+                DeleteStory.CONSTRUCTOR,
+                Destroy.CONSTRUCTOR,
+                DisableAllSupergroupUsernames.CONSTRUCTOR,
+                DisableProxy.CONSTRUCTOR,
+                DiscardCall.CONSTRUCTOR,
+                DisconnectAllWebsites.CONSTRUCTOR,
+                DisconnectWebsite.CONSTRUCTOR,
+                DownloadFile.CONSTRUCTOR,
+                EditBotMediaPreview.CONSTRUCTOR,
+                EditBusinessChatLink.CONSTRUCTOR,
+                EditBusinessMessageCaption.CONSTRUCTOR,
+                EditBusinessMessageLiveLocation.CONSTRUCTOR,
+                EditBusinessMessageMedia.CONSTRUCTOR,
+                EditBusinessMessageReplyMarkup.CONSTRUCTOR,
+                EditBusinessMessageText.CONSTRUCTOR,
+                EditChatFolder.CONSTRUCTOR,
+                EditChatFolderInviteLink.CONSTRUCTOR,
+                EditChatInviteLink.CONSTRUCTOR,
+                EditChatSubscriptionInviteLink.CONSTRUCTOR,
+                EditCustomLanguagePackInfo.CONSTRUCTOR,
+                EditForumTopic.CONSTRUCTOR,
+                EditInlineMessageCaption.CONSTRUCTOR,
+                EditInlineMessageLiveLocation.CONSTRUCTOR,
+                EditInlineMessageMedia.CONSTRUCTOR,
+                EditInlineMessageReplyMarkup.CONSTRUCTOR,
+                EditInlineMessageText.CONSTRUCTOR,
+                EditMessageCaption.CONSTRUCTOR,
+                EditMessageLiveLocation.CONSTRUCTOR,
+                EditMessageMedia.CONSTRUCTOR,
+                EditMessageReplyMarkup.CONSTRUCTOR,
+                EditMessageSchedulingState.CONSTRUCTOR,
+                EditMessageText.CONSTRUCTOR,
+                EditProxy.CONSTRUCTOR,
+                EditQuickReplyMessage.CONSTRUCTOR,
+                EditStarSubscription.CONSTRUCTOR,
+                EditStory.CONSTRUCTOR,
+                EditStoryCover.CONSTRUCTOR,
+                EnableProxy.CONSTRUCTOR,
+                EndGroupCall.CONSTRUCTOR,
+                EndGroupCallRecording.CONSTRUCTOR,
+                EndGroupCallScreenSharing.CONSTRUCTOR,
+                FinishFileGeneration.CONSTRUCTOR,
+                ForwardMessages.CONSTRUCTOR,
+                GetAccountTtl.CONSTRUCTOR,
+                GetActiveSessions.CONSTRUCTOR,
+                GetAllPassportElements.CONSTRUCTOR,
+                GetAllStickerEmojis.CONSTRUCTOR,
+                GetAnimatedEmoji.CONSTRUCTOR,
+                GetApplicationConfig.CONSTRUCTOR,
+                GetApplicationDownloadLink.CONSTRUCTOR,
+                GetArchiveChatListSettings.CONSTRUCTOR,
+                GetArchivedStickerSets.CONSTRUCTOR,
+                GetAttachedStickerSets.CONSTRUCTOR,
+                GetAttachmentMenuBot.CONSTRUCTOR,
+                GetAuthorizationState.CONSTRUCTOR,
+                GetAutoDownloadSettingsPresets.CONSTRUCTOR,
+                GetAutosaveSettings.CONSTRUCTOR,
+                GetAvailableChatBoostSlots.CONSTRUCTOR,
+                GetBackgroundUrl.CONSTRUCTOR,
+                GetBankCardInfo.CONSTRUCTOR,
+                GetBasicGroup.CONSTRUCTOR,
+                GetBasicGroupFullInfo.CONSTRUCTOR,
+                GetBlockedMessageSenders.CONSTRUCTOR,
+                GetBotInfoDescription.CONSTRUCTOR,
+                GetBotInfoShortDescription.CONSTRUCTOR,
+                GetBotMediaPreviewInfo.CONSTRUCTOR,
+                GetBotMediaPreviews.CONSTRUCTOR,
+                GetBotName.CONSTRUCTOR,
+                GetBusinessChatLinkInfo.CONSTRUCTOR,
+                GetBusinessChatLinks.CONSTRUCTOR,
+                GetBusinessConnectedBot.CONSTRUCTOR,
+                GetBusinessConnection.CONSTRUCTOR,
+                GetBusinessFeatures.CONSTRUCTOR,
+                GetCallbackQueryAnswer.CONSTRUCTOR,
+                GetCallbackQueryMessage.CONSTRUCTOR,
+                GetChat.CONSTRUCTOR,
+                GetChatActiveStories.CONSTRUCTOR,
+                GetChatAdministrators.CONSTRUCTOR,
+                GetChatArchivedStories.CONSTRUCTOR,
+                GetChatAvailableMessageSenders.CONSTRUCTOR,
+                GetChatBoostFeatures.CONSTRUCTOR,
+                GetChatBoostLevelFeatures.CONSTRUCTOR,
+                GetChatBoostLink.CONSTRUCTOR,
+                GetChatBoostLinkInfo.CONSTRUCTOR,
+                GetChatBoostStatus.CONSTRUCTOR,
+                GetChatBoosts.CONSTRUCTOR,
+                GetChatEventLog.CONSTRUCTOR,
+                GetChatFolder.CONSTRUCTOR,
+                GetChatFolderChatCount.CONSTRUCTOR,
+                GetChatFolderChatsToLeave.CONSTRUCTOR,
+                GetChatFolderDefaultIconName.CONSTRUCTOR,
+                GetChatFolderInviteLinks.CONSTRUCTOR,
+                GetChatFolderNewChats.CONSTRUCTOR,
+                GetChatHistory.CONSTRUCTOR,
+                GetChatInviteLink.CONSTRUCTOR,
+                GetChatInviteLinkCounts.CONSTRUCTOR,
+                GetChatInviteLinkMembers.CONSTRUCTOR,
+                GetChatInviteLinks.CONSTRUCTOR,
+                GetChatJoinRequests.CONSTRUCTOR,
+                GetChatListsToAddChat.CONSTRUCTOR,
+                GetChatMember.CONSTRUCTOR,
+                GetChatMessageByDate.CONSTRUCTOR,
+                GetChatMessageCalendar.CONSTRUCTOR,
+                GetChatMessageCount.CONSTRUCTOR,
+                GetChatMessagePosition.CONSTRUCTOR,
+                GetChatNotificationSettingsExceptions.CONSTRUCTOR,
+                GetChatPinnedMessage.CONSTRUCTOR,
+                GetChatPostedToChatPageStories.CONSTRUCTOR,
+                GetChatRevenueStatistics.CONSTRUCTOR,
+                GetChatRevenueTransactions.CONSTRUCTOR,
+                GetChatRevenueWithdrawalUrl.CONSTRUCTOR,
+                GetChatScheduledMessages.CONSTRUCTOR,
+                GetChatSimilarChatCount.CONSTRUCTOR,
+                GetChatSimilarChats.CONSTRUCTOR,
+                GetChatSparseMessagePositions.CONSTRUCTOR,
+                GetChatSponsoredMessages.CONSTRUCTOR,
+                GetChatStatistics.CONSTRUCTOR,
+                GetChatStoryInteractions.CONSTRUCTOR,
+                GetChats.CONSTRUCTOR,
+                GetChatsForChatFolderInviteLink.CONSTRUCTOR,
+                GetChatsToSendStories.CONSTRUCTOR,
+                GetCloseFriends.CONSTRUCTOR,
+                GetCollectibleItemInfo.CONSTRUCTOR,
+                GetCommands.CONSTRUCTOR,
+                GetConnectedWebsites.CONSTRUCTOR,
+                GetContacts.CONSTRUCTOR,
+                GetCountries.CONSTRUCTOR,
+                GetCountryCode.CONSTRUCTOR,
+                GetCountryFlagEmoji.CONSTRUCTOR,
+                GetCreatedPublicChats.CONSTRUCTOR,
+                GetCurrentState.CONSTRUCTOR,
+                GetCurrentWeather.CONSTRUCTOR,
+                GetCustomEmojiReactionAnimations.CONSTRUCTOR,
+                GetCustomEmojiStickers.CONSTRUCTOR,
+                GetDatabaseStatistics.CONSTRUCTOR,
+                GetDeepLinkInfo.CONSTRUCTOR,
+                GetDefaultBackgroundCustomEmojiStickers.CONSTRUCTOR,
+                GetDefaultChatEmojiStatuses.CONSTRUCTOR,
+                GetDefaultChatPhotoCustomEmojiStickers.CONSTRUCTOR,
+                GetDefaultEmojiStatuses.CONSTRUCTOR,
+                GetDefaultMessageAutoDeleteTime.CONSTRUCTOR,
+                GetDefaultProfilePhotoCustomEmojiStickers.CONSTRUCTOR,
+                GetDisallowedChatEmojiStatuses.CONSTRUCTOR,
+                GetEmojiCategories.CONSTRUCTOR,
+                GetEmojiReaction.CONSTRUCTOR,
+                GetEmojiSuggestionsUrl.CONSTRUCTOR,
+                GetExternalLink.CONSTRUCTOR,
+                GetExternalLinkInfo.CONSTRUCTOR,
+                GetFavoriteStickers.CONSTRUCTOR,
+                GetFile.CONSTRUCTOR,
+                GetFileDownloadedPrefixSize.CONSTRUCTOR,
+                GetFileExtension.CONSTRUCTOR,
+                GetFileMimeType.CONSTRUCTOR,
+                GetForumTopic.CONSTRUCTOR,
+                GetForumTopicDefaultIcons.CONSTRUCTOR,
+                GetForumTopicLink.CONSTRUCTOR,
+                GetForumTopics.CONSTRUCTOR,
+                GetGameHighScores.CONSTRUCTOR,
+                GetGreetingStickers.CONSTRUCTOR,
+                GetGroupCall.CONSTRUCTOR,
+                GetGroupCallInviteLink.CONSTRUCTOR,
+                GetGroupCallStreamSegment.CONSTRUCTOR,
+                GetGroupCallStreams.CONSTRUCTOR,
+                GetGroupsInCommon.CONSTRUCTOR,
+                GetImportedContactCount.CONSTRUCTOR,
+                GetInactiveSupergroupChats.CONSTRUCTOR,
+                GetInlineGameHighScores.CONSTRUCTOR,
+                GetInlineQueryResults.CONSTRUCTOR,
+                GetInstalledBackgrounds.CONSTRUCTOR,
+                GetInstalledStickerSets.CONSTRUCTOR,
+                GetInternalLink.CONSTRUCTOR,
+                GetInternalLinkType.CONSTRUCTOR,
+                GetJsonString.CONSTRUCTOR,
+                GetJsonValue.CONSTRUCTOR,
+                GetKeywordEmojis.CONSTRUCTOR,
+                GetLanguagePackInfo.CONSTRUCTOR,
+                GetLanguagePackString.CONSTRUCTOR,
+                GetLanguagePackStrings.CONSTRUCTOR,
+                GetLinkPreview.CONSTRUCTOR,
+                GetLocalizationTargetInfo.CONSTRUCTOR,
+                GetLogStream.CONSTRUCTOR,
+                GetLogTagVerbosityLevel.CONSTRUCTOR,
+                GetLogTags.CONSTRUCTOR,
+                GetLogVerbosityLevel.CONSTRUCTOR,
+                GetLoginUrl.CONSTRUCTOR,
+                GetLoginUrlInfo.CONSTRUCTOR,
+                GetMainWebApp.CONSTRUCTOR,
+                GetMapThumbnailFile.CONSTRUCTOR,
+                GetMarkdownText.CONSTRUCTOR,
+                GetMe.CONSTRUCTOR,
+                GetMenuButton.CONSTRUCTOR,
+                GetMessage.CONSTRUCTOR,
+                GetMessageAddedReactions.CONSTRUCTOR,
+                GetMessageAvailableReactions.CONSTRUCTOR,
+                GetMessageEffect.CONSTRUCTOR,
+                GetMessageEmbeddingCode.CONSTRUCTOR,
+                GetMessageFileType.CONSTRUCTOR,
+                GetMessageImportConfirmationText.CONSTRUCTOR,
+                GetMessageLink.CONSTRUCTOR,
+                GetMessageLinkInfo.CONSTRUCTOR,
+                GetMessageLocally.CONSTRUCTOR,
+                GetMessageProperties.CONSTRUCTOR,
+                GetMessagePublicForwards.CONSTRUCTOR,
+                GetMessageReadDate.CONSTRUCTOR,
+                GetMessageStatistics.CONSTRUCTOR,
+                GetMessageThread.CONSTRUCTOR,
+                GetMessageThreadHistory.CONSTRUCTOR,
+                GetMessageViewers.CONSTRUCTOR,
+                GetMessages.CONSTRUCTOR,
+                GetNetworkStatistics.CONSTRUCTOR,
+                GetNewChatPrivacySettings.CONSTRUCTOR,
+                GetOption.CONSTRUCTOR,
+                GetOwnedStickerSets.CONSTRUCTOR,
+                GetPassportAuthorizationForm.CONSTRUCTOR,
+                GetPassportAuthorizationFormAvailableElements.CONSTRUCTOR,
+                GetPassportElement.CONSTRUCTOR,
+                GetPasswordState.CONSTRUCTOR,
+                GetPaymentForm.CONSTRUCTOR,
+                GetPaymentReceipt.CONSTRUCTOR,
+                GetPhoneNumberInfo.CONSTRUCTOR,
+                GetPhoneNumberInfoSync.CONSTRUCTOR,
+                GetPollVoters.CONSTRUCTOR,
+                GetPopularWebAppBots.CONSTRUCTOR,
+                GetPreferredCountryLanguage.CONSTRUCTOR,
+                GetPremiumFeatures.CONSTRUCTOR,
+                GetPremiumGiftCodePaymentOptions.CONSTRUCTOR,
+                GetPremiumGiveawayInfo.CONSTRUCTOR,
+                GetPremiumLimit.CONSTRUCTOR,
+                GetPremiumState.CONSTRUCTOR,
+                GetPremiumStickerExamples.CONSTRUCTOR,
+                GetPremiumStickers.CONSTRUCTOR,
+                GetProxies.CONSTRUCTOR,
+                GetProxyLink.CONSTRUCTOR,
+                GetPushReceiverId.CONSTRUCTOR,
+                GetReadDatePrivacySettings.CONSTRUCTOR,
+                GetRecentEmojiStatuses.CONSTRUCTOR,
+                GetRecentInlineBots.CONSTRUCTOR,
+                GetRecentStickers.CONSTRUCTOR,
+                GetRecentlyOpenedChats.CONSTRUCTOR,
+                GetRecentlyVisitedTMeUrls.CONSTRUCTOR,
+                GetRecommendedChatFolders.CONSTRUCTOR,
+                GetRecommendedChats.CONSTRUCTOR,
+                GetRecoveryEmailAddress.CONSTRUCTOR,
+                GetRemoteFile.CONSTRUCTOR,
+                GetRepliedMessage.CONSTRUCTOR,
+                GetSavedAnimations.CONSTRUCTOR,
+                GetSavedMessagesTags.CONSTRUCTOR,
+                GetSavedMessagesTopicHistory.CONSTRUCTOR,
+                GetSavedMessagesTopicMessageByDate.CONSTRUCTOR,
+                GetSavedNotificationSound.CONSTRUCTOR,
+                GetSavedNotificationSounds.CONSTRUCTOR,
+                GetSavedOrderInfo.CONSTRUCTOR,
+                GetScopeNotificationSettings.CONSTRUCTOR,
+                GetSearchedForTags.CONSTRUCTOR,
+                GetSecretChat.CONSTRUCTOR,
+                GetStarAdAccountUrl.CONSTRUCTOR,
+                GetStarGiftPaymentOptions.CONSTRUCTOR,
+                GetStarPaymentOptions.CONSTRUCTOR,
+                GetStarRevenueStatistics.CONSTRUCTOR,
+                GetStarSubscriptions.CONSTRUCTOR,
+                GetStarTransactions.CONSTRUCTOR,
+                GetStarWithdrawalUrl.CONSTRUCTOR,
+                GetStatisticalGraph.CONSTRUCTOR,
+                GetStickerEmojis.CONSTRUCTOR,
+                GetStickerSet.CONSTRUCTOR,
+                GetStickers.CONSTRUCTOR,
+                GetStorageStatistics.CONSTRUCTOR,
+                GetStorageStatisticsFast.CONSTRUCTOR,
+                GetStory.CONSTRUCTOR,
+                GetStoryAvailableReactions.CONSTRUCTOR,
+                GetStoryInteractions.CONSTRUCTOR,
+                GetStoryNotificationSettingsExceptions.CONSTRUCTOR,
+                GetStoryPublicForwards.CONSTRUCTOR,
+                GetStoryStatistics.CONSTRUCTOR,
+                GetSuggestedFileName.CONSTRUCTOR,
+                GetSuggestedStickerSetName.CONSTRUCTOR,
+                GetSuitableDiscussionChats.CONSTRUCTOR,
+                GetSuitablePersonalChats.CONSTRUCTOR,
+                GetSupergroup.CONSTRUCTOR,
+                GetSupergroupFullInfo.CONSTRUCTOR,
+                GetSupergroupMembers.CONSTRUCTOR,
+                GetSupportName.CONSTRUCTOR,
+                GetSupportUser.CONSTRUCTOR,
+                GetTemporaryPasswordState.CONSTRUCTOR,
+                GetTextEntities.CONSTRUCTOR,
+                GetThemeParametersJsonString.CONSTRUCTOR,
+                GetThemedChatEmojiStatuses.CONSTRUCTOR,
+                GetThemedEmojiStatuses.CONSTRUCTOR,
+                GetTimeZones.CONSTRUCTOR,
+                GetTopChats.CONSTRUCTOR,
+                GetTrendingStickerSets.CONSTRUCTOR,
+                GetUser.CONSTRUCTOR,
+                GetUserChatBoosts.CONSTRUCTOR,
+                GetUserFullInfo.CONSTRUCTOR,
+                GetUserLink.CONSTRUCTOR,
+                GetUserPrivacySettingRules.CONSTRUCTOR,
+                GetUserProfilePhotos.CONSTRUCTOR,
+                GetUserSupportInfo.CONSTRUCTOR,
+                GetVideoChatAvailableParticipants.CONSTRUCTOR,
+                GetVideoChatRtmpUrl.CONSTRUCTOR,
+                GetWebAppLinkUrl.CONSTRUCTOR,
+                GetWebAppUrl.CONSTRUCTOR,
+                GetWebPageInstantView.CONSTRUCTOR,
+                HideContactCloseBirthdays.CONSTRUCTOR,
+                HideSuggestedAction.CONSTRUCTOR,
+                ImportContacts.CONSTRUCTOR,
+                ImportMessages.CONSTRUCTOR,
+                InviteGroupCallParticipants.CONSTRUCTOR,
+                JoinChat.CONSTRUCTOR,
+                JoinChatByInviteLink.CONSTRUCTOR,
+                JoinGroupCall.CONSTRUCTOR,
+                LaunchPrepaidPremiumGiveaway.CONSTRUCTOR,
+                LeaveChat.CONSTRUCTOR,
+                LeaveGroupCall.CONSTRUCTOR,
+                LoadActiveStories.CONSTRUCTOR,
+                LoadChats.CONSTRUCTOR,
+                LoadGroupCallParticipants.CONSTRUCTOR,
+                LoadQuickReplyShortcutMessages.CONSTRUCTOR,
+                LoadQuickReplyShortcuts.CONSTRUCTOR,
+                LoadSavedMessagesTopics.CONSTRUCTOR,
+                LogOut.CONSTRUCTOR,
+                OpenChat.CONSTRUCTOR,
+                OpenChatSimilarChat.CONSTRUCTOR,
+                OpenMessageContent.CONSTRUCTOR,
+                OpenStory.CONSTRUCTOR,
+                OpenWebApp.CONSTRUCTOR,
+                OptimizeStorage.CONSTRUCTOR,
+                ParseMarkdown.CONSTRUCTOR,
+                ParseTextEntities.CONSTRUCTOR,
+                PinChatMessage.CONSTRUCTOR,
+                PingProxy.CONSTRUCTOR,
+                PreliminaryUploadFile.CONSTRUCTOR,
+                ProcessChatFolderNewChats.CONSTRUCTOR,
+                ProcessChatJoinRequest.CONSTRUCTOR,
+                ProcessChatJoinRequests.CONSTRUCTOR,
+                ProcessPushNotification.CONSTRUCTOR,
+                RateSpeechRecognition.CONSTRUCTOR,
+                ReadAllChatMentions.CONSTRUCTOR,
+                ReadAllChatReactions.CONSTRUCTOR,
+                ReadAllMessageThreadMentions.CONSTRUCTOR,
+                ReadAllMessageThreadReactions.CONSTRUCTOR,
+                ReadChatList.CONSTRUCTOR,
+                ReadFilePart.CONSTRUCTOR,
+                ReaddQuickReplyShortcutMessages.CONSTRUCTOR,
+                RecognizeSpeech.CONSTRUCTOR,
+                RecoverAuthenticationPassword.CONSTRUCTOR,
+                RecoverPassword.CONSTRUCTOR,
+                RefundStarPayment.CONSTRUCTOR,
+                RegisterDevice.CONSTRUCTOR,
+                RegisterUser.CONSTRUCTOR,
+                RemoveAllFilesFromDownloads.CONSTRUCTOR,
+                RemoveBusinessConnectedBotFromChat.CONSTRUCTOR,
+                RemoveChatActionBar.CONSTRUCTOR,
+                RemoveContacts.CONSTRUCTOR,
+                RemoveFavoriteSticker.CONSTRUCTOR,
+                RemoveFileFromDownloads.CONSTRUCTOR,
+                RemoveInstalledBackground.CONSTRUCTOR,
+                RemoveMessageReaction.CONSTRUCTOR,
+                RemoveNotification.CONSTRUCTOR,
+                RemoveNotificationGroup.CONSTRUCTOR,
+                RemovePendingPaidMessageReactions.CONSTRUCTOR,
+                RemoveProxy.CONSTRUCTOR,
+                RemoveRecentHashtag.CONSTRUCTOR,
+                RemoveRecentSticker.CONSTRUCTOR,
+                RemoveRecentlyFoundChat.CONSTRUCTOR,
+                RemoveSavedAnimation.CONSTRUCTOR,
+                RemoveSavedNotificationSound.CONSTRUCTOR,
+                RemoveSearchedForTag.CONSTRUCTOR,
+                RemoveStickerFromSet.CONSTRUCTOR,
+                RemoveTopChat.CONSTRUCTOR,
+                ReorderActiveUsernames.CONSTRUCTOR,
+                ReorderBotActiveUsernames.CONSTRUCTOR,
+                ReorderBotMediaPreviews.CONSTRUCTOR,
+                ReorderChatFolders.CONSTRUCTOR,
+                ReorderInstalledStickerSets.CONSTRUCTOR,
+                ReorderQuickReplyShortcuts.CONSTRUCTOR,
+                ReorderSupergroupActiveUsernames.CONSTRUCTOR,
+                ReplacePrimaryChatInviteLink.CONSTRUCTOR,
+                ReplaceStickerInSet.CONSTRUCTOR,
+                ReplaceVideoChatRtmpUrl.CONSTRUCTOR,
+                ReportAuthenticationCodeMissing.CONSTRUCTOR,
+                ReportChat.CONSTRUCTOR,
+                ReportChatPhoto.CONSTRUCTOR,
+                ReportChatSponsoredMessage.CONSTRUCTOR,
+                ReportMessageReactions.CONSTRUCTOR,
+                ReportPhoneNumberCodeMissing.CONSTRUCTOR,
+                ReportStory.CONSTRUCTOR,
+                ReportSupergroupAntiSpamFalsePositive.CONSTRUCTOR,
+                ReportSupergroupSpam.CONSTRUCTOR,
+                RequestAuthenticationPasswordRecovery.CONSTRUCTOR,
+                RequestPasswordRecovery.CONSTRUCTOR,
+                RequestQrCodeAuthentication.CONSTRUCTOR,
+                ResendAuthenticationCode.CONSTRUCTOR,
+                ResendEmailAddressVerificationCode.CONSTRUCTOR,
+                ResendLoginEmailAddressCode.CONSTRUCTOR,
+                ResendMessages.CONSTRUCTOR,
+                ResendPhoneNumberCode.CONSTRUCTOR,
+                ResendRecoveryEmailAddressCode.CONSTRUCTOR,
+                ResetAllNotificationSettings.CONSTRUCTOR,
+                ResetAuthenticationEmailAddress.CONSTRUCTOR,
+                ResetInstalledBackgrounds.CONSTRUCTOR,
+                ResetNetworkStatistics.CONSTRUCTOR,
+                ResetPassword.CONSTRUCTOR,
+                ReuseStarSubscription.CONSTRUCTOR,
+                RevokeChatInviteLink.CONSTRUCTOR,
+                RevokeGroupCallInviteLink.CONSTRUCTOR,
+                SaveApplicationLogEvent.CONSTRUCTOR,
+                SearchBackground.CONSTRUCTOR,
+                SearchCallMessages.CONSTRUCTOR,
+                SearchChatMembers.CONSTRUCTOR,
+                SearchChatMessages.CONSTRUCTOR,
+                SearchChatRecentLocationMessages.CONSTRUCTOR,
+                SearchChats.CONSTRUCTOR,
+                SearchChatsNearby.CONSTRUCTOR,
+                SearchChatsOnServer.CONSTRUCTOR,
+                SearchContacts.CONSTRUCTOR,
+                SearchEmojis.CONSTRUCTOR,
+                SearchFileDownloads.CONSTRUCTOR,
+                SearchHashtags.CONSTRUCTOR,
+                SearchInstalledStickerSets.CONSTRUCTOR,
+                SearchMessages.CONSTRUCTOR,
+                SearchOutgoingDocumentMessages.CONSTRUCTOR,
+                SearchPublicChat.CONSTRUCTOR,
+                SearchPublicChats.CONSTRUCTOR,
+                SearchPublicMessagesByTag.CONSTRUCTOR,
+                SearchPublicStoriesByLocation.CONSTRUCTOR,
+                SearchPublicStoriesByTag.CONSTRUCTOR,
+                SearchPublicStoriesByVenue.CONSTRUCTOR,
+                SearchQuote.CONSTRUCTOR,
+                SearchRecentlyFoundChats.CONSTRUCTOR,
+                SearchSavedMessages.CONSTRUCTOR,
+                SearchSecretMessages.CONSTRUCTOR,
+                SearchStickerSet.CONSTRUCTOR,
+                SearchStickerSets.CONSTRUCTOR,
+                SearchStickers.CONSTRUCTOR,
+                SearchStringsByPrefix.CONSTRUCTOR,
+                SearchUserByPhoneNumber.CONSTRUCTOR,
+                SearchUserByToken.CONSTRUCTOR,
+                SearchWebApp.CONSTRUCTOR,
+                SendAuthenticationFirebaseSms.CONSTRUCTOR,
+                SendBotStartMessage.CONSTRUCTOR,
+                SendBusinessMessage.CONSTRUCTOR,
+                SendBusinessMessageAlbum.CONSTRUCTOR,
+                SendCallDebugInformation.CONSTRUCTOR,
+                SendCallLog.CONSTRUCTOR,
+                SendCallRating.CONSTRUCTOR,
+                SendCallSignalingData.CONSTRUCTOR,
+                SendChatAction.CONSTRUCTOR,
+                SendCustomRequest.CONSTRUCTOR,
+                SendEmailAddressVerificationCode.CONSTRUCTOR,
+                SendInlineQueryResultMessage.CONSTRUCTOR,
+                SendMessage.CONSTRUCTOR,
+                SendMessageAlbum.CONSTRUCTOR,
+                SendPassportAuthorizationForm.CONSTRUCTOR,
+                SendPaymentForm.CONSTRUCTOR,
+                SendPhoneNumberCode.CONSTRUCTOR,
+                SendPhoneNumberFirebaseSms.CONSTRUCTOR,
+                SendQuickReplyShortcutMessages.CONSTRUCTOR,
+                SendStory.CONSTRUCTOR,
+                SendWebAppCustomRequest.CONSTRUCTOR,
+                SendWebAppData.CONSTRUCTOR,
+                SetAccentColor.CONSTRUCTOR,
+                SetAccountTtl.CONSTRUCTOR,
+                SetAlarm.CONSTRUCTOR,
+                SetApplicationVerificationToken.CONSTRUCTOR,
+                SetArchiveChatListSettings.CONSTRUCTOR,
+                SetAuthenticationEmailAddress.CONSTRUCTOR,
+                SetAuthenticationPhoneNumber.CONSTRUCTOR,
+                SetAutoDownloadSettings.CONSTRUCTOR,
+                SetAutosaveSettings.CONSTRUCTOR,
+                SetBio.CONSTRUCTOR,
+                SetBirthdate.CONSTRUCTOR,
+                SetBotInfoDescription.CONSTRUCTOR,
+                SetBotInfoShortDescription.CONSTRUCTOR,
+                SetBotName.CONSTRUCTOR,
+                SetBotProfilePhoto.CONSTRUCTOR,
+                SetBotUpdatesStatus.CONSTRUCTOR,
+                SetBusinessAwayMessageSettings.CONSTRUCTOR,
+                SetBusinessConnectedBot.CONSTRUCTOR,
+                SetBusinessGreetingMessageSettings.CONSTRUCTOR,
+                SetBusinessLocation.CONSTRUCTOR,
+                SetBusinessMessageIsPinned.CONSTRUCTOR,
+                SetBusinessOpeningHours.CONSTRUCTOR,
+                SetBusinessStartPage.CONSTRUCTOR,
+                SetChatAccentColor.CONSTRUCTOR,
+                SetChatActiveStoriesList.CONSTRUCTOR,
+                SetChatAvailableReactions.CONSTRUCTOR,
+                SetChatBackground.CONSTRUCTOR,
+                SetChatClientData.CONSTRUCTOR,
+                SetChatDescription.CONSTRUCTOR,
+                SetChatDiscussionGroup.CONSTRUCTOR,
+                SetChatDraftMessage.CONSTRUCTOR,
+                SetChatEmojiStatus.CONSTRUCTOR,
+                SetChatLocation.CONSTRUCTOR,
+                SetChatMemberStatus.CONSTRUCTOR,
+                SetChatMessageAutoDeleteTime.CONSTRUCTOR,
+                SetChatMessageSender.CONSTRUCTOR,
+                SetChatNotificationSettings.CONSTRUCTOR,
+                SetChatPermissions.CONSTRUCTOR,
+                SetChatPhoto.CONSTRUCTOR,
+                SetChatPinnedStories.CONSTRUCTOR,
+                SetChatProfileAccentColor.CONSTRUCTOR,
+                SetChatSlowModeDelay.CONSTRUCTOR,
+                SetChatTheme.CONSTRUCTOR,
+                SetChatTitle.CONSTRUCTOR,
+                SetCloseFriends.CONSTRUCTOR,
+                SetCommands.CONSTRUCTOR,
+                SetCustomEmojiStickerSetThumbnail.CONSTRUCTOR,
+                SetCustomLanguagePack.CONSTRUCTOR,
+                SetCustomLanguagePackString.CONSTRUCTOR,
+                SetDatabaseEncryptionKey.CONSTRUCTOR,
+                SetDefaultBackground.CONSTRUCTOR,
+                SetDefaultChannelAdministratorRights.CONSTRUCTOR,
+                SetDefaultGroupAdministratorRights.CONSTRUCTOR,
+                SetDefaultMessageAutoDeleteTime.CONSTRUCTOR,
+                SetDefaultReactionType.CONSTRUCTOR,
+                SetEmojiStatus.CONSTRUCTOR,
+                SetFileGenerationProgress.CONSTRUCTOR,
+                SetForumTopicNotificationSettings.CONSTRUCTOR,
+                SetGameScore.CONSTRUCTOR,
+                SetGroupCallParticipantIsSpeaking.CONSTRUCTOR,
+                SetGroupCallParticipantVolumeLevel.CONSTRUCTOR,
+                SetGroupCallTitle.CONSTRUCTOR,
+                SetInactiveSessionTtl.CONSTRUCTOR,
+                SetInlineGameScore.CONSTRUCTOR,
+                SetLocation.CONSTRUCTOR,
+                SetLogStream.CONSTRUCTOR,
+                SetLogTagVerbosityLevel.CONSTRUCTOR,
+                SetLogVerbosityLevel.CONSTRUCTOR,
+                SetLoginEmailAddress.CONSTRUCTOR,
+                SetMenuButton.CONSTRUCTOR,
+                SetMessageFactCheck.CONSTRUCTOR,
+                SetMessageReactions.CONSTRUCTOR,
+                SetMessageSenderBlockList.CONSTRUCTOR,
+                SetName.CONSTRUCTOR,
+                SetNetworkType.CONSTRUCTOR,
+                SetNewChatPrivacySettings.CONSTRUCTOR,
+                SetOption.CONSTRUCTOR,
+                SetPassportElement.CONSTRUCTOR,
+                SetPassportElementErrors.CONSTRUCTOR,
+                SetPassword.CONSTRUCTOR,
+                SetPersonalChat.CONSTRUCTOR,
+                SetPinnedChats.CONSTRUCTOR,
+                SetPinnedForumTopics.CONSTRUCTOR,
+                SetPinnedSavedMessagesTopics.CONSTRUCTOR,
+                SetPollAnswer.CONSTRUCTOR,
+                SetProfileAccentColor.CONSTRUCTOR,
+                SetProfilePhoto.CONSTRUCTOR,
+                SetQuickReplyShortcutName.CONSTRUCTOR,
+                SetReactionNotificationSettings.CONSTRUCTOR,
+                SetReadDatePrivacySettings.CONSTRUCTOR,
+                SetRecoveryEmailAddress.CONSTRUCTOR,
+                SetSavedMessagesTagLabel.CONSTRUCTOR,
+                SetScopeNotificationSettings.CONSTRUCTOR,
+                SetStickerEmojis.CONSTRUCTOR,
+                SetStickerKeywords.CONSTRUCTOR,
+                SetStickerMaskPosition.CONSTRUCTOR,
+                SetStickerPositionInSet.CONSTRUCTOR,
+                SetStickerSetThumbnail.CONSTRUCTOR,
+                SetStickerSetTitle.CONSTRUCTOR,
+                SetStoryPrivacySettings.CONSTRUCTOR,
+                SetStoryReaction.CONSTRUCTOR,
+                SetSupergroupCustomEmojiStickerSet.CONSTRUCTOR,
+                SetSupergroupStickerSet.CONSTRUCTOR,
+                SetSupergroupUnrestrictBoostCount.CONSTRUCTOR,
+                SetSupergroupUsername.CONSTRUCTOR,
+                SetTdlibParameters.CONSTRUCTOR,
+                SetUserPersonalProfilePhoto.CONSTRUCTOR,
+                SetUserPrivacySettingRules.CONSTRUCTOR,
+                SetUserSupportInfo.CONSTRUCTOR,
+                SetUsername.CONSTRUCTOR,
+                SetVideoChatDefaultParticipant.CONSTRUCTOR,
+                ShareChatWithBot.CONSTRUCTOR,
+                SharePhoneNumber.CONSTRUCTOR,
+                ShareUsersWithBot.CONSTRUCTOR,
+                StartGroupCallRecording.CONSTRUCTOR,
+                StartGroupCallScreenSharing.CONSTRUCTOR,
+                StartScheduledGroupCall.CONSTRUCTOR,
+                StopBusinessPoll.CONSTRUCTOR,
+                StopPoll.CONSTRUCTOR,
+                SuggestUserProfilePhoto.CONSTRUCTOR,
+                SynchronizeLanguagePack.CONSTRUCTOR,
+                TerminateAllOtherSessions.CONSTRUCTOR,
+                TerminateSession.CONSTRUCTOR,
+                TestCallBytes.CONSTRUCTOR,
+                TestCallEmpty.CONSTRUCTOR,
+                TestCallString.CONSTRUCTOR,
+                TestCallVectorInt.CONSTRUCTOR,
+                TestCallVectorIntObject.CONSTRUCTOR,
+                TestCallVectorString.CONSTRUCTOR,
+                TestCallVectorStringObject.CONSTRUCTOR,
+                TestGetDifference.CONSTRUCTOR,
+                TestNetwork.CONSTRUCTOR,
+                TestProxy.CONSTRUCTOR,
+                TestReturnError.CONSTRUCTOR,
+                TestSquareInt.CONSTRUCTOR,
+                TestUseUpdate.CONSTRUCTOR,
+                ToggleAllDownloadsArePaused.CONSTRUCTOR,
+                ToggleBotIsAddedToAttachmentMenu.CONSTRUCTOR,
+                ToggleBotUsernameIsActive.CONSTRUCTOR,
+                ToggleBusinessConnectedBotChatIsPaused.CONSTRUCTOR,
+                ToggleChatDefaultDisableNotification.CONSTRUCTOR,
+                ToggleChatFolderTags.CONSTRUCTOR,
+                ToggleChatHasProtectedContent.CONSTRUCTOR,
+                ToggleChatIsMarkedAsUnread.CONSTRUCTOR,
+                ToggleChatIsPinned.CONSTRUCTOR,
+                ToggleChatIsTranslatable.CONSTRUCTOR,
+                ToggleChatViewAsTopics.CONSTRUCTOR,
+                ToggleDownloadIsPaused.CONSTRUCTOR,
+                ToggleForumTopicIsClosed.CONSTRUCTOR,
+                ToggleForumTopicIsPinned.CONSTRUCTOR,
+                ToggleGeneralForumTopicIsHidden.CONSTRUCTOR,
+                ToggleGroupCallEnabledStartNotification.CONSTRUCTOR,
+                ToggleGroupCallIsMyVideoEnabled.CONSTRUCTOR,
+                ToggleGroupCallIsMyVideoPaused.CONSTRUCTOR,
+                ToggleGroupCallMuteNewParticipants.CONSTRUCTOR,
+                ToggleGroupCallParticipantIsHandRaised.CONSTRUCTOR,
+                ToggleGroupCallParticipantIsMuted.CONSTRUCTOR,
+                ToggleGroupCallScreenSharingIsPaused.CONSTRUCTOR,
+                ToggleHasSponsoredMessagesEnabled.CONSTRUCTOR,
+                TogglePaidMessageReactionIsAnonymous.CONSTRUCTOR,
+                ToggleSavedMessagesTopicIsPinned.CONSTRUCTOR,
+                ToggleSessionCanAcceptCalls.CONSTRUCTOR,
+                ToggleSessionCanAcceptSecretChats.CONSTRUCTOR,
+                ToggleStoryIsPostedToChatPage.CONSTRUCTOR,
+                ToggleSupergroupCanHaveSponsoredMessages.CONSTRUCTOR,
+                ToggleSupergroupHasAggressiveAntiSpamEnabled.CONSTRUCTOR,
+                ToggleSupergroupHasHiddenMembers.CONSTRUCTOR,
+                ToggleSupergroupIsAllHistoryAvailable.CONSTRUCTOR,
+                ToggleSupergroupIsBroadcastGroup.CONSTRUCTOR,
+                ToggleSupergroupIsForum.CONSTRUCTOR,
+                ToggleSupergroupJoinByRequest.CONSTRUCTOR,
+                ToggleSupergroupJoinToSendMessages.CONSTRUCTOR,
+                ToggleSupergroupSignMessages.CONSTRUCTOR,
+                ToggleSupergroupUsernameIsActive.CONSTRUCTOR,
+                ToggleUsernameIsActive.CONSTRUCTOR,
+                TransferChatOwnership.CONSTRUCTOR,
+                TranslateMessageText.CONSTRUCTOR,
+                TranslateText.CONSTRUCTOR,
+                UnpinAllChatMessages.CONSTRUCTOR,
+                UnpinAllMessageThreadMessages.CONSTRUCTOR,
+                UnpinChatMessage.CONSTRUCTOR,
+                UpgradeBasicGroupChatToSupergroupChat.CONSTRUCTOR,
+                UploadStickerFile.CONSTRUCTOR,
+                ValidateOrderInfo.CONSTRUCTOR,
+                ViewMessages.CONSTRUCTOR,
+                ViewPremiumFeature.CONSTRUCTOR,
+                ViewTrendingStickerSets.CONSTRUCTOR,
+                WriteGeneratedFilePart.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default Function constructor.
          */
@@ -394,7 +1197,7 @@ public class TdApi {
         /**
          * Sticker for the emoji; may be null if yet unknown for a custom emoji. If the sticker is a custom emoji, then it can have arbitrary format.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
         /**
          * Expected width of the sticker, which can be used if the sticker is null.
          */
@@ -410,7 +1213,7 @@ public class TdApi {
         /**
          * File containing the sound to be played when the sticker is clicked; may be null. The sound is encoded with the Opus codec, and stored inside an OGG container.
          */
-        public File sound;
+        @Nullable public File sound;
 
         /**
          * Describes an animated or custom representation of an emoji.
@@ -480,11 +1283,11 @@ public class TdApi {
         /**
          * Animation minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Animation thumbnail in JPEG or MPEG4 format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * File containing the animation.
          */
@@ -678,47 +1481,47 @@ public class TdApi {
         /**
          * Color to highlight selected name of the bot if appropriate; may be null.
          */
-        public AttachmentMenuBotColor nameColor;
+        @Nullable public AttachmentMenuBotColor nameColor;
         /**
          * Default icon for the bot in SVG format; may be null.
          */
-        public File defaultIcon;
+        @Nullable public File defaultIcon;
         /**
          * Icon for the bot in SVG format for the official iOS app; may be null.
          */
-        public File iosStaticIcon;
+        @Nullable public File iosStaticIcon;
         /**
          * Icon for the bot in TGS format for the official iOS app; may be null.
          */
-        public File iosAnimatedIcon;
+        @Nullable public File iosAnimatedIcon;
         /**
          * Icon for the bot in PNG format for the official iOS app side menu; may be null.
          */
-        public File iosSideMenuIcon;
+        @Nullable public File iosSideMenuIcon;
         /**
          * Icon for the bot in TGS format for the official Android app; may be null.
          */
-        public File androidIcon;
+        @Nullable public File androidIcon;
         /**
          * Icon for the bot in SVG format for the official Android app side menu; may be null.
          */
-        public File androidSideMenuIcon;
+        @Nullable public File androidSideMenuIcon;
         /**
          * Icon for the bot in TGS format for the official native macOS app; may be null.
          */
-        public File macosIcon;
+        @Nullable public File macosIcon;
         /**
          * Icon for the bot in PNG format for the official macOS app side menu; may be null.
          */
-        public File macosSideMenuIcon;
+        @Nullable public File macosSideMenuIcon;
         /**
          * Color to highlight selected icon of the bot if appropriate; may be null.
          */
-        public AttachmentMenuBotColor iconColor;
+        @Nullable public AttachmentMenuBotColor iconColor;
         /**
          * Default placeholder for opened Web Apps in SVG format; may be null.
          */
-        public File webAppPlaceholder;
+        @Nullable public File webAppPlaceholder;
 
         /**
          * Represents a bot, which can be added to attachment or side menu.
@@ -864,11 +1667,11 @@ public class TdApi {
         /**
          * The minithumbnail of the album cover; may be null.
          */
-        public Minithumbnail albumCoverMinithumbnail;
+        @Nullable public Minithumbnail albumCoverMinithumbnail;
         /**
          * The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail is supposed to be extracted from the downloaded audio file; may be null.
          */
-        public Thumbnail albumCoverThumbnail;
+        @Nullable public Thumbnail albumCoverThumbnail;
         /**
          * Album cover variants to use if the downloaded audio file contains no album cover. Provided thumbnail dimensions are approximate.
          */
@@ -938,7 +1741,7 @@ public class TdApi {
         /**
          * The way the next code will be sent to the user; may be null.
          */
-        public AuthenticationCodeType nextType;
+        @Nullable public AuthenticationCodeType nextType;
         /**
          * Timeout before the code can be re-sent, in seconds.
          */
@@ -984,6 +1787,30 @@ public class TdApi {
      * Provides information about the method by which an authentication code is delivered to the user.
      */
     public abstract static class AuthenticationCodeType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                AuthenticationCodeTypeTelegramMessage.CONSTRUCTOR,
+                AuthenticationCodeTypeSms.CONSTRUCTOR,
+                AuthenticationCodeTypeSmsWord.CONSTRUCTOR,
+                AuthenticationCodeTypeSmsPhrase.CONSTRUCTOR,
+                AuthenticationCodeTypeCall.CONSTRUCTOR,
+                AuthenticationCodeTypeFlashCall.CONSTRUCTOR,
+                AuthenticationCodeTypeMissedCall.CONSTRUCTOR,
+                AuthenticationCodeTypeFragment.CONSTRUCTOR,
+                AuthenticationCodeTypeFirebaseAndroid.CONSTRUCTOR,
+                AuthenticationCodeTypeFirebaseIos.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -1407,6 +2234,32 @@ public class TdApi {
      */
     public abstract static class AuthorizationState extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                AuthorizationStateWaitTdlibParameters.CONSTRUCTOR,
+                AuthorizationStateWaitPhoneNumber.CONSTRUCTOR,
+                AuthorizationStateWaitEmailAddress.CONSTRUCTOR,
+                AuthorizationStateWaitEmailCode.CONSTRUCTOR,
+                AuthorizationStateWaitCode.CONSTRUCTOR,
+                AuthorizationStateWaitOtherDeviceConfirmation.CONSTRUCTOR,
+                AuthorizationStateWaitRegistration.CONSTRUCTOR,
+                AuthorizationStateWaitPassword.CONSTRUCTOR,
+                AuthorizationStateReady.CONSTRUCTOR,
+                AuthorizationStateLoggingOut.CONSTRUCTOR,
+                AuthorizationStateClosing.CONSTRUCTOR,
+                AuthorizationStateClosed.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public AuthorizationState() {
@@ -1526,7 +2379,7 @@ public class TdApi {
         /**
          * Reset state of the email address; may be null if the email address can't be reset.
          */
-        public EmailAddressResetState emailAddressResetState;
+        @Nullable public EmailAddressResetState emailAddressResetState;
 
         /**
          * TDLib needs the user's authentication code sent to an email address to authorize. Call checkAuthenticationEmailCode to provide the code.
@@ -2075,6 +2928,24 @@ public class TdApi {
      */
     public abstract static class AutosaveSettingsScope extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                AutosaveSettingsScopePrivateChats.CONSTRUCTOR,
+                AutosaveSettingsScopeGroupChats.CONSTRUCTOR,
+                AutosaveSettingsScopeChannelChats.CONSTRUCTOR,
+                AutosaveSettingsScopeChat.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public AutosaveSettingsScope() {
@@ -2265,7 +3136,7 @@ public class TdApi {
         /**
          * The reason why the current user can't add reactions to the message, despite some other users can; may be null if none.
          */
-        public ReactionUnavailabilityReason unavailabilityReason;
+        @Nullable public ReactionUnavailabilityReason unavailabilityReason;
 
         /**
          * Represents a list of reactions that can be added to a message.
@@ -2329,7 +3200,7 @@ public class TdApi {
         /**
          * Document with the background; may be null. Null only for filled and chat theme backgrounds.
          */
-        public Document document;
+        @Nullable public Document document;
         /**
          * Type of the background.
          */
@@ -2379,6 +3250,23 @@ public class TdApi {
      * Describes a fill of a background.
      */
     public abstract static class BackgroundFill extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BackgroundFillSolid.CONSTRUCTOR,
+                BackgroundFillGradient.CONSTRUCTOR,
+                BackgroundFillFreeformGradient.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -2517,6 +3405,24 @@ public class TdApi {
      * Describes the type of background.
      */
     public abstract static class BackgroundType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BackgroundTypeWallpaper.CONSTRUCTOR,
+                BackgroundTypePattern.CONSTRUCTOR,
+                BackgroundTypeFill.CONSTRUCTOR,
+                BackgroundTypeChatTheme.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -2895,7 +3801,7 @@ public class TdApi {
         /**
          * Chat photo; may be null if empty or unknown. If non-null, then it is the same photo as in chat.photo.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
         /**
          * Group description. Updated only after the basic group is opened.
          */
@@ -2919,7 +3825,7 @@ public class TdApi {
         /**
          * Primary invite link for this group; may be null. For chat administrators with canInviteUsers right only. Updated only after the basic group is opened.
          */
-        public ChatInviteLink inviteLink;
+        @Nullable public ChatInviteLink inviteLink;
         /**
          * List of commands of bots in the group.
          */
@@ -3023,6 +3929,22 @@ public class TdApi {
      * Describes type of block list.
      */
     public abstract static class BlockList extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BlockListMain.CONSTRUCTOR,
+                BlockListStories.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -3129,6 +4051,27 @@ public class TdApi {
      * Represents the scope to which bot commands are relevant.
      */
     public abstract static class BotCommandScope extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BotCommandScopeDefault.CONSTRUCTOR,
+                BotCommandScopeAllPrivateChats.CONSTRUCTOR,
+                BotCommandScopeAllGroupChats.CONSTRUCTOR,
+                BotCommandScopeAllChatAdministrators.CONSTRUCTOR,
+                BotCommandScopeChat.CONSTRUCTOR,
+                BotCommandScopeChatAdministrators.CONSTRUCTOR,
+                BotCommandScopeChatMember.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -3415,15 +4358,15 @@ public class TdApi {
         /**
          * Photo shown in the chat with the bot if the chat is empty; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
         /**
          * Animation shown in the chat with the bot if the chat is empty; may be null.
          */
-        public Animation animation;
+        @Nullable public Animation animation;
         /**
          * Information about a button to show instead of the bot commands menu button; may be null if ordinary bot commands menu must be shown.
          */
-        public BotMenuButton menuButton;
+        @Nullable public BotMenuButton menuButton;
         /**
          * List of the bot commands.
          */
@@ -3435,11 +4378,11 @@ public class TdApi {
         /**
          * Default administrator rights for adding the bot to basic group and supergroup chats; may be null.
          */
-        public ChatAdministratorRights defaultGroupAdministratorRights;
+        @Nullable public ChatAdministratorRights defaultGroupAdministratorRights;
         /**
          * Default administrator rights for adding the bot to channels; may be null.
          */
-        public ChatAdministratorRights defaultChannelAdministratorRights;
+        @Nullable public ChatAdministratorRights defaultChannelAdministratorRights;
         /**
          * True, if the bot has media previews.
          */
@@ -3447,19 +4390,19 @@ public class TdApi {
         /**
          * The internal link, which can be used to edit bot commands; may be null.
          */
-        public InternalLinkType editCommandsLink;
+        @Nullable public InternalLinkType editCommandsLink;
         /**
          * The internal link, which can be used to edit bot description; may be null.
          */
-        public InternalLinkType editDescriptionLink;
+        @Nullable public InternalLinkType editDescriptionLink;
         /**
          * The internal link, which can be used to edit the photo or animation shown in the chat with the bot if the chat is empty; may be null.
          */
-        public InternalLinkType editDescriptionMediaLink;
+        @Nullable public InternalLinkType editDescriptionMediaLink;
         /**
          * The internal link, which can be used to edit bot settings; may be null.
          */
-        public InternalLinkType editSettingsLink;
+        @Nullable public InternalLinkType editSettingsLink;
 
         /**
          * Contains information about a bot.
@@ -3692,6 +4635,22 @@ public class TdApi {
      */
     public abstract static class BotTransactionPurpose extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BotTransactionPurposePaidMedia.CONSTRUCTOR,
+                BotTransactionPurposeInvoicePayment.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public BotTransactionPurpose() {
@@ -3743,7 +4702,7 @@ public class TdApi {
         /**
          * Information about the bought product; may be null if not applicable.
          */
-        public ProductInfo productInfo;
+        @Nullable public ProductInfo productInfo;
         /**
          * Invoice payload; for bots only.
          */
@@ -3785,6 +4744,24 @@ public class TdApi {
      * Describes a reason why a bot was allowed to write messages to the current user.
      */
     public abstract static class BotWriteAccessAllowReason extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BotWriteAccessAllowReasonConnectedWebsite.CONSTRUCTOR,
+                BotWriteAccessAllowReasonAddedToAttachmentMenu.CONSTRUCTOR,
+                BotWriteAccessAllowReasonLaunchedWebApp.CONSTRUCTOR,
+                BotWriteAccessAllowReasonAcceptedRequest.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -3923,6 +4900,23 @@ public class TdApi {
      * Describes conditions for sending of away messages by a Telegram Business account.
      */
     public abstract static class BusinessAwayMessageSchedule extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BusinessAwayMessageScheduleAlways.CONSTRUCTOR,
+                BusinessAwayMessageScheduleOutsideOfOpeningHours.CONSTRUCTOR,
+                BusinessAwayMessageScheduleCustom.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -4398,6 +5392,31 @@ public class TdApi {
      */
     public abstract static class BusinessFeature extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                BusinessFeatureLocation.CONSTRUCTOR,
+                BusinessFeatureOpeningHours.CONSTRUCTOR,
+                BusinessFeatureQuickReplies.CONSTRUCTOR,
+                BusinessFeatureGreetingMessage.CONSTRUCTOR,
+                BusinessFeatureAwayMessage.CONSTRUCTOR,
+                BusinessFeatureAccountLinks.CONSTRUCTOR,
+                BusinessFeatureStartPage.CONSTRUCTOR,
+                BusinessFeatureBots.CONSTRUCTOR,
+                BusinessFeatureEmojiStatus.CONSTRUCTOR,
+                BusinessFeatureChatFolderTags.CONSTRUCTOR,
+                BusinessFeatureUpgradedStories.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public BusinessFeature() {
@@ -4818,15 +5837,15 @@ public class TdApi {
         /**
          * Location of the business; may be null if none.
          */
-        public BusinessLocation location;
+        @Nullable public BusinessLocation location;
         /**
          * Opening hours of the business; may be null if none. The hours are guaranteed to be valid and has already been split by week days.
          */
-        public BusinessOpeningHours openingHours;
+        @Nullable public BusinessOpeningHours openingHours;
         /**
          * Opening hours of the business in the local time; may be null if none. The hours are guaranteed to be valid and has already been split by week days. Local time zone identifier will be empty. An updateUserFullInfo update is not triggered when value of this field changes.
          */
-        public BusinessOpeningHours localOpeningHours;
+        @Nullable public BusinessOpeningHours localOpeningHours;
         /**
          * Time left before the business will open the next time, in seconds; 0 if unknown. An updateUserFullInfo update is not triggered when value of this field changes.
          */
@@ -4838,15 +5857,15 @@ public class TdApi {
         /**
          * The greeting message; may be null if none or the Business account is not of the current user.
          */
-        public BusinessGreetingMessageSettings greetingMessageSettings;
+        @Nullable public BusinessGreetingMessageSettings greetingMessageSettings;
         /**
          * The away message; may be null if none or the Business account is not of the current user.
          */
-        public BusinessAwayMessageSettings awayMessageSettings;
+        @Nullable public BusinessAwayMessageSettings awayMessageSettings;
         /**
          * Information about start page of the account; may be null if none.
          */
-        public BusinessStartPage startPage;
+        @Nullable public BusinessStartPage startPage;
 
         /**
          * Contains information about a Telegram Business account.
@@ -4898,7 +5917,7 @@ public class TdApi {
         /**
          * The location; may be null if not specified.
          */
-        public Location location;
+        @Nullable public Location location;
         /**
          * Location address; 1-96 characters.
          */
@@ -4946,7 +5965,7 @@ public class TdApi {
         /**
          * Message that is replied by the message in the same chat; may be null if none.
          */
-        public Message replyToMessage;
+        @Nullable public Message replyToMessage;
 
         /**
          * Describes a message from a business account as received by a bot.
@@ -5194,7 +6213,7 @@ public class TdApi {
         /**
          * Greeting sticker of the start page; may be null if none.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
 
         /**
          * Describes settings for a business account start page.
@@ -5296,6 +6315,25 @@ public class TdApi {
      * Describes the reason why a call was discarded.
      */
     public abstract static class CallDiscardReason extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CallDiscardReasonEmpty.CONSTRUCTOR,
+                CallDiscardReasonMissed.CONSTRUCTOR,
+                CallDiscardReasonDeclined.CONSTRUCTOR,
+                CallDiscardReasonDisconnected.CONSTRUCTOR,
+                CallDiscardReasonHungUp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -5471,6 +6509,29 @@ public class TdApi {
      * Describes the exact type of problem with a call.
      */
     public abstract static class CallProblem extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CallProblemEcho.CONSTRUCTOR,
+                CallProblemNoise.CONSTRUCTOR,
+                CallProblemInterruptions.CONSTRUCTOR,
+                CallProblemDistortedSpeech.CONSTRUCTOR,
+                CallProblemSilentLocal.CONSTRUCTOR,
+                CallProblemSilentRemote.CONSTRUCTOR,
+                CallProblemDropped.CONSTRUCTOR,
+                CallProblemDistortedVideo.CONSTRUCTOR,
+                CallProblemPixelatedVideo.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -5833,6 +6894,22 @@ public class TdApi {
      */
     public abstract static class CallServerType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CallServerTypeTelegramReflector.CONSTRUCTOR,
+                CallServerTypeWebrtc.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public CallServerType() {
@@ -5944,6 +7021,26 @@ public class TdApi {
      * Describes the current call state.
      */
     public abstract static class CallState extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CallStatePending.CONSTRUCTOR,
+                CallStateExchangingKeys.CONSTRUCTOR,
+                CallStateReady.CONSTRUCTOR,
+                CallStateHangingUp.CONSTRUCTOR,
+                CallStateDiscarded.CONSTRUCTOR,
+                CallStateError.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -6269,6 +7366,23 @@ public class TdApi {
      */
     public abstract static class CallbackQueryPayload extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CallbackQueryPayloadData.CONSTRUCTOR,
+                CallbackQueryPayloadDataWithPassword.CONSTRUCTOR,
+                CallbackQueryPayloadGame.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public CallbackQueryPayload() {
@@ -6401,6 +7515,23 @@ public class TdApi {
      */
     public abstract static class CanSendMessageToUserResult extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CanSendMessageToUserResultOk.CONSTRUCTOR,
+                CanSendMessageToUserResultUserIsDeleted.CONSTRUCTOR,
+                CanSendMessageToUserResultUserRestrictsNewChats.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public CanSendMessageToUserResult() {
@@ -6487,6 +7618,26 @@ public class TdApi {
      * Represents result of checking whether the current user can send a story in the specific chat.
      */
     public abstract static class CanSendStoryResult extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CanSendStoryResultOk.CONSTRUCTOR,
+                CanSendStoryResultPremiumNeeded.CONSTRUCTOR,
+                CanSendStoryResultBoostNeeded.CONSTRUCTOR,
+                CanSendStoryResultActiveStoryLimitExceeded.CONSTRUCTOR,
+                CanSendStoryResultWeeklyLimitExceeded.CONSTRUCTOR,
+                CanSendStoryResultMonthlyLimitExceeded.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -6676,6 +7827,24 @@ public class TdApi {
      */
     public abstract static class CanTransferOwnershipResult extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CanTransferOwnershipResultOk.CONSTRUCTOR,
+                CanTransferOwnershipResultPasswordNeeded.CONSTRUCTOR,
+                CanTransferOwnershipResultPasswordTooFresh.CONSTRUCTOR,
+                CanTransferOwnershipResultSessionTooFresh.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public CanTransferOwnershipResult() {
@@ -6813,6 +7982,23 @@ public class TdApi {
      * Describes purpose of a transaction with a channel.
      */
     public abstract static class ChannelTransactionPurpose extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChannelTransactionPurposePaidMedia.CONSTRUCTOR,
+                ChannelTransactionPurposeJoin.CONSTRUCTOR,
+                ChannelTransactionPurposeReaction.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -6959,7 +8145,7 @@ public class TdApi {
         /**
          * Chat photo; may be null.
          */
-        public ChatPhotoInfo photo;
+        @Nullable public ChatPhotoInfo photo;
         /**
          * Identifier of the accent color for message sender name, and backgrounds of chat photo, reply header, and link preview.
          */
@@ -6983,7 +8169,7 @@ public class TdApi {
         /**
          * Last message in the chat; may be null if none or unknown.
          */
-        public Message lastMessage;
+        @Nullable public Message lastMessage;
         /**
          * Positions of the chat in chat lists.
          */
@@ -6995,11 +8181,11 @@ public class TdApi {
         /**
          * Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender.
          */
-        public MessageSender messageSenderId;
+        @Nullable public MessageSender messageSenderId;
         /**
          * Block list to which the chat is added; may be null if none.
          */
-        public BlockList blockList;
+        @Nullable public BlockList blockList;
         /**
          * True, if chat content can't be saved locally, forwarded, or copied.
          */
@@ -7071,11 +8257,11 @@ public class TdApi {
         /**
          * Emoji status to be shown along with chat title; may be null.
          */
-        public EmojiStatus emojiStatus;
+        @Nullable public EmojiStatus emojiStatus;
         /**
          * Background set for the chat; may be null if none.
          */
-        public ChatBackground background;
+        @Nullable public ChatBackground background;
         /**
          * If non-empty, name of a theme, set for the chat.
          */
@@ -7083,11 +8269,11 @@ public class TdApi {
         /**
          * Information about actions which must be possible to do through the chat action bar; may be null if none.
          */
-        public ChatActionBar actionBar;
+        @Nullable public ChatActionBar actionBar;
         /**
          * Information about bar for managing a business bot in the chat; may be null if none.
          */
-        public BusinessBotManageBar businessBotManageBar;
+        @Nullable public BusinessBotManageBar businessBotManageBar;
         /**
          * Information about video chat of the chat.
          */
@@ -7095,7 +8281,7 @@ public class TdApi {
         /**
          * Information about pending join requests; may be null if none.
          */
-        public ChatJoinRequestsInfo pendingJoinRequests;
+        @Nullable public ChatJoinRequestsInfo pendingJoinRequests;
         /**
          * Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat.
          */
@@ -7103,7 +8289,7 @@ public class TdApi {
         /**
          * A draft of a message in the chat; may be null if none.
          */
-        public DraftMessage draftMessage;
+        @Nullable public DraftMessage draftMessage;
         /**
          * Application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used.
          */
@@ -7223,6 +8409,35 @@ public class TdApi {
      * Describes the different types of activity in a chat.
      */
     public abstract static class ChatAction extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatActionTyping.CONSTRUCTOR,
+                ChatActionRecordingVideo.CONSTRUCTOR,
+                ChatActionUploadingVideo.CONSTRUCTOR,
+                ChatActionRecordingVoiceNote.CONSTRUCTOR,
+                ChatActionUploadingVoiceNote.CONSTRUCTOR,
+                ChatActionUploadingPhoto.CONSTRUCTOR,
+                ChatActionUploadingDocument.CONSTRUCTOR,
+                ChatActionChoosingSticker.CONSTRUCTOR,
+                ChatActionChoosingLocation.CONSTRUCTOR,
+                ChatActionChoosingContact.CONSTRUCTOR,
+                ChatActionStartPlayingGame.CONSTRUCTOR,
+                ChatActionRecordingVideoNote.CONSTRUCTOR,
+                ChatActionUploadingVideoNote.CONSTRUCTOR,
+                ChatActionWatchingAnimations.CONSTRUCTOR,
+                ChatActionCancel.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -7689,6 +8904,27 @@ public class TdApi {
      */
     public abstract static class ChatActionBar extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatActionBarReportSpam.CONSTRUCTOR,
+                ChatActionBarReportUnrelatedLocation.CONSTRUCTOR,
+                ChatActionBarInviteMembers.CONSTRUCTOR,
+                ChatActionBarReportAddBlock.CONSTRUCTOR,
+                ChatActionBarAddContact.CONSTRUCTOR,
+                ChatActionBarSharePhoneNumber.CONSTRUCTOR,
+                ChatActionBarJoinRequest.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatActionBar() {
@@ -7938,7 +9174,7 @@ public class TdApi {
         /**
          * Identifier of the story list in which the stories are shown; may be null if the stories aren't shown in a story list.
          */
-        public StoryList list;
+        @Nullable public StoryList list;
         /**
          * A parameter used to determine order of the stories in the story list; 0 if the stories doesn't need to be shown in the story list. Stories must be sorted by the pair (order, storySenderChatId) in descending order.
          */
@@ -8204,6 +9440,22 @@ public class TdApi {
      * Describes reactions available in the chat.
      */
     public abstract static class ChatAvailableReactions extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatAvailableReactionsAll.CONSTRUCTOR,
+                ChatAvailableReactionsSome.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -8795,6 +10047,23 @@ public class TdApi {
      */
     public abstract static class ChatBoostSource extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatBoostSourceGiftCode.CONSTRUCTOR,
+                ChatBoostSourceGiveaway.CONSTRUCTOR,
+                ChatBoostSourcePremium.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatBoostSource() {
@@ -9093,6 +10362,70 @@ public class TdApi {
      */
     public abstract static class ChatEventAction extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatEventMessageEdited.CONSTRUCTOR,
+                ChatEventMessageDeleted.CONSTRUCTOR,
+                ChatEventMessagePinned.CONSTRUCTOR,
+                ChatEventMessageUnpinned.CONSTRUCTOR,
+                ChatEventPollStopped.CONSTRUCTOR,
+                ChatEventMemberJoined.CONSTRUCTOR,
+                ChatEventMemberJoinedByInviteLink.CONSTRUCTOR,
+                ChatEventMemberJoinedByRequest.CONSTRUCTOR,
+                ChatEventMemberInvited.CONSTRUCTOR,
+                ChatEventMemberLeft.CONSTRUCTOR,
+                ChatEventMemberPromoted.CONSTRUCTOR,
+                ChatEventMemberRestricted.CONSTRUCTOR,
+                ChatEventAvailableReactionsChanged.CONSTRUCTOR,
+                ChatEventBackgroundChanged.CONSTRUCTOR,
+                ChatEventDescriptionChanged.CONSTRUCTOR,
+                ChatEventEmojiStatusChanged.CONSTRUCTOR,
+                ChatEventLinkedChatChanged.CONSTRUCTOR,
+                ChatEventLocationChanged.CONSTRUCTOR,
+                ChatEventMessageAutoDeleteTimeChanged.CONSTRUCTOR,
+                ChatEventPermissionsChanged.CONSTRUCTOR,
+                ChatEventPhotoChanged.CONSTRUCTOR,
+                ChatEventSlowModeDelayChanged.CONSTRUCTOR,
+                ChatEventStickerSetChanged.CONSTRUCTOR,
+                ChatEventCustomEmojiStickerSetChanged.CONSTRUCTOR,
+                ChatEventTitleChanged.CONSTRUCTOR,
+                ChatEventUsernameChanged.CONSTRUCTOR,
+                ChatEventActiveUsernamesChanged.CONSTRUCTOR,
+                ChatEventAccentColorChanged.CONSTRUCTOR,
+                ChatEventProfileAccentColorChanged.CONSTRUCTOR,
+                ChatEventHasProtectedContentToggled.CONSTRUCTOR,
+                ChatEventInvitesToggled.CONSTRUCTOR,
+                ChatEventIsAllHistoryAvailableToggled.CONSTRUCTOR,
+                ChatEventHasAggressiveAntiSpamEnabledToggled.CONSTRUCTOR,
+                ChatEventSignMessagesToggled.CONSTRUCTOR,
+                ChatEventShowMessageSenderToggled.CONSTRUCTOR,
+                ChatEventInviteLinkEdited.CONSTRUCTOR,
+                ChatEventInviteLinkRevoked.CONSTRUCTOR,
+                ChatEventInviteLinkDeleted.CONSTRUCTOR,
+                ChatEventVideoChatCreated.CONSTRUCTOR,
+                ChatEventVideoChatEnded.CONSTRUCTOR,
+                ChatEventVideoChatMuteNewParticipantsToggled.CONSTRUCTOR,
+                ChatEventVideoChatParticipantIsMutedToggled.CONSTRUCTOR,
+                ChatEventVideoChatParticipantVolumeLevelChanged.CONSTRUCTOR,
+                ChatEventIsForumToggled.CONSTRUCTOR,
+                ChatEventForumTopicCreated.CONSTRUCTOR,
+                ChatEventForumTopicEdited.CONSTRUCTOR,
+                ChatEventForumTopicToggleIsClosed.CONSTRUCTOR,
+                ChatEventForumTopicToggleIsHidden.CONSTRUCTOR,
+                ChatEventForumTopicDeleted.CONSTRUCTOR,
+                ChatEventForumTopicPinned.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatEventAction() {
@@ -9381,7 +10714,7 @@ public class TdApi {
         /**
          * Invite link used to join the chat; may be null.
          */
-        public ChatInviteLink inviteLink;
+        @Nullable public ChatInviteLink inviteLink;
 
         /**
          * A new member was accepted to the chat by an administrator.
@@ -9634,11 +10967,11 @@ public class TdApi {
         /**
          * Previous background; may be null if none.
          */
-        public ChatBackground oldBackground;
+        @Nullable public ChatBackground oldBackground;
         /**
          * New background; may be null if none.
          */
-        public ChatBackground newBackground;
+        @Nullable public ChatBackground newBackground;
 
         /**
          * The chat background was changed.
@@ -9722,11 +11055,11 @@ public class TdApi {
         /**
          * Previous emoji status; may be null if none.
          */
-        public EmojiStatus oldEmojiStatus;
+        @Nullable public EmojiStatus oldEmojiStatus;
         /**
          * New emoji status; may be null if none.
          */
-        public EmojiStatus newEmojiStatus;
+        @Nullable public EmojiStatus newEmojiStatus;
 
         /**
          * The chat emoji status was changed.
@@ -9810,11 +11143,11 @@ public class TdApi {
         /**
          * Previous location; may be null.
          */
-        public ChatLocation oldLocation;
+        @Nullable public ChatLocation oldLocation;
         /**
          * New location; may be null.
          */
-        public ChatLocation newLocation;
+        @Nullable public ChatLocation newLocation;
 
         /**
          * The supergroup location was changed.
@@ -9942,11 +11275,11 @@ public class TdApi {
         /**
          * Previous chat photo value; may be null.
          */
-        public ChatPhoto oldPhoto;
+        @Nullable public ChatPhoto oldPhoto;
         /**
          * New chat photo value; may be null.
          */
-        public ChatPhoto newPhoto;
+        @Nullable public ChatPhoto newPhoto;
 
         /**
          * The chat photo was changed.
@@ -11146,11 +12479,11 @@ public class TdApi {
         /**
          * Information about the old pinned topic; may be null.
          */
-        public ForumTopicInfo oldTopicInfo;
+        @Nullable public ForumTopicInfo oldTopicInfo;
         /**
          * Information about the new pinned topic; may be null.
          */
-        public ForumTopicInfo newTopicInfo;
+        @Nullable public ForumTopicInfo newTopicInfo;
 
         /**
          * A pinned forum topic was changed.
@@ -11342,7 +12675,7 @@ public class TdApi {
         /**
          * The chosen icon for the chat folder; may be null. If null, use getChatFolderDefaultIconName to get default icon name for the folder.
          */
-        public ChatFolderIcon icon;
+        @Nullable public ChatFolderIcon icon;
         /**
          * The identifier of the chosen color for the chat folder icon; from -1 to 6. If -1, then color is disabled. Can't be changed if folder tags are disabled or the current user doesn't have Telegram Premium subscription.
          */
@@ -11728,7 +13061,7 @@ public class TdApi {
         /**
          * Information about subscription plan that is applied to the users joining the chat by the link; may be null if the link doesn't require subscription.
          */
-        public StarSubscriptionPricing subscriptionPricing;
+        @Nullable public StarSubscriptionPricing subscriptionPricing;
         /**
          * The maximum number of members, which can join the chat using the link simultaneously; 0 if not limited. Always 0 if the link requires approval.
          */
@@ -11924,7 +13257,7 @@ public class TdApi {
         /**
          * Chat photo; may be null.
          */
-        public ChatPhotoInfo photo;
+        @Nullable public ChatPhotoInfo photo;
         /**
          * Identifier of the accent color for chat title and background of chat photo.
          */
@@ -11944,7 +13277,7 @@ public class TdApi {
         /**
          * Information about subscription plan that must be paid by the user to use the link; may be null if the link doesn't require subscription.
          */
-        public ChatInviteLinkSubscriptionInfo subscriptionInfo;
+        @Nullable public ChatInviteLinkSubscriptionInfo subscriptionInfo;
         /**
          * True, if the link only creates join request.
          */
@@ -12361,6 +13694,23 @@ public class TdApi {
      */
     public abstract static class ChatList extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatListMain.CONSTRUCTOR,
+                ChatListArchive.CONSTRUCTOR,
+                ChatListFolder.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatList() {
@@ -12598,6 +13948,26 @@ public class TdApi {
      * Provides information about the status of a member in a chat.
      */
     public abstract static class ChatMemberStatus extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatMemberStatusCreator.CONSTRUCTOR,
+                ChatMemberStatusAdministrator.CONSTRUCTOR,
+                ChatMemberStatusMember.CONSTRUCTOR,
+                ChatMemberStatusRestricted.CONSTRUCTOR,
+                ChatMemberStatusLeft.CONSTRUCTOR,
+                ChatMemberStatusBanned.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -12905,6 +14275,27 @@ public class TdApi {
      * Specifies the kind of chat members to return in searchChatMembers.
      */
     public abstract static class ChatMembersFilter extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatMembersFilterContacts.CONSTRUCTOR,
+                ChatMembersFilterAdministrators.CONSTRUCTOR,
+                ChatMembersFilterMembers.CONSTRUCTOR,
+                ChatMembersFilterMention.CONSTRUCTOR,
+                ChatMembersFilterRestricted.CONSTRUCTOR,
+                ChatMembersFilterBanned.CONSTRUCTOR,
+                ChatMembersFilterBots.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -13485,7 +14876,7 @@ public class TdApi {
         /**
          * Photo minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Available variants of the photo in JPEG format, in different size.
          */
@@ -13493,15 +14884,15 @@ public class TdApi {
         /**
          * A big (up to 1280x1280) animated variant of the photo in MPEG4 format; may be null.
          */
-        public AnimatedChatPhoto animation;
+        @Nullable public AnimatedChatPhoto animation;
         /**
          * A small (160x160) animated variant of the photo in MPEG4 format; may be null even the big animation is available.
          */
-        public AnimatedChatPhoto smallAnimation;
+        @Nullable public AnimatedChatPhoto smallAnimation;
         /**
          * Sticker-based version of the chat photo; may be null.
          */
-        public ChatPhotoSticker sticker;
+        @Nullable public ChatPhotoSticker sticker;
 
         /**
          * Describes a chat or user profile photo.
@@ -13559,7 +14950,7 @@ public class TdApi {
         /**
          * Chat photo minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * True, if the photo has animated variant.
          */
@@ -13655,6 +15046,22 @@ public class TdApi {
      * Describes type of sticker, which was used to create a chat photo.
      */
     public abstract static class ChatPhotoStickerType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatPhotoStickerTypeRegularOrMask.CONSTRUCTOR,
+                ChatPhotoStickerTypeCustomEmoji.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -13807,7 +15214,7 @@ public class TdApi {
         /**
          * Source of the chat in the chat list; may be null.
          */
-        public ChatSource source;
+        @Nullable public ChatSource source;
 
         /**
          * Describes a position of a chat in a chat list.
@@ -14012,6 +15419,23 @@ public class TdApi {
      */
     public abstract static class ChatRevenueTransactionType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatRevenueTransactionTypeEarnings.CONSTRUCTOR,
+                ChatRevenueTransactionTypeWithdrawal.CONSTRUCTOR,
+                ChatRevenueTransactionTypeRefund.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatRevenueTransactionType() {
@@ -14206,6 +15630,22 @@ public class TdApi {
      */
     public abstract static class ChatSource extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatSourceMtprotoProxy.CONSTRUCTOR,
+                ChatSourcePublicServiceAnnouncement.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatSource() {
@@ -14286,6 +15726,22 @@ public class TdApi {
      * Contains a detailed statistics about a chat.
      */
     public abstract static class ChatStatistics extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatStatisticsSupergroup.CONSTRUCTOR,
+                ChatStatisticsChannel.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -14797,6 +16253,22 @@ public class TdApi {
      */
     public abstract static class ChatStatisticsObjectType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatStatisticsObjectTypeMessage.CONSTRUCTOR,
+                ChatStatisticsObjectTypeStory.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ChatStatisticsObjectType() {
@@ -14934,6 +16406,24 @@ public class TdApi {
      * Describes the type of chat.
      */
     public abstract static class ChatType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ChatTypePrivate.CONSTRUCTOR,
+                ChatTypeBasicGroup.CONSTRUCTOR,
+                ChatTypeSupergroup.CONSTRUCTOR,
+                ChatTypeSecret.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -15199,6 +16689,26 @@ public class TdApi {
      */
     public abstract static class CheckChatUsernameResult extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CheckChatUsernameResultOk.CONSTRUCTOR,
+                CheckChatUsernameResultUsernameInvalid.CONSTRUCTOR,
+                CheckChatUsernameResultUsernameOccupied.CONSTRUCTOR,
+                CheckChatUsernameResultUsernamePurchasable.CONSTRUCTOR,
+                CheckChatUsernameResultPublicChatsTooMany.CONSTRUCTOR,
+                CheckChatUsernameResultPublicGroupsUnavailable.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public CheckChatUsernameResult() {
@@ -15360,6 +16870,23 @@ public class TdApi {
      * Represents result of checking whether a name can be used for a new sticker set.
      */
     public abstract static class CheckStickerSetNameResult extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CheckStickerSetNameResultOk.CONSTRUCTOR,
+                CheckStickerSetNameResultNameInvalid.CONSTRUCTOR,
+                CheckStickerSetNameResultNameOccupied.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -15598,6 +17125,22 @@ public class TdApi {
      */
     public abstract static class CollectibleItemType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                CollectibleItemTypeUsername.CONSTRUCTOR,
+                CollectibleItemTypePhoneNumber.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public CollectibleItemType() {
@@ -15809,6 +17352,25 @@ public class TdApi {
      * Describes the current state of the connection to Telegram servers.
      */
     public abstract static class ConnectionState extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ConnectionStateWaitingForNetwork.CONSTRUCTOR,
+                ConnectionStateConnectingToProxy.CONSTRUCTOR,
+                ConnectionStateConnecting.CONSTRUCTOR,
+                ConnectionStateUpdating.CONSTRUCTOR,
+                ConnectionStateReady.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -16493,6 +18055,32 @@ public class TdApi {
      */
     public abstract static class DeviceToken extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                DeviceTokenFirebaseCloudMessaging.CONSTRUCTOR,
+                DeviceTokenApplePush.CONSTRUCTOR,
+                DeviceTokenApplePushVoIP.CONSTRUCTOR,
+                DeviceTokenWindowsPush.CONSTRUCTOR,
+                DeviceTokenMicrosoftPush.CONSTRUCTOR,
+                DeviceTokenMicrosoftPushVoIP.CONSTRUCTOR,
+                DeviceTokenWebPush.CONSTRUCTOR,
+                DeviceTokenSimplePush.CONSTRUCTOR,
+                DeviceTokenUbuntuPush.CONSTRUCTOR,
+                DeviceTokenBlackBerryPush.CONSTRUCTOR,
+                DeviceTokenTizenPush.CONSTRUCTOR,
+                DeviceTokenHuaweiPush.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public DeviceToken() {
@@ -17003,6 +18591,22 @@ public class TdApi {
      */
     public abstract static class DiceStickers extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                DiceStickersRegular.CONSTRUCTOR,
+                DiceStickersSlotMachine.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public DiceStickers() {
@@ -17124,11 +18728,11 @@ public class TdApi {
         /**
          * Document minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * File containing the document.
          */
@@ -17228,7 +18832,7 @@ public class TdApi {
         /**
          * Information about the message to be replied; must be of the type inputMessageReplyToMessage; may be null if none.
          */
-        public InputMessageReplyTo replyTo;
+        @Nullable public InputMessageReplyTo replyTo;
         /**
          * Point in time (Unix timestamp) when the draft was created.
          */
@@ -17282,6 +18886,23 @@ public class TdApi {
      * Contains authentication data for an email address.
      */
     public abstract static class EmailAddressAuthentication extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                EmailAddressAuthenticationCode.CONSTRUCTOR,
+                EmailAddressAuthenticationAppleId.CONSTRUCTOR,
+                EmailAddressAuthenticationGoogleId.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -17452,6 +19073,22 @@ public class TdApi {
      * Describes reset state of an email address.
      */
     public abstract static class EmailAddressResetState extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                EmailAddressResetStateAvailable.CONSTRUCTOR,
+                EmailAddressResetStatePending.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -17635,6 +19272,22 @@ public class TdApi {
      */
     public abstract static class EmojiCategorySource extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                EmojiCategorySourceSearch.CONSTRUCTOR,
+                EmojiCategorySourcePremium.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public EmojiCategorySource() {
@@ -17709,6 +19362,24 @@ public class TdApi {
      * Describes type of emoji category.
      */
     public abstract static class EmojiCategoryType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                EmojiCategoryTypeDefault.CONSTRUCTOR,
+                EmojiCategoryTypeRegularStickers.CONSTRUCTOR,
+                EmojiCategoryTypeEmojiStatus.CONSTRUCTOR,
+                EmojiCategoryTypeChatPhoto.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -17937,11 +19608,11 @@ public class TdApi {
         /**
          * Around animation for the reaction; may be null.
          */
-        public Sticker aroundAnimation;
+        @Nullable public Sticker aroundAnimation;
         /**
          * Center animation for the reaction; may be null.
          */
-        public Sticker centerAnimation;
+        @Nullable public Sticker centerAnimation;
 
         /**
          * Contains information about an emoji reaction.
@@ -18179,11 +19850,11 @@ public class TdApi {
         /**
          * The reverse side of an identity document; may be null.
          */
-        public DatedFile reverseSide;
+        @Nullable public DatedFile reverseSide;
         /**
          * Selfie with the document; may be null.
          */
-        public DatedFile selfie;
+        @Nullable public DatedFile selfie;
         /**
          * List of files containing a certified English translation of the document.
          */
@@ -18627,6 +20298,39 @@ public class TdApi {
      * Represents the type of file.
      */
     public abstract static class FileType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                FileTypeNone.CONSTRUCTOR,
+                FileTypeAnimation.CONSTRUCTOR,
+                FileTypeAudio.CONSTRUCTOR,
+                FileTypeDocument.CONSTRUCTOR,
+                FileTypeNotificationSound.CONSTRUCTOR,
+                FileTypePhoto.CONSTRUCTOR,
+                FileTypePhotoStory.CONSTRUCTOR,
+                FileTypeProfilePhoto.CONSTRUCTOR,
+                FileTypeSecret.CONSTRUCTOR,
+                FileTypeSecretThumbnail.CONSTRUCTOR,
+                FileTypeSecure.CONSTRUCTOR,
+                FileTypeSticker.CONSTRUCTOR,
+                FileTypeThumbnail.CONSTRUCTOR,
+                FileTypeUnknown.CONSTRUCTOR,
+                FileTypeVideo.CONSTRUCTOR,
+                FileTypeVideoNote.CONSTRUCTOR,
+                FileTypeVideoStory.CONSTRUCTOR,
+                FileTypeVoiceNote.CONSTRUCTOR,
+                FileTypeWallpaper.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -19115,6 +20819,22 @@ public class TdApi {
      */
     public abstract static class FirebaseAuthenticationSettings extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                FirebaseAuthenticationSettingsAndroid.CONSTRUCTOR,
+                FirebaseAuthenticationSettingsIos.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public FirebaseAuthenticationSettings() {
@@ -19195,6 +20915,22 @@ public class TdApi {
      * Describes parameters to be used for device verification.
      */
     public abstract static class FirebaseDeviceVerificationParameters extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                FirebaseDeviceVerificationParametersSafetyNet.CONSTRUCTOR,
+                FirebaseDeviceVerificationParametersPlayIntegrity.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -19339,7 +21075,7 @@ public class TdApi {
         /**
          * Last message in the topic; may be null if unknown.
          */
-        public Message lastMessage;
+        @Nullable public Message lastMessage;
         /**
          * True, if the topic is pinned in the topic list.
          */
@@ -19371,7 +21107,7 @@ public class TdApi {
         /**
          * A draft of a message in the topic; may be null if none.
          */
-        public DraftMessage draftMessage;
+        @Nullable public DraftMessage draftMessage;
 
         /**
          * Describes a forum topic.
@@ -19627,7 +21363,7 @@ public class TdApi {
         /**
          * Identifier of the sender of the message; may be null if unknown or the new message was forwarded not to Saved Messages.
          */
-        public MessageSender senderId;
+        @Nullable public MessageSender senderId;
         /**
          * Name of the sender of the message if the sender is hidden by their privacy settings.
          */
@@ -20137,7 +21873,7 @@ public class TdApi {
         /**
          * Game animation; may be null.
          */
-        public Animation animation;
+        @Nullable public Animation animation;
 
         /**
          * Describes a game. Use getInternalLink with internalLinkTypeGame to share the game.
@@ -20483,11 +22219,11 @@ public class TdApi {
         /**
          * Information about user's video channel; may be null if there is no active video.
          */
-        public GroupCallParticipantVideoInfo videoInfo;
+        @Nullable public GroupCallParticipantVideoInfo videoInfo;
         /**
          * Information about user's screen sharing video channel; may be null if there is no active screen sharing video.
          */
-        public GroupCallParticipantVideoInfo screenSharingVideoInfo;
+        @Nullable public GroupCallParticipantVideoInfo screenSharingVideoInfo;
         /**
          * The participant user's bio or the participant chat's description.
          */
@@ -20792,6 +22528,23 @@ public class TdApi {
      */
     public abstract static class GroupCallVideoQuality extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                GroupCallVideoQualityThumbnail.CONSTRUCTOR,
+                GroupCallVideoQualityMedium.CONSTRUCTOR,
+                GroupCallVideoQualityFull.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public GroupCallVideoQuality() {
@@ -21004,7 +22757,7 @@ public class TdApi {
         /**
          * Document expiration date; may be null if not applicable.
          */
-        public Date expirationDate;
+        @Nullable public Date expirationDate;
         /**
          * Front side of the document.
          */
@@ -21012,11 +22765,11 @@ public class TdApi {
         /**
          * Reverse side of the document; only for driver license and identity card; may be null.
          */
-        public DatedFile reverseSide;
+        @Nullable public DatedFile reverseSide;
         /**
          * Selfie with the document; may be null.
          */
-        public DatedFile selfie;
+        @Nullable public DatedFile selfie;
         /**
          * List of files containing a certified English translation of the document.
          */
@@ -21154,6 +22907,29 @@ public class TdApi {
      * Describes the type of inline keyboard button.
      */
     public abstract static class InlineKeyboardButtonType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InlineKeyboardButtonTypeUrl.CONSTRUCTOR,
+                InlineKeyboardButtonTypeLoginUrl.CONSTRUCTOR,
+                InlineKeyboardButtonTypeWebApp.CONSTRUCTOR,
+                InlineKeyboardButtonTypeCallback.CONSTRUCTOR,
+                InlineKeyboardButtonTypeCallbackWithPassword.CONSTRUCTOR,
+                InlineKeyboardButtonTypeCallbackGame.CONSTRUCTOR,
+                InlineKeyboardButtonTypeSwitchInline.CONSTRUCTOR,
+                InlineKeyboardButtonTypeBuy.CONSTRUCTOR,
+                InlineKeyboardButtonTypeUser.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -21501,6 +23277,32 @@ public class TdApi {
      */
     public abstract static class InlineQueryResult extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InlineQueryResultArticle.CONSTRUCTOR,
+                InlineQueryResultContact.CONSTRUCTOR,
+                InlineQueryResultLocation.CONSTRUCTOR,
+                InlineQueryResultVenue.CONSTRUCTOR,
+                InlineQueryResultGame.CONSTRUCTOR,
+                InlineQueryResultAnimation.CONSTRUCTOR,
+                InlineQueryResultAudio.CONSTRUCTOR,
+                InlineQueryResultDocument.CONSTRUCTOR,
+                InlineQueryResultPhoto.CONSTRUCTOR,
+                InlineQueryResultSticker.CONSTRUCTOR,
+                InlineQueryResultVideo.CONSTRUCTOR,
+                InlineQueryResultVoiceNote.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InlineQueryResult() {
@@ -21534,7 +23336,7 @@ public class TdApi {
         /**
          * Result thumbnail in JPEG format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
 
         /**
          * Represents a link to an article or web page.
@@ -21590,7 +23392,7 @@ public class TdApi {
         /**
          * Result thumbnail in JPEG format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
 
         /**
          * Represents a user contact.
@@ -21644,7 +23446,7 @@ public class TdApi {
         /**
          * Result thumbnail in JPEG format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
 
         /**
          * Represents a point on the map.
@@ -21696,7 +23498,7 @@ public class TdApi {
         /**
          * Result thumbnail in JPEG format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
 
         /**
          * Represents information about a venue.
@@ -22142,7 +23944,7 @@ public class TdApi {
         /**
          * Button to be shown above inline query results; may be null.
          */
-        public InlineQueryResultsButton button;
+        @Nullable public InlineQueryResultsButton button;
         /**
          * Results of the query.
          */
@@ -22237,6 +24039,22 @@ public class TdApi {
      */
     public abstract static class InlineQueryResultsButtonType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InlineQueryResultsButtonTypeStartBot.CONSTRUCTOR,
+                InlineQueryResultsButtonTypeWebApp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InlineQueryResultsButtonType() {
@@ -22324,6 +24142,23 @@ public class TdApi {
      * Contains information about background to set.
      */
     public abstract static class InputBackground extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputBackgroundLocal.CONSTRUCTOR,
+                InputBackgroundRemote.CONSTRUCTOR,
+                InputBackgroundPrevious.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -22545,6 +24380,24 @@ public class TdApi {
      */
     public abstract static class InputChatPhoto extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputChatPhotoPrevious.CONSTRUCTOR,
+                InputChatPhotoStatic.CONSTRUCTOR,
+                InputChatPhotoAnimation.CONSTRUCTOR,
+                InputChatPhotoSticker.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputChatPhoto() {
@@ -22715,6 +24568,24 @@ public class TdApi {
      */
     public abstract static class InputCredentials extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputCredentialsSaved.CONSTRUCTOR,
+                InputCredentialsNew.CONSTRUCTOR,
+                InputCredentialsApplePay.CONSTRUCTOR,
+                InputCredentialsGooglePay.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputCredentials() {
@@ -22884,6 +24755,24 @@ public class TdApi {
      * Points to a file.
      */
     public abstract static class InputFile extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputFileId.CONSTRUCTOR,
+                InputFileRemote.CONSTRUCTOR,
+                InputFileLocal.CONSTRUCTOR,
+                InputFileGenerated.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -23128,6 +25017,32 @@ public class TdApi {
      * Represents a single result of an inline query; for bots only.
      */
     public abstract static class InputInlineQueryResult extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputInlineQueryResultAnimation.CONSTRUCTOR,
+                InputInlineQueryResultArticle.CONSTRUCTOR,
+                InputInlineQueryResultAudio.CONSTRUCTOR,
+                InputInlineQueryResultContact.CONSTRUCTOR,
+                InputInlineQueryResultDocument.CONSTRUCTOR,
+                InputInlineQueryResultGame.CONSTRUCTOR,
+                InputInlineQueryResultLocation.CONSTRUCTOR,
+                InputInlineQueryResultPhoto.CONSTRUCTOR,
+                InputInlineQueryResultSticker.CONSTRUCTOR,
+                InputInlineQueryResultVenue.CONSTRUCTOR,
+                InputInlineQueryResultVideo.CONSTRUCTOR,
+                InputInlineQueryResultVoiceNote.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -24107,6 +26022,23 @@ public class TdApi {
      */
     public abstract static class InputInvoice extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputInvoiceMessage.CONSTRUCTOR,
+                InputInvoiceName.CONSTRUCTOR,
+                InputInvoiceTelegram.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputInvoice() {
@@ -24239,6 +26171,39 @@ public class TdApi {
      */
     public abstract static class InputMessageContent extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputMessageText.CONSTRUCTOR,
+                InputMessageAnimation.CONSTRUCTOR,
+                InputMessageAudio.CONSTRUCTOR,
+                InputMessageDocument.CONSTRUCTOR,
+                InputMessagePaidMedia.CONSTRUCTOR,
+                InputMessagePhoto.CONSTRUCTOR,
+                InputMessageSticker.CONSTRUCTOR,
+                InputMessageVideo.CONSTRUCTOR,
+                InputMessageVideoNote.CONSTRUCTOR,
+                InputMessageVoiceNote.CONSTRUCTOR,
+                InputMessageLocation.CONSTRUCTOR,
+                InputMessageVenue.CONSTRUCTOR,
+                InputMessageContact.CONSTRUCTOR,
+                InputMessageDice.CONSTRUCTOR,
+                InputMessageGame.CONSTRUCTOR,
+                InputMessageInvoice.CONSTRUCTOR,
+                InputMessagePoll.CONSTRUCTOR,
+                InputMessageStory.CONSTRUCTOR,
+                InputMessageForwarded.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputMessageContent() {
@@ -24256,7 +26221,7 @@ public class TdApi {
         /**
          * Options to be used for generation of a link preview; may be null if none; pass null to use default link preview options.
          */
-        public LinkPreviewOptions linkPreviewOptions;
+        @Nullable public LinkPreviewOptions linkPreviewOptions;
         /**
          * True, if a chat message draft must be deleted.
          */
@@ -24818,7 +26783,7 @@ public class TdApi {
         /**
          * Video thumbnail; may be null if empty; pass null to skip thumbnail uploading.
          */
-        public InputThumbnail thumbnail;
+        @Nullable public InputThumbnail thumbnail;
         /**
          * Duration of the video, in seconds; 0-60.
          */
@@ -24830,7 +26795,7 @@ public class TdApi {
         /**
          * Video note self-destruct type; may be null if none; pass null if none; private chats only.
          */
-        public MessageSelfDestructType selfDestructType;
+        @Nullable public MessageSelfDestructType selfDestructType;
 
         /**
          * A video note message.
@@ -24888,11 +26853,11 @@ public class TdApi {
         /**
          * Voice note caption; may be null if empty; pass null to use an empty caption; 0-getOption(&quot;message_caption_length_max&quot;) characters.
          */
-        public FormattedText caption;
+        @Nullable public FormattedText caption;
         /**
          * Voice note self-destruct type; may be null if none; pass null if none; private chats only.
          */
-        public MessageSelfDestructType selfDestructType;
+        @Nullable public MessageSelfDestructType selfDestructType;
 
         /**
          * A voice note message.
@@ -25441,6 +27406,23 @@ public class TdApi {
      */
     public abstract static class InputMessageReplyTo extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputMessageReplyToMessage.CONSTRUCTOR,
+                InputMessageReplyToExternalMessage.CONSTRUCTOR,
+                InputMessageReplyToStory.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputMessageReplyTo() {
@@ -25659,6 +27641,22 @@ public class TdApi {
      */
     public abstract static class InputPaidMediaType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputPaidMediaTypePhoto.CONSTRUCTOR,
+                InputPaidMediaTypeVideo.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputPaidMediaType() {
@@ -25739,6 +27737,33 @@ public class TdApi {
      * Contains information about a Telegram Passport element to be saved.
      */
     public abstract static class InputPassportElement extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputPassportElementPersonalDetails.CONSTRUCTOR,
+                InputPassportElementPassport.CONSTRUCTOR,
+                InputPassportElementDriverLicense.CONSTRUCTOR,
+                InputPassportElementIdentityCard.CONSTRUCTOR,
+                InputPassportElementInternalPassport.CONSTRUCTOR,
+                InputPassportElementAddress.CONSTRUCTOR,
+                InputPassportElementUtilityBill.CONSTRUCTOR,
+                InputPassportElementBankStatement.CONSTRUCTOR,
+                InputPassportElementRentalAgreement.CONSTRUCTOR,
+                InputPassportElementPassportRegistration.CONSTRUCTOR,
+                InputPassportElementTemporaryRegistration.CONSTRUCTOR,
+                InputPassportElementPhoneNumber.CONSTRUCTOR,
+                InputPassportElementEmailAddress.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -26296,6 +28321,29 @@ public class TdApi {
      */
     public abstract static class InputPassportElementErrorSource extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputPassportElementErrorSourceUnspecified.CONSTRUCTOR,
+                InputPassportElementErrorSourceDataField.CONSTRUCTOR,
+                InputPassportElementErrorSourceFrontSide.CONSTRUCTOR,
+                InputPassportElementErrorSourceReverseSide.CONSTRUCTOR,
+                InputPassportElementErrorSourceSelfie.CONSTRUCTOR,
+                InputPassportElementErrorSourceTranslationFile.CONSTRUCTOR,
+                InputPassportElementErrorSourceTranslationFiles.CONSTRUCTOR,
+                InputPassportElementErrorSourceFile.CONSTRUCTOR,
+                InputPassportElementErrorSourceFiles.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputPassportElementErrorSource() {
@@ -26806,6 +28854,27 @@ public class TdApi {
      */
     public abstract static class InputStoryAreaType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputStoryAreaTypeLocation.CONSTRUCTOR,
+                InputStoryAreaTypeFoundVenue.CONSTRUCTOR,
+                InputStoryAreaTypePreviousVenue.CONSTRUCTOR,
+                InputStoryAreaTypeSuggestedReaction.CONSTRUCTOR,
+                InputStoryAreaTypeMessage.CONSTRUCTOR,
+                InputStoryAreaTypeLink.CONSTRUCTOR,
+                InputStoryAreaTypeWeather.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputStoryAreaType() {
@@ -27170,6 +29239,22 @@ public class TdApi {
      */
     public abstract static class InputStoryContent extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InputStoryContentPhoto.CONSTRUCTOR,
+                InputStoryContentVideo.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InputStoryContent() {
@@ -27381,6 +29466,65 @@ public class TdApi {
      * Describes an internal https://t.me or tg: link, which must be processed by the application in a special way.
      */
     public abstract static class InternalLinkType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InternalLinkTypeActiveSessions.CONSTRUCTOR,
+                InternalLinkTypeAttachmentMenuBot.CONSTRUCTOR,
+                InternalLinkTypeAuthenticationCode.CONSTRUCTOR,
+                InternalLinkTypeBackground.CONSTRUCTOR,
+                InternalLinkTypeBotAddToChannel.CONSTRUCTOR,
+                InternalLinkTypeBotStart.CONSTRUCTOR,
+                InternalLinkTypeBotStartInGroup.CONSTRUCTOR,
+                InternalLinkTypeBusinessChat.CONSTRUCTOR,
+                InternalLinkTypeBuyStars.CONSTRUCTOR,
+                InternalLinkTypeChangePhoneNumber.CONSTRUCTOR,
+                InternalLinkTypeChatBoost.CONSTRUCTOR,
+                InternalLinkTypeChatFolderInvite.CONSTRUCTOR,
+                InternalLinkTypeChatFolderSettings.CONSTRUCTOR,
+                InternalLinkTypeChatInvite.CONSTRUCTOR,
+                InternalLinkTypeDefaultMessageAutoDeleteTimerSettings.CONSTRUCTOR,
+                InternalLinkTypeEditProfileSettings.CONSTRUCTOR,
+                InternalLinkTypeGame.CONSTRUCTOR,
+                InternalLinkTypeInstantView.CONSTRUCTOR,
+                InternalLinkTypeInvoice.CONSTRUCTOR,
+                InternalLinkTypeLanguagePack.CONSTRUCTOR,
+                InternalLinkTypeLanguageSettings.CONSTRUCTOR,
+                InternalLinkTypeMainWebApp.CONSTRUCTOR,
+                InternalLinkTypeMessage.CONSTRUCTOR,
+                InternalLinkTypeMessageDraft.CONSTRUCTOR,
+                InternalLinkTypePassportDataRequest.CONSTRUCTOR,
+                InternalLinkTypePhoneNumberConfirmation.CONSTRUCTOR,
+                InternalLinkTypePremiumFeatures.CONSTRUCTOR,
+                InternalLinkTypePremiumGift.CONSTRUCTOR,
+                InternalLinkTypePremiumGiftCode.CONSTRUCTOR,
+                InternalLinkTypePrivacyAndSecuritySettings.CONSTRUCTOR,
+                InternalLinkTypeProxy.CONSTRUCTOR,
+                InternalLinkTypePublicChat.CONSTRUCTOR,
+                InternalLinkTypeQrCodeAuthentication.CONSTRUCTOR,
+                InternalLinkTypeRestorePurchases.CONSTRUCTOR,
+                InternalLinkTypeSettings.CONSTRUCTOR,
+                InternalLinkTypeStickerSet.CONSTRUCTOR,
+                InternalLinkTypeStory.CONSTRUCTOR,
+                InternalLinkTypeTheme.CONSTRUCTOR,
+                InternalLinkTypeThemeSettings.CONSTRUCTOR,
+                InternalLinkTypeUnknownDeepLink.CONSTRUCTOR,
+                InternalLinkTypeUnsupportedProxy.CONSTRUCTOR,
+                InternalLinkTypeUserPhoneNumber.CONSTRUCTOR,
+                InternalLinkTypeUserToken.CONSTRUCTOR,
+                InternalLinkTypeVideoChat.CONSTRUCTOR,
+                InternalLinkTypeWebApp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -27648,7 +29792,7 @@ public class TdApi {
         /**
          * Expected administrator rights for the bot; may be null.
          */
-        public ChatAdministratorRights administratorRights;
+        @Nullable public ChatAdministratorRights administratorRights;
 
         /**
          * The link is a link to a Telegram bot, which is supposed to be added to a group chat. Call searchPublicChat with the given bot username, check that the user is a bot and can be added to groups, ask the current user to select a basic group or a supergroup chat to add the bot to, taking into account that bots can be added to a public supergroup only by administrators of the supergroup. If administrator rights are provided by the link, call getChatMember to receive the current bot rights in the chat and if the bot already is an administrator, check that the current user can edit its administrator rights, combine received rights with the requested administrator rights, show confirmation box to the user, and call setChatMemberStatus with the chosen chat and confirmed administrator rights. Before call to setChatMemberStatus it may be required to upgrade the chosen basic group chat to a supergroup chat. Then, if startParameter isn't empty, call sendBotStartMessage with the given start parameter and the chosen chat; otherwise, just send /start message with bot's username added to the chat.
@@ -29134,6 +31278,23 @@ public class TdApi {
      */
     public abstract static class InviteLinkChatType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                InviteLinkChatTypeBasicGroup.CONSTRUCTOR,
+                InviteLinkChatTypeSupergroup.CONSTRUCTOR,
+                InviteLinkChatTypeChannel.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public InviteLinkChatType() {
@@ -29380,6 +31541,26 @@ public class TdApi {
      * Represents a JSON value.
      */
     public abstract static class JsonValue extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                JsonValueNull.CONSTRUCTOR,
+                JsonValueBoolean.CONSTRUCTOR,
+                JsonValueNumber.CONSTRUCTOR,
+                JsonValueString.CONSTRUCTOR,
+                JsonValueArray.CONSTRUCTOR,
+                JsonValueObject.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -29652,6 +31833,27 @@ public class TdApi {
      */
     public abstract static class KeyboardButtonType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                KeyboardButtonTypeText.CONSTRUCTOR,
+                KeyboardButtonTypeRequestPhoneNumber.CONSTRUCTOR,
+                KeyboardButtonTypeRequestLocation.CONSTRUCTOR,
+                KeyboardButtonTypeRequestPoll.CONSTRUCTOR,
+                KeyboardButtonTypeRequestUsers.CONSTRUCTOR,
+                KeyboardButtonTypeRequestChat.CONSTRUCTOR,
+                KeyboardButtonTypeWebApp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public KeyboardButtonType() {
@@ -29898,11 +32100,11 @@ public class TdApi {
         /**
          * Expected user administrator rights in the chat; may be null if they aren't restricted.
          */
-        public ChatAdministratorRights userAdministratorRights;
+        @Nullable public ChatAdministratorRights userAdministratorRights;
         /**
          * Expected bot administrator rights in the chat; may be null if they aren't restricted.
          */
-        public ChatAdministratorRights botAdministratorRights;
+        @Nullable public ChatAdministratorRights botAdministratorRights;
         /**
          * True, if the bot must be a member of the chat; for basic group and supergroup chats only.
          */
@@ -30215,6 +32417,23 @@ public class TdApi {
      */
     public abstract static class LanguagePackStringValue extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                LanguagePackStringValueOrdinary.CONSTRUCTOR,
+                LanguagePackStringValuePluralized.CONSTRUCTOR,
+                LanguagePackStringValueDeleted.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public LanguagePackStringValue() {
@@ -30500,6 +32719,22 @@ public class TdApi {
      */
     public abstract static class LinkPreviewAlbumMedia extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                LinkPreviewAlbumMediaPhoto.CONSTRUCTOR,
+                LinkPreviewAlbumMediaVideo.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public LinkPreviewAlbumMedia() {
@@ -30650,6 +32885,49 @@ public class TdApi {
      */
     public abstract static class LinkPreviewType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                LinkPreviewTypeAlbum.CONSTRUCTOR,
+                LinkPreviewTypeAnimation.CONSTRUCTOR,
+                LinkPreviewTypeApp.CONSTRUCTOR,
+                LinkPreviewTypeArticle.CONSTRUCTOR,
+                LinkPreviewTypeAudio.CONSTRUCTOR,
+                LinkPreviewTypeBackground.CONSTRUCTOR,
+                LinkPreviewTypeChannelBoost.CONSTRUCTOR,
+                LinkPreviewTypeChat.CONSTRUCTOR,
+                LinkPreviewTypeDocument.CONSTRUCTOR,
+                LinkPreviewTypeEmbeddedAnimationPlayer.CONSTRUCTOR,
+                LinkPreviewTypeEmbeddedAudioPlayer.CONSTRUCTOR,
+                LinkPreviewTypeEmbeddedVideoPlayer.CONSTRUCTOR,
+                LinkPreviewTypeInvoice.CONSTRUCTOR,
+                LinkPreviewTypeMessage.CONSTRUCTOR,
+                LinkPreviewTypePhoto.CONSTRUCTOR,
+                LinkPreviewTypePremiumGiftCode.CONSTRUCTOR,
+                LinkPreviewTypeShareableChatFolder.CONSTRUCTOR,
+                LinkPreviewTypeSticker.CONSTRUCTOR,
+                LinkPreviewTypeStickerSet.CONSTRUCTOR,
+                LinkPreviewTypeStory.CONSTRUCTOR,
+                LinkPreviewTypeSupergroupBoost.CONSTRUCTOR,
+                LinkPreviewTypeTheme.CONSTRUCTOR,
+                LinkPreviewTypeUnsupported.CONSTRUCTOR,
+                LinkPreviewTypeUser.CONSTRUCTOR,
+                LinkPreviewTypeVideo.CONSTRUCTOR,
+                LinkPreviewTypeVideoChat.CONSTRUCTOR,
+                LinkPreviewTypeVideoNote.CONSTRUCTOR,
+                LinkPreviewTypeVoiceNote.CONSTRUCTOR,
+                LinkPreviewTypeWebApp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public LinkPreviewType() {
@@ -30795,7 +33073,7 @@ public class TdApi {
         /**
          * Article's main photo; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
         /**
          * Author of the article.
          */
@@ -30847,7 +33125,7 @@ public class TdApi {
         /**
          * The audio description; may be null if unknown.
          */
-        public Audio audio;
+        @Nullable public Audio audio;
         /**
          * Duration of the audio, in seconds; 0 if unknown.
          */
@@ -30901,11 +33179,11 @@ public class TdApi {
         /**
          * Document with the background; may be null for filled backgrounds.
          */
-        public Document document;
+        @Nullable public Document document;
         /**
          * Type of the background; may be null if unknown.
          */
-        public BackgroundType backgroundType;
+        @Nullable public BackgroundType backgroundType;
 
         /**
          * The link is a link to a background. Link preview title and description are available only for filled backgrounds.
@@ -30945,7 +33223,7 @@ public class TdApi {
         /**
          * Photo of the chat; may be null.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
 
         /**
          * The link is a link to boost a channel chat.
@@ -30987,7 +33265,7 @@ public class TdApi {
         /**
          * Photo of the chat; may be null.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
         /**
          * True, if the link only creates join request.
          */
@@ -31081,7 +33359,7 @@ public class TdApi {
         /**
          * Thumbnail of the animation; may be null if unknown.
          */
-        public Photo thumbnail;
+        @Nullable public Photo thumbnail;
         /**
          * Duration of the animation, in seconds.
          */
@@ -31149,7 +33427,7 @@ public class TdApi {
         /**
          * Thumbnail of the audio; may be null if unknown.
          */
-        public Photo thumbnail;
+        @Nullable public Photo thumbnail;
         /**
          * Duration of the audio, in seconds.
          */
@@ -31217,7 +33495,7 @@ public class TdApi {
         /**
          * Thumbnail of the video; may be null if unknown.
          */
-        public Photo thumbnail;
+        @Nullable public Photo thumbnail;
         /**
          * Duration of the video, in seconds.
          */
@@ -31545,7 +33823,7 @@ public class TdApi {
         /**
          * Photo of the chat; may be null.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
 
         /**
          * The link is a link to boost a supergroup chat.
@@ -31652,7 +33930,7 @@ public class TdApi {
         /**
          * Photo of the user; may be null if none.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
         /**
          * True, if the user is a bot.
          */
@@ -31704,7 +33982,7 @@ public class TdApi {
         /**
          * The video description; may be null if unknown.
          */
-        public Video video;
+        @Nullable public Video video;
         /**
          * Expected width of the preview.
          */
@@ -31770,7 +34048,7 @@ public class TdApi {
         /**
          * Photo of the chat with the video chat; may be null if none.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
         /**
          * True, if the video chat is expected to be a live stream in a channel or a broadcast group.
          */
@@ -32151,6 +34429,23 @@ public class TdApi {
      */
     public abstract static class LogStream extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                LogStreamDefault.CONSTRUCTOR,
+                LogStreamFile.CONSTRUCTOR,
+                LogStreamEmpty.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public LogStream() {
@@ -32339,6 +34634,22 @@ public class TdApi {
      */
     public abstract static class LoginUrlInfo extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                LoginUrlInfoOpen.CONSTRUCTOR,
+                LoginUrlInfoRequestConfirmation.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public LoginUrlInfo() {
@@ -32494,6 +34805,24 @@ public class TdApi {
      * Part of the face, relative to which a mask is placed.
      */
     public abstract static class MaskPoint extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MaskPointForehead.CONSTRUCTOR,
+                MaskPointEyes.CONSTRUCTOR,
+                MaskPointMouth.CONSTRUCTOR,
+                MaskPointChin.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -32676,11 +35005,11 @@ public class TdApi {
         /**
          * The sending state of the message; may be null if the message isn't being sent and didn't fail to be sent.
          */
-        public MessageSendingState sendingState;
+        @Nullable public MessageSendingState sendingState;
         /**
          * The scheduling state of the message; may be null if the message isn't scheduled.
          */
-        public MessageSchedulingState schedulingState;
+        @Nullable public MessageSchedulingState schedulingState;
         /**
          * True, if the message is outgoing.
          */
@@ -32724,15 +35053,15 @@ public class TdApi {
         /**
          * Information about the initial message sender; may be null if none or unknown.
          */
-        public MessageForwardInfo forwardInfo;
+        @Nullable public MessageForwardInfo forwardInfo;
         /**
          * Information about the initial message for messages created with importMessages; may be null if the message isn't imported.
          */
-        public MessageImportInfo importInfo;
+        @Nullable public MessageImportInfo importInfo;
         /**
          * Information about interactions with the message; may be null if none.
          */
-        public MessageInteractionInfo interactionInfo;
+        @Nullable public MessageInteractionInfo interactionInfo;
         /**
          * Information about unread reactions added to the message.
          */
@@ -32740,11 +35069,11 @@ public class TdApi {
         /**
          * Information about fact-check added to the message; may be null if none.
          */
-        public FactCheck factCheck;
+        @Nullable public FactCheck factCheck;
         /**
          * Information about the message or the story this message is replying to; may be null if none.
          */
-        public MessageReplyTo replyTo;
+        @Nullable public MessageReplyTo replyTo;
         /**
          * If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs.
          */
@@ -32756,7 +35085,7 @@ public class TdApi {
         /**
          * The message's self-destruct type; may be null if none.
          */
-        public MessageSelfDestructType selfDestructType;
+        @Nullable public MessageSelfDestructType selfDestructType;
         /**
          * Time left before the message self-destruct timer expires, in seconds; 0 if self-destruction isn't scheduled yet.
          */
@@ -32804,7 +35133,7 @@ public class TdApi {
         /**
          * Reply markup for the message; may be null if none.
          */
-        public ReplyMarkup replyMarkup;
+        @Nullable public ReplyMarkup replyMarkup;
 
         /**
          * Describes a message.
@@ -33037,6 +35366,92 @@ public class TdApi {
      */
     public abstract static class MessageContent extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageText.CONSTRUCTOR,
+                MessageAnimation.CONSTRUCTOR,
+                MessageAudio.CONSTRUCTOR,
+                MessageDocument.CONSTRUCTOR,
+                MessagePaidMedia.CONSTRUCTOR,
+                MessagePhoto.CONSTRUCTOR,
+                MessageSticker.CONSTRUCTOR,
+                MessageVideo.CONSTRUCTOR,
+                MessageVideoNote.CONSTRUCTOR,
+                MessageVoiceNote.CONSTRUCTOR,
+                MessageExpiredPhoto.CONSTRUCTOR,
+                MessageExpiredVideo.CONSTRUCTOR,
+                MessageExpiredVideoNote.CONSTRUCTOR,
+                MessageExpiredVoiceNote.CONSTRUCTOR,
+                MessageLocation.CONSTRUCTOR,
+                MessageVenue.CONSTRUCTOR,
+                MessageContact.CONSTRUCTOR,
+                MessageAnimatedEmoji.CONSTRUCTOR,
+                MessageDice.CONSTRUCTOR,
+                MessageGame.CONSTRUCTOR,
+                MessagePoll.CONSTRUCTOR,
+                MessageStory.CONSTRUCTOR,
+                MessageInvoice.CONSTRUCTOR,
+                MessageCall.CONSTRUCTOR,
+                MessageVideoChatScheduled.CONSTRUCTOR,
+                MessageVideoChatStarted.CONSTRUCTOR,
+                MessageVideoChatEnded.CONSTRUCTOR,
+                MessageInviteVideoChatParticipants.CONSTRUCTOR,
+                MessageBasicGroupChatCreate.CONSTRUCTOR,
+                MessageSupergroupChatCreate.CONSTRUCTOR,
+                MessageChatChangeTitle.CONSTRUCTOR,
+                MessageChatChangePhoto.CONSTRUCTOR,
+                MessageChatDeletePhoto.CONSTRUCTOR,
+                MessageChatAddMembers.CONSTRUCTOR,
+                MessageChatJoinByLink.CONSTRUCTOR,
+                MessageChatJoinByRequest.CONSTRUCTOR,
+                MessageChatDeleteMember.CONSTRUCTOR,
+                MessageChatUpgradeTo.CONSTRUCTOR,
+                MessageChatUpgradeFrom.CONSTRUCTOR,
+                MessagePinMessage.CONSTRUCTOR,
+                MessageScreenshotTaken.CONSTRUCTOR,
+                MessageChatSetBackground.CONSTRUCTOR,
+                MessageChatSetTheme.CONSTRUCTOR,
+                MessageChatSetMessageAutoDeleteTime.CONSTRUCTOR,
+                MessageChatBoost.CONSTRUCTOR,
+                MessageForumTopicCreated.CONSTRUCTOR,
+                MessageForumTopicEdited.CONSTRUCTOR,
+                MessageForumTopicIsClosedToggled.CONSTRUCTOR,
+                MessageForumTopicIsHiddenToggled.CONSTRUCTOR,
+                MessageSuggestProfilePhoto.CONSTRUCTOR,
+                MessageCustomServiceAction.CONSTRUCTOR,
+                MessageGameScore.CONSTRUCTOR,
+                MessagePaymentSuccessful.CONSTRUCTOR,
+                MessagePaymentSuccessfulBot.CONSTRUCTOR,
+                MessagePaymentRefunded.CONSTRUCTOR,
+                MessageGiftedPremium.CONSTRUCTOR,
+                MessagePremiumGiftCode.CONSTRUCTOR,
+                MessagePremiumGiveawayCreated.CONSTRUCTOR,
+                MessagePremiumGiveaway.CONSTRUCTOR,
+                MessagePremiumGiveawayCompleted.CONSTRUCTOR,
+                MessagePremiumGiveawayWinners.CONSTRUCTOR,
+                MessageGiftedStars.CONSTRUCTOR,
+                MessageContactRegistered.CONSTRUCTOR,
+                MessageUsersShared.CONSTRUCTOR,
+                MessageChatShared.CONSTRUCTOR,
+                MessageBotWriteAccessAllowed.CONSTRUCTOR,
+                MessageWebAppDataSent.CONSTRUCTOR,
+                MessageWebAppDataReceived.CONSTRUCTOR,
+                MessagePassportDataSent.CONSTRUCTOR,
+                MessagePassportDataReceived.CONSTRUCTOR,
+                MessageProximityAlertTriggered.CONSTRUCTOR,
+                MessageUnsupported.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public MessageContent() {
@@ -33054,11 +35469,11 @@ public class TdApi {
         /**
          * A link preview attached to the message; may be null.
          */
-        public LinkPreview linkPreview;
+        @Nullable public LinkPreview linkPreview;
         /**
          * Options which were used for generation of the link preview; may be null if default options were used.
          */
-        public LinkPreviewOptions linkPreviewOptions;
+        @Nullable public LinkPreviewOptions linkPreviewOptions;
 
         /**
          * A text message.
@@ -33856,11 +36271,11 @@ public class TdApi {
         /**
          * The animated stickers with the initial dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker became known.
          */
-        public DiceStickers initialState;
+        @Nullable public DiceStickers initialState;
         /**
          * The animated stickers with the final dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker became known.
          */
-        public DiceStickers finalState;
+        @Nullable public DiceStickers finalState;
         /**
          * Emoji on which the dice throw animation is based.
          */
@@ -34072,11 +36487,11 @@ public class TdApi {
         /**
          * Extended media attached to the invoice; may be null if none.
          */
-        public PaidMedia paidMedia;
+        @Nullable public PaidMedia paidMedia;
         /**
          * Extended media caption; may be null if none.
          */
-        public FormattedText paidMediaCaption;
+        @Nullable public FormattedText paidMediaCaption;
 
         /**
          * A message with an invoice from a bot. Use getInternalLink with internalLinkTypeBotStart to share the invoice.
@@ -35362,7 +37777,7 @@ public class TdApi {
         /**
          * Information about the order; may be null.
          */
-        public OrderInfo orderInfo;
+        @Nullable public OrderInfo orderInfo;
         /**
          * Telegram payment identifier.
          */
@@ -35520,7 +37935,7 @@ public class TdApi {
         /**
          * A sticker to be shown in the message; may be null if unknown.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
 
         /**
          * Telegram Premium was gifted to a user.
@@ -35572,7 +37987,7 @@ public class TdApi {
         /**
          * Identifier of a chat or a user that created the gift code; may be null if unknown.
          */
-        public MessageSender creatorId;
+        @Nullable public MessageSender creatorId;
         /**
          * True, if the gift code was created for a giveaway.
          */
@@ -35604,7 +38019,7 @@ public class TdApi {
         /**
          * A sticker to be shown in the message; may be null if unknown.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
         /**
          * The gift code.
          */
@@ -35701,7 +38116,7 @@ public class TdApi {
         /**
          * A sticker to be shown in the message; may be null if unknown.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
 
         /**
          * A Telegram Premium giveaway.
@@ -35925,7 +38340,7 @@ public class TdApi {
         /**
          * A sticker to be shown in the message; may be null if unknown.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
 
         /**
          * Telegram Stars were gifted to a user.
@@ -36429,7 +38844,7 @@ public class TdApi {
         /**
          * Static icon for the effect in WEBP format; may be null if none.
          */
-        public Sticker staticIcon;
+        @Nullable public Sticker staticIcon;
         /**
          * Emoji corresponding to the effect that can be used if static icon isn't available.
          */
@@ -36485,6 +38900,22 @@ public class TdApi {
      * Describes type of emoji effect.
      */
     public abstract static class MessageEffectType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageEffectTypeEmojiReaction.CONSTRUCTOR,
+                MessageEffectTypePremiumSticker.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -36579,6 +39010,23 @@ public class TdApi {
      * Contains information about a file with messages exported from another app.
      */
     public abstract static class MessageFileType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageFileTypePrivate.CONSTRUCTOR,
+                MessageFileTypeGroup.CONSTRUCTOR,
+                MessageFileTypeUnknown.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -36702,7 +39150,7 @@ public class TdApi {
         /**
          * For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, information about the source message from which the message was forwarded last time; may be null for other forwards or if unknown.
          */
-        public ForwardSource source;
+        @Nullable public ForwardSource source;
         /**
          * The type of public service announcement for the forwarded message.
          */
@@ -36802,11 +39250,11 @@ public class TdApi {
         /**
          * Information about direct or indirect replies to the message; may be null. Currently, available only in channels with a discussion supergroup and discussion supergroups for messages, which are not replies itself.
          */
-        public MessageReplyInfo replyInfo;
+        @Nullable public MessageReplyInfo replyInfo;
         /**
          * The list of reactions or tags added to the message; may be null.
          */
-        public MessageReactions reactions;
+        @Nullable public MessageReactions reactions;
 
         /**
          * Contains information about interactions with a message.
@@ -36906,7 +39354,7 @@ public class TdApi {
         /**
          * If found, the linked message; may be null.
          */
-        public Message message;
+        @Nullable public Message message;
         /**
          * Timestamp from which the video/audio/video note/voice note/story playing must start, in seconds; 0 if not specified. The media can be in the message content or in its link preview.
          */
@@ -36960,6 +39408,24 @@ public class TdApi {
      * Contains information about the origin of a message.
      */
     public abstract static class MessageOrigin extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageOriginUser.CONSTRUCTOR,
+                MessageOriginHiddenUser.CONSTRUCTOR,
+                MessageOriginChat.CONSTRUCTOR,
+                MessageOriginChannel.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -37426,7 +39892,7 @@ public class TdApi {
         /**
          * Identifier of the message sender used by the current user to add the reaction; may be null if unknown or the reaction isn't chosen.
          */
-        public MessageSender usedSenderId;
+        @Nullable public MessageSender usedSenderId;
         /**
          * Identifiers of at most 3 recent message senders, added the reaction; available in private, basic group and supergroup chats.
          */
@@ -37530,6 +39996,25 @@ public class TdApi {
      * Describes read date of a recent outgoing message in a private chat.
      */
     public abstract static class MessageReadDate extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageReadDateRead.CONSTRUCTOR,
+                MessageReadDateUnread.CONSTRUCTOR,
+                MessageReadDateTooOld.CONSTRUCTOR,
+                MessageReadDateUserPrivacyRestricted.CONSTRUCTOR,
+                MessageReadDateMyPrivacyRestricted.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -37743,6 +40228,22 @@ public class TdApi {
      */
     public abstract static class MessageReplyTo extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageReplyToMessage.CONSTRUCTOR,
+                MessageReplyToStory.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public MessageReplyTo() {
@@ -37764,11 +40265,11 @@ public class TdApi {
         /**
          * Chosen quote from the replied message; may be null if none.
          */
-        public TextQuote quote;
+        @Nullable public TextQuote quote;
         /**
          * Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat.
          */
-        public MessageOrigin origin;
+        @Nullable public MessageOrigin origin;
         /**
          * Point in time (Unix timestamp) when the message was sent if the message was from another chat or topic; 0 for messages from the same chat.
          */
@@ -37776,7 +40277,7 @@ public class TdApi {
         /**
          * Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media. Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messagePremiumGiveaway, messagePremiumGiveawayWinners, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote.
          */
-        public MessageContent content;
+        @Nullable public MessageContent content;
 
         /**
          * Describes a message replied by a given message.
@@ -37867,6 +40368,22 @@ public class TdApi {
      */
     public abstract static class MessageSchedulingState extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageSchedulingStateSendAtDate.CONSTRUCTOR,
+                MessageSchedulingStateSendWhenOnline.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public MessageSchedulingState() {
@@ -37941,6 +40458,22 @@ public class TdApi {
      * Describes when a message will be self-destructed.
      */
     public abstract static class MessageSelfDestructType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageSelfDestructTypeTimer.CONSTRUCTOR,
+                MessageSelfDestructTypeImmediately.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -38097,6 +40630,22 @@ public class TdApi {
      */
     public abstract static class MessageSender extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageSenderUser.CONSTRUCTOR,
+                MessageSenderChat.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public MessageSender() {
@@ -38229,6 +40778,22 @@ public class TdApi {
      */
     public abstract static class MessageSendingState extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageSendingStatePending.CONSTRUCTOR,
+                MessageSendingStateFailed.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public MessageSendingState() {
@@ -38346,6 +40911,30 @@ public class TdApi {
      * Describes source of a message.
      */
     public abstract static class MessageSource extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                MessageSourceChatHistory.CONSTRUCTOR,
+                MessageSourceMessageThreadHistory.CONSTRUCTOR,
+                MessageSourceForumTopicHistory.CONSTRUCTOR,
+                MessageSourceHistoryPreview.CONSTRUCTOR,
+                MessageSourceChatList.CONSTRUCTOR,
+                MessageSourceSearch.CONSTRUCTOR,
+                MessageSourceChatEventLog.CONSTRUCTOR,
+                MessageSourceNotification.CONSTRUCTOR,
+                MessageSourceScreenshot.CONSTRUCTOR,
+                MessageSourceOther.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -38614,7 +41203,7 @@ public class TdApi {
         /**
          * Photo of the sponsor; may be null if must not be shown.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
         /**
          * Additional optional information about the sponsor to be shown along with the message.
          */
@@ -38712,7 +41301,7 @@ public class TdApi {
         /**
          * Information about the message thread; may be null for forum topic threads.
          */
-        public MessageReplyInfo replyInfo;
+        @Nullable public MessageReplyInfo replyInfo;
         /**
          * Approximate number of unread messages in the message thread.
          */
@@ -38724,7 +41313,7 @@ public class TdApi {
         /**
          * A draft of a message in the message thread; may be null if none.
          */
-        public DraftMessage draftMessage;
+        @Nullable public DraftMessage draftMessage;
 
         /**
          * Contains information about a message thread.
@@ -38991,6 +41580,22 @@ public class TdApi {
      */
     public abstract static class NetworkStatisticsEntry extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                NetworkStatisticsEntryFile.CONSTRUCTOR,
+                NetworkStatisticsEntryCall.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public NetworkStatisticsEntry() {
@@ -39114,6 +41719,25 @@ public class TdApi {
      * Represents the type of network.
      */
     public abstract static class NetworkType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                NetworkTypeNone.CONSTRUCTOR,
+                NetworkTypeMobile.CONSTRUCTOR,
+                NetworkTypeMobileRoaming.CONSTRUCTOR,
+                NetworkTypeWiFi.CONSTRUCTOR,
+                NetworkTypeOther.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -39408,6 +42032,24 @@ public class TdApi {
      */
     public abstract static class NotificationGroupType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                NotificationGroupTypeMessages.CONSTRUCTOR,
+                NotificationGroupTypeMentions.CONSTRUCTOR,
+                NotificationGroupTypeSecretChat.CONSTRUCTOR,
+                NotificationGroupTypeCalls.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public NotificationGroupType() {
@@ -39519,6 +42161,23 @@ public class TdApi {
      * Describes the types of chats to which notification settings are relevant.
      */
     public abstract static class NotificationSettingsScope extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                NotificationSettingsScopePrivateChats.CONSTRUCTOR,
+                NotificationSettingsScopeGroupChats.CONSTRUCTOR,
+                NotificationSettingsScopeChannelChats.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -39712,6 +42371,24 @@ public class TdApi {
      * Contains detailed information about a notification.
      */
     public abstract static class NotificationType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                NotificationTypeNewMessage.CONSTRUCTOR,
+                NotificationTypeNewSecretChat.CONSTRUCTOR,
+                NotificationTypeNewCall.CONSTRUCTOR,
+                NotificationTypeNewPushMessage.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -39919,6 +42596,24 @@ public class TdApi {
      */
     public abstract static class OptionValue extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                OptionValueBoolean.CONSTRUCTOR,
+                OptionValueEmpty.CONSTRUCTOR,
+                OptionValueInteger.CONSTRUCTOR,
+                OptionValueString.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public OptionValue() {
@@ -40083,7 +42778,7 @@ public class TdApi {
         /**
          * Shipping address for this order; may be null.
          */
-        public Address shippingAddress;
+        @Nullable public Address shippingAddress;
 
         /**
          * Order information.
@@ -40125,6 +42820,49 @@ public class TdApi {
      * Describes a block of an instant view for a web page.
      */
     public abstract static class PageBlock extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PageBlockTitle.CONSTRUCTOR,
+                PageBlockSubtitle.CONSTRUCTOR,
+                PageBlockAuthorDate.CONSTRUCTOR,
+                PageBlockHeader.CONSTRUCTOR,
+                PageBlockSubheader.CONSTRUCTOR,
+                PageBlockKicker.CONSTRUCTOR,
+                PageBlockParagraph.CONSTRUCTOR,
+                PageBlockPreformatted.CONSTRUCTOR,
+                PageBlockFooter.CONSTRUCTOR,
+                PageBlockDivider.CONSTRUCTOR,
+                PageBlockAnchor.CONSTRUCTOR,
+                PageBlockList.CONSTRUCTOR,
+                PageBlockBlockQuote.CONSTRUCTOR,
+                PageBlockPullQuote.CONSTRUCTOR,
+                PageBlockAnimation.CONSTRUCTOR,
+                PageBlockAudio.CONSTRUCTOR,
+                PageBlockPhoto.CONSTRUCTOR,
+                PageBlockVideo.CONSTRUCTOR,
+                PageBlockVoiceNote.CONSTRUCTOR,
+                PageBlockCover.CONSTRUCTOR,
+                PageBlockEmbedded.CONSTRUCTOR,
+                PageBlockEmbeddedPost.CONSTRUCTOR,
+                PageBlockCollage.CONSTRUCTOR,
+                PageBlockSlideshow.CONSTRUCTOR,
+                PageBlockChatLink.CONSTRUCTOR,
+                PageBlockTable.CONSTRUCTOR,
+                PageBlockDetails.CONSTRUCTOR,
+                PageBlockRelatedArticles.CONSTRUCTOR,
+                PageBlockMap.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -40682,7 +43420,7 @@ public class TdApi {
         /**
          * Animation file; may be null.
          */
-        public Animation animation;
+        @Nullable public Animation animation;
         /**
          * Animation caption.
          */
@@ -40732,7 +43470,7 @@ public class TdApi {
         /**
          * Audio file; may be null.
          */
-        public Audio audio;
+        @Nullable public Audio audio;
         /**
          * Audio file caption.
          */
@@ -40776,7 +43514,7 @@ public class TdApi {
         /**
          * Photo file; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
         /**
          * Photo caption.
          */
@@ -40826,7 +43564,7 @@ public class TdApi {
         /**
          * Video file; may be null.
          */
-        public Video video;
+        @Nullable public Video video;
         /**
          * Video caption.
          */
@@ -40882,7 +43620,7 @@ public class TdApi {
         /**
          * Voice note; may be null.
          */
-        public VoiceNote voiceNote;
+        @Nullable public VoiceNote voiceNote;
         /**
          * Voice note caption.
          */
@@ -40972,7 +43710,7 @@ public class TdApi {
         /**
          * Poster photo, if available; may be null.
          */
-        public Photo posterPhoto;
+        @Nullable public Photo posterPhoto;
         /**
          * Block width; 0 if unknown.
          */
@@ -41052,7 +43790,7 @@ public class TdApi {
         /**
          * Post author photo; may be null.
          */
-        public Photo authorPhoto;
+        @Nullable public Photo authorPhoto;
         /**
          * Point in time (Unix timestamp) when the post was created; 0 if unknown.
          */
@@ -41204,7 +43942,7 @@ public class TdApi {
         /**
          * Chat photo; may be null.
          */
-        public ChatPhotoInfo photo;
+        @Nullable public ChatPhotoInfo photo;
         /**
          * Identifier of the accent color for chat title and background of chat photo.
          */
@@ -41511,6 +44249,23 @@ public class TdApi {
      */
     public abstract static class PageBlockHorizontalAlignment extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PageBlockHorizontalAlignmentLeft.CONSTRUCTOR,
+                PageBlockHorizontalAlignmentCenter.CONSTRUCTOR,
+                PageBlockHorizontalAlignmentRight.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PageBlockHorizontalAlignment() {
@@ -41655,7 +44410,7 @@ public class TdApi {
         /**
          * Article photo; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
         /**
          * Article author; may be empty.
          */
@@ -41711,7 +44466,7 @@ public class TdApi {
         /**
          * Cell text; may be null. If the text is null, then the cell must be invisible.
          */
-        public RichText text;
+        @Nullable public RichText text;
         /**
          * True, if it is a header cell.
          */
@@ -41777,6 +44532,23 @@ public class TdApi {
      * Describes a Vertical alignment of a table cell content.
      */
     public abstract static class PageBlockVerticalAlignment extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PageBlockVerticalAlignmentTop.CONSTRUCTOR,
+                PageBlockVerticalAlignmentMiddle.CONSTRUCTOR,
+                PageBlockVerticalAlignmentBottom.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -41865,6 +44637,24 @@ public class TdApi {
      */
     public abstract static class PaidMedia extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PaidMediaPreview.CONSTRUCTOR,
+                PaidMediaPhoto.CONSTRUCTOR,
+                PaidMediaVideo.CONSTRUCTOR,
+                PaidMediaUnsupported.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PaidMedia() {
@@ -41890,7 +44680,7 @@ public class TdApi {
         /**
          * Media minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
 
         /**
          * The media is hidden until the invoice is paid.
@@ -42035,7 +44825,7 @@ public class TdApi {
         /**
          * Identifier of the user or chat that added the reactions; may be null for anonymous reactors that aren't the current user.
          */
-        public MessageSender senderId;
+        @Nullable public MessageSender senderId;
         /**
          * Number of Telegram Stars added.
          */
@@ -42145,6 +44935,33 @@ public class TdApi {
      * Contains information about a Telegram Passport element.
      */
     public abstract static class PassportElement extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PassportElementPersonalDetails.CONSTRUCTOR,
+                PassportElementPassport.CONSTRUCTOR,
+                PassportElementDriverLicense.CONSTRUCTOR,
+                PassportElementIdentityCard.CONSTRUCTOR,
+                PassportElementInternalPassport.CONSTRUCTOR,
+                PassportElementAddress.CONSTRUCTOR,
+                PassportElementUtilityBill.CONSTRUCTOR,
+                PassportElementBankStatement.CONSTRUCTOR,
+                PassportElementRentalAgreement.CONSTRUCTOR,
+                PassportElementPassportRegistration.CONSTRUCTOR,
+                PassportElementTemporaryRegistration.CONSTRUCTOR,
+                PassportElementPhoneNumber.CONSTRUCTOR,
+                PassportElementEmailAddress.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -42702,6 +45519,29 @@ public class TdApi {
      */
     public abstract static class PassportElementErrorSource extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PassportElementErrorSourceUnspecified.CONSTRUCTOR,
+                PassportElementErrorSourceDataField.CONSTRUCTOR,
+                PassportElementErrorSourceFrontSide.CONSTRUCTOR,
+                PassportElementErrorSourceReverseSide.CONSTRUCTOR,
+                PassportElementErrorSourceSelfie.CONSTRUCTOR,
+                PassportElementErrorSourceTranslationFile.CONSTRUCTOR,
+                PassportElementErrorSourceTranslationFiles.CONSTRUCTOR,
+                PassportElementErrorSourceFile.CONSTRUCTOR,
+                PassportElementErrorSourceFiles.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PassportElementErrorSource() {
@@ -42977,6 +45817,33 @@ public class TdApi {
      * Contains the type of Telegram Passport element.
      */
     public abstract static class PassportElementType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PassportElementTypePersonalDetails.CONSTRUCTOR,
+                PassportElementTypePassport.CONSTRUCTOR,
+                PassportElementTypeDriverLicense.CONSTRUCTOR,
+                PassportElementTypeIdentityCard.CONSTRUCTOR,
+                PassportElementTypeInternalPassport.CONSTRUCTOR,
+                PassportElementTypeAddress.CONSTRUCTOR,
+                PassportElementTypeUtilityBill.CONSTRUCTOR,
+                PassportElementTypeBankStatement.CONSTRUCTOR,
+                PassportElementTypeRentalAgreement.CONSTRUCTOR,
+                PassportElementTypePassportRegistration.CONSTRUCTOR,
+                PassportElementTypeTemporaryRegistration.CONSTRUCTOR,
+                PassportElementTypePhoneNumber.CONSTRUCTOR,
+                PassportElementTypeEmailAddress.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -43508,7 +46375,7 @@ public class TdApi {
         /**
          * Information about the recovery email address to which the confirmation email was sent; may be null.
          */
-        public EmailAddressAuthenticationCodeInfo recoveryEmailAddressCodeInfo;
+        @Nullable public EmailAddressAuthenticationCodeInfo recoveryEmailAddressCodeInfo;
         /**
          * Pattern of the email address set up for logging in.
          */
@@ -43621,6 +46488,22 @@ public class TdApi {
      */
     public abstract static class PaymentFormType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PaymentFormTypeRegular.CONSTRUCTOR,
+                PaymentFormTypeStars.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PaymentFormType() {
@@ -43650,7 +46533,7 @@ public class TdApi {
         /**
          * Saved server-side order information; may be null.
          */
-        public OrderInfo savedOrderInfo;
+        @Nullable public OrderInfo savedOrderInfo;
         /**
          * The list of saved payment credentials.
          */
@@ -43794,6 +46677,23 @@ public class TdApi {
      * Contains information about a payment provider.
      */
     public abstract static class PaymentProvider extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PaymentProviderSmartGlocal.CONSTRUCTOR,
+                PaymentProviderStripe.CONSTRUCTOR,
+                PaymentProviderOther.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -44001,6 +46901,22 @@ public class TdApi {
      */
     public abstract static class PaymentReceiptType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PaymentReceiptTypeRegular.CONSTRUCTOR,
+                PaymentReceiptTypeStars.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PaymentReceiptType() {
@@ -44022,11 +46938,11 @@ public class TdApi {
         /**
          * Order information; may be null.
          */
-        public OrderInfo orderInfo;
+        @Nullable public OrderInfo orderInfo;
         /**
          * Chosen shipping option; may be null.
          */
-        public ShippingOption shippingOption;
+        @Nullable public ShippingOption shippingOption;
         /**
          * Title of the saved credentials chosen by the buyer.
          */
@@ -44379,6 +47295,23 @@ public class TdApi {
      */
     public abstract static class PhoneNumberCodeType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PhoneNumberCodeTypeChange.CONSTRUCTOR,
+                PhoneNumberCodeTypeVerify.CONSTRUCTOR,
+                PhoneNumberCodeTypeConfirmOwnership.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PhoneNumberCodeType() {
@@ -44480,7 +47413,7 @@ public class TdApi {
         /**
          * Information about the country to which the phone number belongs; may be null.
          */
-        public CountryInfo country;
+        @Nullable public CountryInfo country;
         /**
          * The part of the phone number denoting country calling code or its part.
          */
@@ -44540,7 +47473,7 @@ public class TdApi {
         /**
          * Photo minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Available variants of the photo, in different sizes.
          */
@@ -44845,6 +47778,22 @@ public class TdApi {
      */
     public abstract static class PollType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PollTypeRegular.CONSTRUCTOR,
+                PollTypeQuiz.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PollType() {
@@ -44938,6 +47887,44 @@ public class TdApi {
      * Describes a feature available to Premium users.
      */
     public abstract static class PremiumFeature extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PremiumFeatureIncreasedLimits.CONSTRUCTOR,
+                PremiumFeatureIncreasedUploadFileSize.CONSTRUCTOR,
+                PremiumFeatureImprovedDownloadSpeed.CONSTRUCTOR,
+                PremiumFeatureVoiceRecognition.CONSTRUCTOR,
+                PremiumFeatureDisabledAds.CONSTRUCTOR,
+                PremiumFeatureUniqueReactions.CONSTRUCTOR,
+                PremiumFeatureUniqueStickers.CONSTRUCTOR,
+                PremiumFeatureCustomEmoji.CONSTRUCTOR,
+                PremiumFeatureAdvancedChatManagement.CONSTRUCTOR,
+                PremiumFeatureProfileBadge.CONSTRUCTOR,
+                PremiumFeatureEmojiStatus.CONSTRUCTOR,
+                PremiumFeatureAnimatedProfilePhoto.CONSTRUCTOR,
+                PremiumFeatureForumTopicIcon.CONSTRUCTOR,
+                PremiumFeatureAppIcons.CONSTRUCTOR,
+                PremiumFeatureRealTimeChatTranslation.CONSTRUCTOR,
+                PremiumFeatureUpgradedStories.CONSTRUCTOR,
+                PremiumFeatureChatBoost.CONSTRUCTOR,
+                PremiumFeatureAccentColor.CONSTRUCTOR,
+                PremiumFeatureBackgroundForBoth.CONSTRUCTOR,
+                PremiumFeatureSavedMessagesTags.CONSTRUCTOR,
+                PremiumFeatureMessagePrivacy.CONSTRUCTOR,
+                PremiumFeatureLastSeenTimes.CONSTRUCTOR,
+                PremiumFeatureBusiness.CONSTRUCTOR,
+                PremiumFeatureMessageEffects.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -45604,7 +48591,7 @@ public class TdApi {
         /**
          * An internal link to be opened to pay for Telegram Premium if store payment isn't possible; may be null if direct payment isn't available.
          */
-        public InternalLinkType paymentLink;
+        @Nullable public InternalLinkType paymentLink;
 
         /**
          * Contains information about features, available to Premium users.
@@ -45646,7 +48633,7 @@ public class TdApi {
         /**
          * Identifier of a chat or a user that created the gift code; may be null if unknown. If null and the code is from messagePremiumGiftCode message, then creatorId from the message can be used.
          */
-        public MessageSender creatorId;
+        @Nullable public MessageSender creatorId;
         /**
          * Point in time (Unix timestamp) when the code was created.
          */
@@ -45824,6 +48811,22 @@ public class TdApi {
      * Contains information about Telegram Premium giveaway.
      */
     public abstract static class PremiumGiveawayInfo extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PremiumGiveawayInfoOngoing.CONSTRUCTOR,
+                PremiumGiveawayInfoCompleted.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -46028,6 +49031,25 @@ public class TdApi {
      * Contains information about status of a user in a Telegram Premium giveaway.
      */
     public abstract static class PremiumGiveawayParticipantStatus extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PremiumGiveawayParticipantStatusEligible.CONSTRUCTOR,
+                PremiumGiveawayParticipantStatusParticipating.CONSTRUCTOR,
+                PremiumGiveawayParticipantStatusAlreadyWasMember.CONSTRUCTOR,
+                PremiumGiveawayParticipantStatusAdministrator.CONSTRUCTOR,
+                PremiumGiveawayParticipantStatusDisallowedCountry.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -46254,6 +49276,39 @@ public class TdApi {
      * Describes type of limit, increased for Premium users.
      */
     public abstract static class PremiumLimitType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PremiumLimitTypeSupergroupCount.CONSTRUCTOR,
+                PremiumLimitTypePinnedChatCount.CONSTRUCTOR,
+                PremiumLimitTypeCreatedPublicChatCount.CONSTRUCTOR,
+                PremiumLimitTypeSavedAnimationCount.CONSTRUCTOR,
+                PremiumLimitTypeFavoriteStickerCount.CONSTRUCTOR,
+                PremiumLimitTypeChatFolderCount.CONSTRUCTOR,
+                PremiumLimitTypeChatFolderChosenChatCount.CONSTRUCTOR,
+                PremiumLimitTypePinnedArchivedChatCount.CONSTRUCTOR,
+                PremiumLimitTypePinnedSavedMessagesTopicCount.CONSTRUCTOR,
+                PremiumLimitTypeCaptionLength.CONSTRUCTOR,
+                PremiumLimitTypeBioLength.CONSTRUCTOR,
+                PremiumLimitTypeChatFolderInviteLinkCount.CONSTRUCTOR,
+                PremiumLimitTypeShareableChatFolderCount.CONSTRUCTOR,
+                PremiumLimitTypeActiveStoryCount.CONSTRUCTOR,
+                PremiumLimitTypeWeeklySentStoryCount.CONSTRUCTOR,
+                PremiumLimitTypeMonthlySentStoryCount.CONSTRUCTOR,
+                PremiumLimitTypeStoryCaptionLength.CONSTRUCTOR,
+                PremiumLimitTypeStorySuggestedReactionAreaCount.CONSTRUCTOR,
+                PremiumLimitTypeSimilarChatCount.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -46763,7 +49818,7 @@ public class TdApi {
         /**
          * An internal link to be opened for buying Telegram Premium to the user if store payment isn't possible; may be null if direct payment isn't available.
          */
-        public InternalLinkType paymentLink;
+        @Nullable public InternalLinkType paymentLink;
 
         /**
          * Describes an option for buying Telegram Premium to a user.
@@ -46809,6 +49864,26 @@ public class TdApi {
      * Describes a source from which the Premium features screen is opened.
      */
     public abstract static class PremiumSource extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PremiumSourceLimitExceeded.CONSTRUCTOR,
+                PremiumSourceFeature.CONSTRUCTOR,
+                PremiumSourceBusinessFeature.CONSTRUCTOR,
+                PremiumSourceStoryFeature.CONSTRUCTOR,
+                PremiumSourceLink.CONSTRUCTOR,
+                PremiumSourceSettings.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -47149,6 +50224,27 @@ public class TdApi {
      */
     public abstract static class PremiumStoryFeature extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PremiumStoryFeaturePriorityOrder.CONSTRUCTOR,
+                PremiumStoryFeatureStealthMode.CONSTRUCTOR,
+                PremiumStoryFeaturePermanentViewsHistory.CONSTRUCTOR,
+                PremiumStoryFeatureCustomExpirationDuration.CONSTRUCTOR,
+                PremiumStoryFeatureSaveStories.CONSTRUCTOR,
+                PremiumStoryFeatureLinksAndFormatting.CONSTRUCTOR,
+                PremiumStoryFeatureVideoQuality.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PremiumStoryFeature() {
@@ -47401,7 +50497,7 @@ public class TdApi {
         /**
          * Product photo; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
 
         /**
          * Contains information about a product that can be paid with invoice.
@@ -47567,7 +50663,7 @@ public class TdApi {
         /**
          * User profile photo minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * True, if the photo has animated variant.
          */
@@ -47728,6 +50824,23 @@ public class TdApi {
      */
     public abstract static class ProxyType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ProxyTypeSocks5.CONSTRUCTOR,
+                ProxyTypeHttp.CONSTRUCTOR,
+                ProxyTypeMtproto.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ProxyType() {
@@ -47872,6 +50985,22 @@ public class TdApi {
      */
     public abstract static class PublicChatType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PublicChatTypeHasUsername.CONSTRUCTOR,
+                PublicChatTypeIsLocationBased.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PublicChatType() {
@@ -47933,6 +51062,22 @@ public class TdApi {
      * Describes a public forward or repost of a story.
      */
     public abstract static class PublicForward extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PublicForwardMessage.CONSTRUCTOR,
+                PublicForwardStory.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -48072,6 +51217,55 @@ public class TdApi {
      */
     public abstract static class PushMessageContent extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                PushMessageContentHidden.CONSTRUCTOR,
+                PushMessageContentAnimation.CONSTRUCTOR,
+                PushMessageContentAudio.CONSTRUCTOR,
+                PushMessageContentContact.CONSTRUCTOR,
+                PushMessageContentContactRegistered.CONSTRUCTOR,
+                PushMessageContentDocument.CONSTRUCTOR,
+                PushMessageContentGame.CONSTRUCTOR,
+                PushMessageContentGameScore.CONSTRUCTOR,
+                PushMessageContentInvoice.CONSTRUCTOR,
+                PushMessageContentLocation.CONSTRUCTOR,
+                PushMessageContentPaidMedia.CONSTRUCTOR,
+                PushMessageContentPhoto.CONSTRUCTOR,
+                PushMessageContentPoll.CONSTRUCTOR,
+                PushMessageContentPremiumGiftCode.CONSTRUCTOR,
+                PushMessageContentPremiumGiveaway.CONSTRUCTOR,
+                PushMessageContentScreenshotTaken.CONSTRUCTOR,
+                PushMessageContentSticker.CONSTRUCTOR,
+                PushMessageContentStory.CONSTRUCTOR,
+                PushMessageContentText.CONSTRUCTOR,
+                PushMessageContentVideo.CONSTRUCTOR,
+                PushMessageContentVideoNote.CONSTRUCTOR,
+                PushMessageContentVoiceNote.CONSTRUCTOR,
+                PushMessageContentBasicGroupChatCreate.CONSTRUCTOR,
+                PushMessageContentChatAddMembers.CONSTRUCTOR,
+                PushMessageContentChatChangePhoto.CONSTRUCTOR,
+                PushMessageContentChatChangeTitle.CONSTRUCTOR,
+                PushMessageContentChatSetBackground.CONSTRUCTOR,
+                PushMessageContentChatSetTheme.CONSTRUCTOR,
+                PushMessageContentChatDeleteMember.CONSTRUCTOR,
+                PushMessageContentChatJoinByLink.CONSTRUCTOR,
+                PushMessageContentChatJoinByRequest.CONSTRUCTOR,
+                PushMessageContentRecurringPayment.CONSTRUCTOR,
+                PushMessageContentSuggestProfilePhoto.CONSTRUCTOR,
+                PushMessageContentMessageForwards.CONSTRUCTOR,
+                PushMessageContentMediaAlbum.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public PushMessageContent() {
@@ -48123,7 +51317,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public Animation animation;
+        @Nullable public Animation animation;
         /**
          * Animation caption.
          */
@@ -48173,7 +51367,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public Audio audio;
+        @Nullable public Audio audio;
         /**
          * True, if the message is a pinned message with the specified content.
          */
@@ -48286,7 +51480,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public Document document;
+        @Nullable public Document document;
         /**
          * True, if the message is a pinned message with the specified content.
          */
@@ -48556,7 +51750,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
         /**
          * Photo caption.
          */
@@ -48775,7 +51969,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
         /**
          * Emoji corresponding to the sticker; may be empty.
          */
@@ -48907,7 +52101,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public Video video;
+        @Nullable public Video video;
         /**
          * Video caption.
          */
@@ -48963,7 +52157,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public VideoNote videoNote;
+        @Nullable public VideoNote videoNote;
         /**
          * True, if the message is a pinned message with the specified content.
          */
@@ -49007,7 +52201,7 @@ public class TdApi {
         /**
          * Message content; may be null.
          */
-        public VoiceNote voiceNote;
+        @Nullable public VoiceNote voiceNote;
         /**
          * True, if the message is a pinned message with the specified content.
          */
@@ -49570,7 +52764,7 @@ public class TdApi {
         /**
          * The sending state of the message; may be null if the message isn't being sent and didn't fail to be sent.
          */
-        public MessageSendingState sendingState;
+        @Nullable public MessageSendingState sendingState;
         /**
          * True, if the message can be edited.
          */
@@ -49594,7 +52788,7 @@ public class TdApi {
         /**
          * Inline keyboard reply markup for the message; may be null if none.
          */
-        public ReplyMarkup replyMarkup;
+        @Nullable public ReplyMarkup replyMarkup;
 
         /**
          * Describes a message that can be used for quick reply.
@@ -49795,6 +52989,23 @@ public class TdApi {
      */
     public abstract static class ReactionNotificationSource extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ReactionNotificationSourceNone.CONSTRUCTOR,
+                ReactionNotificationSourceContacts.CONSTRUCTOR,
+                ReactionNotificationSourceAll.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ReactionNotificationSource() {
@@ -49881,6 +53092,23 @@ public class TdApi {
      * Describes type of message reaction.
      */
     public abstract static class ReactionType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ReactionTypeEmoji.CONSTRUCTOR,
+                ReactionTypeCustomEmoji.CONSTRUCTOR,
+                ReactionTypePaid.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -49994,6 +53222,22 @@ public class TdApi {
      * Describes why the current user can't add reactions to the message, despite some other users can.
      */
     public abstract static class ReactionUnavailabilityReason extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ReactionUnavailabilityReasonAnonymousAdministrator.CONSTRUCTOR,
+                ReactionUnavailabilityReasonGuest.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -50277,6 +53521,24 @@ public class TdApi {
      */
     public abstract static class ReplyMarkup extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ReplyMarkupRemoveKeyboard.CONSTRUCTOR,
+                ReplyMarkupForceReply.CONSTRUCTOR,
+                ReplyMarkupShowKeyboard.CONSTRUCTOR,
+                ReplyMarkupInlineKeyboard.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ReplyMarkup() {
@@ -50521,6 +53783,25 @@ public class TdApi {
      */
     public abstract static class ReportChatSponsoredMessageResult extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ReportChatSponsoredMessageResultOk.CONSTRUCTOR,
+                ReportChatSponsoredMessageResultFailed.CONSTRUCTOR,
+                ReportChatSponsoredMessageResultOptionRequired.CONSTRUCTOR,
+                ReportChatSponsoredMessageResultAdsHidden.CONSTRUCTOR,
+                ReportChatSponsoredMessageResultPremiumRequired.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ReportChatSponsoredMessageResult() {
@@ -50676,6 +53957,30 @@ public class TdApi {
      * Describes the reason why a chat is reported.
      */
     public abstract static class ReportReason extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ReportReasonSpam.CONSTRUCTOR,
+                ReportReasonViolence.CONSTRUCTOR,
+                ReportReasonPornography.CONSTRUCTOR,
+                ReportReasonChildAbuse.CONSTRUCTOR,
+                ReportReasonCopyright.CONSTRUCTOR,
+                ReportReasonUnrelatedLocation.CONSTRUCTOR,
+                ReportReasonFake.CONSTRUCTOR,
+                ReportReasonIllegalDrugs.CONSTRUCTOR,
+                ReportReasonPersonalDetails.CONSTRUCTOR,
+                ReportReasonCustom.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -50939,6 +54244,22 @@ public class TdApi {
      */
     public abstract static class ResendCodeReason extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ResendCodeReasonUserRequest.CONSTRUCTOR,
+                ResendCodeReasonVerificationFailed.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public ResendCodeReason() {
@@ -51013,6 +54334,23 @@ public class TdApi {
      * Represents result of 2-step verification password reset.
      */
     public abstract static class ResetPasswordResult extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ResetPasswordResultOk.CONSTRUCTOR,
+                ResetPasswordResultPending.CONSTRUCTOR,
+                ResetPasswordResultDeclined.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -51127,6 +54465,23 @@ public class TdApi {
      */
     public abstract static class RevenueWithdrawalState extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                RevenueWithdrawalStatePending.CONSTRUCTOR,
+                RevenueWithdrawalStateSucceeded.CONSTRUCTOR,
+                RevenueWithdrawalStateFailed.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public RevenueWithdrawalState() {
@@ -51232,6 +54587,37 @@ public class TdApi {
      * Describes a formatted text object.
      */
     public abstract static class RichText extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                RichTextPlain.CONSTRUCTOR,
+                RichTextBold.CONSTRUCTOR,
+                RichTextItalic.CONSTRUCTOR,
+                RichTextUnderline.CONSTRUCTOR,
+                RichTextStrikethrough.CONSTRUCTOR,
+                RichTextFixed.CONSTRUCTOR,
+                RichTextUrl.CONSTRUCTOR,
+                RichTextEmailAddress.CONSTRUCTOR,
+                RichTextSubscript.CONSTRUCTOR,
+                RichTextSuperscript.CONSTRUCTOR,
+                RichTextMarked.CONSTRUCTOR,
+                RichTextPhoneNumber.CONSTRUCTOR,
+                RichTextIcon.CONSTRUCTOR,
+                RichTextReference.CONSTRUCTOR,
+                RichTextAnchor.CONSTRUCTOR,
+                RichTextAnchorLink.CONSTRUCTOR,
+                RichTexts.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -52144,11 +55530,11 @@ public class TdApi {
         /**
          * Last message in the topic; may be null if none or unknown.
          */
-        public Message lastMessage;
+        @Nullable public Message lastMessage;
         /**
          * A draft of a message in the topic; may be null if none.
          */
-        public DraftMessage draftMessage;
+        @Nullable public DraftMessage draftMessage;
 
         /**
          * Contains information about a Saved Messages topic.
@@ -52194,6 +55580,23 @@ public class TdApi {
      * Describes type of Saved Messages topic.
      */
     public abstract static class SavedMessagesTopicType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SavedMessagesTopicTypeMyNotes.CONSTRUCTOR,
+                SavedMessagesTopicTypeAuthorHidden.CONSTRUCTOR,
+                SavedMessagesTopicTypeSavedFromChat.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -52430,6 +55833,37 @@ public class TdApi {
      * Represents a filter for message search results.
      */
     public abstract static class SearchMessagesFilter extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SearchMessagesFilterEmpty.CONSTRUCTOR,
+                SearchMessagesFilterAnimation.CONSTRUCTOR,
+                SearchMessagesFilterAudio.CONSTRUCTOR,
+                SearchMessagesFilterDocument.CONSTRUCTOR,
+                SearchMessagesFilterPhoto.CONSTRUCTOR,
+                SearchMessagesFilterVideo.CONSTRUCTOR,
+                SearchMessagesFilterVoiceNote.CONSTRUCTOR,
+                SearchMessagesFilterPhotoAndVideo.CONSTRUCTOR,
+                SearchMessagesFilterUrl.CONSTRUCTOR,
+                SearchMessagesFilterChatPhoto.CONSTRUCTOR,
+                SearchMessagesFilterVideoNote.CONSTRUCTOR,
+                SearchMessagesFilterVoiceAndVideoNote.CONSTRUCTOR,
+                SearchMessagesFilterMention.CONSTRUCTOR,
+                SearchMessagesFilterUnreadMention.CONSTRUCTOR,
+                SearchMessagesFilterUnreadReaction.CONSTRUCTOR,
+                SearchMessagesFilterFailedToSend.CONSTRUCTOR,
+                SearchMessagesFilterPinned.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -52974,6 +56408,23 @@ public class TdApi {
      */
     public abstract static class SecretChatState extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SecretChatStatePending.CONSTRUCTOR,
+                SecretChatStateReady.CONSTRUCTOR,
+                SecretChatStateClosed.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public SecretChatState() {
@@ -53238,6 +56689,37 @@ public class TdApi {
      * Represents the type of session.
      */
     public abstract static class SessionType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SessionTypeAndroid.CONSTRUCTOR,
+                SessionTypeApple.CONSTRUCTOR,
+                SessionTypeBrave.CONSTRUCTOR,
+                SessionTypeChrome.CONSTRUCTOR,
+                SessionTypeEdge.CONSTRUCTOR,
+                SessionTypeFirefox.CONSTRUCTOR,
+                SessionTypeIpad.CONSTRUCTOR,
+                SessionTypeIphone.CONSTRUCTOR,
+                SessionTypeLinux.CONSTRUCTOR,
+                SessionTypeMac.CONSTRUCTOR,
+                SessionTypeOpera.CONSTRUCTOR,
+                SessionTypeSafari.CONSTRUCTOR,
+                SessionTypeUbuntu.CONSTRUCTOR,
+                SessionTypeUnknown.CONSTRUCTOR,
+                SessionTypeVivaldi.CONSTRUCTOR,
+                SessionTypeWindows.CONSTRUCTOR,
+                SessionTypeXbox.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -53733,7 +57215,7 @@ public class TdApi {
         /**
          * Photo of the chat; for bots only; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
 
         /**
          * Contains information about a chat shared with a bot.
@@ -53793,7 +57275,7 @@ public class TdApi {
         /**
          * Profile photo of the user; for bots only; may be null.
          */
-        public Photo photo;
+        @Nullable public Photo photo;
 
         /**
          * Contains information about a user shared with a bot.
@@ -53887,6 +57369,23 @@ public class TdApi {
      * Describes result of speech recognition in a voice note.
      */
     public abstract static class SpeechRecognitionResult extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SpeechRecognitionResultPending.CONSTRUCTOR,
+                SpeechRecognitionResultText.CONSTRUCTOR,
+                SpeechRecognitionResultError.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -54604,6 +58103,22 @@ public class TdApi {
      */
     public abstract static class StarTransactionDirection extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StarTransactionDirectionIncoming.CONSTRUCTOR,
+                StarTransactionDirectionOutgoing.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public StarTransactionDirection() {
@@ -54665,6 +58180,30 @@ public class TdApi {
      * Describes source or recipient of a transaction with Telegram Stars.
      */
     public abstract static class StarTransactionPartner extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StarTransactionPartnerTelegram.CONSTRUCTOR,
+                StarTransactionPartnerAppStore.CONSTRUCTOR,
+                StarTransactionPartnerGooglePlay.CONSTRUCTOR,
+                StarTransactionPartnerFragment.CONSTRUCTOR,
+                StarTransactionPartnerTelegramAds.CONSTRUCTOR,
+                StarTransactionPartnerBot.CONSTRUCTOR,
+                StarTransactionPartnerBusiness.CONSTRUCTOR,
+                StarTransactionPartnerChannel.CONSTRUCTOR,
+                StarTransactionPartnerUser.CONSTRUCTOR,
+                StarTransactionPartnerUnsupported.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -54754,7 +58293,7 @@ public class TdApi {
         /**
          * State of the withdrawal; may be null for refunds from Fragment.
          */
-        public RevenueWithdrawalState withdrawalState;
+        @Nullable public RevenueWithdrawalState withdrawalState;
 
         /**
          * The transaction is a transaction with Fragment.
@@ -54953,7 +58492,7 @@ public class TdApi {
         /**
          * A sticker to be shown in the transaction information; may be null if unknown.
          */
-        public Sticker sticker;
+        @Nullable public Sticker sticker;
 
         /**
          * The transaction is a gift of Telegram Stars from another user.
@@ -55066,6 +58605,23 @@ public class TdApi {
      * Describes a statistical graph.
      */
     public abstract static class StatisticalGraph extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StatisticalGraphData.CONSTRUCTOR,
+                StatisticalGraphAsync.CONSTRUCTOR,
+                StatisticalGraphError.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -55282,7 +58838,7 @@ public class TdApi {
         /**
          * Sticker thumbnail in WEBP or JPEG format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * File containing the sticker.
          */
@@ -55340,6 +58896,23 @@ public class TdApi {
      * Describes format of a sticker.
      */
     public abstract static class StickerFormat extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StickerFormatWebp.CONSTRUCTOR,
+                StickerFormatTgs.CONSTRUCTOR,
+                StickerFormatWebm.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -55428,6 +59001,23 @@ public class TdApi {
      */
     public abstract static class StickerFullType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StickerFullTypeRegular.CONSTRUCTOR,
+                StickerFullTypeMask.CONSTRUCTOR,
+                StickerFullTypeCustomEmoji.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public StickerFullType() {
@@ -55441,7 +59031,7 @@ public class TdApi {
         /**
          * Premium animation of the sticker; may be null. If present, only Telegram Premium users can use the sticker.
          */
-        public File premiumAnimation;
+        @Nullable public File premiumAnimation;
 
         /**
          * The sticker is a regular sticker.
@@ -55479,7 +59069,7 @@ public class TdApi {
         /**
          * Position where the mask is placed; may be null.
          */
-        public MaskPosition maskPosition;
+        @Nullable public MaskPosition maskPosition;
 
         /**
          * The sticker is a mask in WEBP format to be placed on photos or videos.
@@ -55573,7 +59163,7 @@ public class TdApi {
         /**
          * Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
          */
@@ -55695,7 +59285,7 @@ public class TdApi {
         /**
          * Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
          */
@@ -55847,6 +59437,23 @@ public class TdApi {
      * Describes type of sticker.
      */
     public abstract static class StickerType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StickerTypeRegular.CONSTRUCTOR,
+                StickerTypeMask.CONSTRUCTOR,
+                StickerTypeCustomEmoji.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -56190,6 +59797,26 @@ public class TdApi {
      * Describes a purpose of an in-store payment.
      */
     public abstract static class StorePaymentPurpose extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StorePaymentPurposePremiumSubscription.CONSTRUCTOR,
+                StorePaymentPurposeGiftedPremium.CONSTRUCTOR,
+                StorePaymentPurposePremiumGiftCodes.CONSTRUCTOR,
+                StorePaymentPurposePremiumGiveaway.CONSTRUCTOR,
+                StorePaymentPurposeStars.CONSTRUCTOR,
+                StorePaymentPurposeGiftedStars.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -56568,7 +60195,7 @@ public class TdApi {
         /**
          * Identifier of the sender of the story; may be null if the story is posted on behalf of the senderChatId.
          */
-        public MessageSender senderId;
+        @Nullable public MessageSender senderId;
         /**
          * Point in time (Unix timestamp) when the story was published.
          */
@@ -56628,15 +60255,15 @@ public class TdApi {
         /**
          * Information about the original story; may be null if the story wasn't reposted.
          */
-        public StoryRepostInfo repostInfo;
+        @Nullable public StoryRepostInfo repostInfo;
         /**
          * Information about interactions with the story; may be null if the story isn't owned or there were no interactions.
          */
-        public StoryInteractionInfo interactionInfo;
+        @Nullable public StoryInteractionInfo interactionInfo;
         /**
          * Type of the chosen reaction; may be null if none.
          */
-        public ReactionType chosenReactionType;
+        @Nullable public ReactionType chosenReactionType;
         /**
          * Privacy rules affecting story visibility; may be approximate for non-owned stories.
          */
@@ -56847,6 +60474,26 @@ public class TdApi {
      */
     public abstract static class StoryAreaType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StoryAreaTypeLocation.CONSTRUCTOR,
+                StoryAreaTypeVenue.CONSTRUCTOR,
+                StoryAreaTypeSuggestedReaction.CONSTRUCTOR,
+                StoryAreaTypeMessage.CONSTRUCTOR,
+                StoryAreaTypeLink.CONSTRUCTOR,
+                StoryAreaTypeWeather.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public StoryAreaType() {
@@ -56864,7 +60511,7 @@ public class TdApi {
         /**
          * Address of the location; may be null if unknown.
          */
-        public LocationAddress address;
+        @Nullable public LocationAddress address;
 
         /**
          * An area pointing to a location.
@@ -57129,6 +60776,23 @@ public class TdApi {
      */
     public abstract static class StoryContent extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StoryContentPhoto.CONSTRUCTOR,
+                StoryContentVideo.CONSTRUCTOR,
+                StoryContentUnsupported.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public StoryContent() {
@@ -57184,7 +60848,7 @@ public class TdApi {
         /**
          * Alternative version of the video in MPEG4 format, encoded by x264 codec; may be null.
          */
-        public StoryVideo alternativeVideo;
+        @Nullable public StoryVideo alternativeVideo;
 
         /**
          * A video story.
@@ -57351,7 +61015,7 @@ public class TdApi {
         /**
          * Block list to which the actor is added; may be null if none or for chat stories.
          */
-        public BlockList blockList;
+        @Nullable public BlockList blockList;
         /**
          * Type of the interaction.
          */
@@ -57454,6 +61118,23 @@ public class TdApi {
      */
     public abstract static class StoryInteractionType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StoryInteractionTypeView.CONSTRUCTOR,
+                StoryInteractionTypeForward.CONSTRUCTOR,
+                StoryInteractionTypeRepost.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public StoryInteractionType() {
@@ -57467,7 +61148,7 @@ public class TdApi {
         /**
          * Type of the reaction that was chosen by the viewer; may be null if none.
          */
-        public ReactionType chosenReactionType;
+        @Nullable public ReactionType chosenReactionType;
 
         /**
          * A view of the story.
@@ -57642,6 +61323,22 @@ public class TdApi {
      */
     public abstract static class StoryList extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StoryListMain.CONSTRUCTOR,
+                StoryListArchive.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public StoryList() {
@@ -57703,6 +61400,22 @@ public class TdApi {
      * Contains information about the origin of a story that was reposted.
      */
     public abstract static class StoryOrigin extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StoryOriginPublicStory.CONSTRUCTOR,
+                StoryOriginHiddenUser.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -57797,6 +61510,24 @@ public class TdApi {
      * Describes privacy settings of a story.
      */
     public abstract static class StoryPrivacySettings extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                StoryPrivacySettingsEveryone.CONSTRUCTOR,
+                StoryPrivacySettingsContacts.CONSTRUCTOR,
+                StoryPrivacySettingsCloseFriends.CONSTRUCTOR,
+                StoryPrivacySettingsSelectedUsers.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -58058,11 +61789,11 @@ public class TdApi {
         /**
          * Video minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Video thumbnail in JPEG or MPEG4 format; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * Size of file prefix, which is supposed to be preloaded, in bytes.
          */
@@ -58128,6 +61859,33 @@ public class TdApi {
      * Describes an action suggested to the current user.
      */
     public abstract static class SuggestedAction extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SuggestedActionEnableArchiveAndMuteNewChats.CONSTRUCTOR,
+                SuggestedActionCheckPassword.CONSTRUCTOR,
+                SuggestedActionCheckPhoneNumber.CONSTRUCTOR,
+                SuggestedActionViewChecksHint.CONSTRUCTOR,
+                SuggestedActionConvertToBroadcastGroup.CONSTRUCTOR,
+                SuggestedActionSetPassword.CONSTRUCTOR,
+                SuggestedActionUpgradePremium.CONSTRUCTOR,
+                SuggestedActionRestorePremium.CONSTRUCTOR,
+                SuggestedActionSubscribeToAnnualPremium.CONSTRUCTOR,
+                SuggestedActionGiftPremiumForChristmas.CONSTRUCTOR,
+                SuggestedActionSetBirthdate.CONSTRUCTOR,
+                SuggestedActionExtendPremium.CONSTRUCTOR,
+                SuggestedActionExtendStarSubscriptions.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -58510,7 +62268,7 @@ public class TdApi {
         /**
          * Usernames of the supergroup or channel; may be null.
          */
-        public Usernames usernames;
+        @Nullable public Usernames usernames;
         /**
          * Point in time (Unix timestamp) when the current user joined, or the point in time when the supergroup or channel was created, in case the user is not a member.
          */
@@ -58676,7 +62434,7 @@ public class TdApi {
         /**
          * Chat photo; may be null if empty or unknown. If non-null, then it is the same photo as in chat.photo.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
         /**
          * Supergroup or channel description.
          */
@@ -58788,11 +62546,11 @@ public class TdApi {
         /**
          * Location to which the supergroup is connected; may be null if none.
          */
-        public ChatLocation location;
+        @Nullable public ChatLocation location;
         /**
          * Primary invite link for the chat; may be null. For chat administrators with canInviteUsers right only.
          */
-        public ChatInviteLink inviteLink;
+        @Nullable public ChatInviteLink inviteLink;
         /**
          * List of commands of bots in the group.
          */
@@ -58904,6 +62662,28 @@ public class TdApi {
      * Specifies the kind of chat members to return in getSupergroupMembers.
      */
     public abstract static class SupergroupMembersFilter extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                SupergroupMembersFilterRecent.CONSTRUCTOR,
+                SupergroupMembersFilterContacts.CONSTRUCTOR,
+                SupergroupMembersFilterAdministrators.CONSTRUCTOR,
+                SupergroupMembersFilterSearch.CONSTRUCTOR,
+                SupergroupMembersFilterRestricted.CONSTRUCTOR,
+                SupergroupMembersFilterBanned.CONSTRUCTOR,
+                SupergroupMembersFilterMention.CONSTRUCTOR,
+                SupergroupMembersFilterBots.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -59232,6 +63012,24 @@ public class TdApi {
      */
     public abstract static class TMeUrlType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                TMeUrlTypeUser.CONSTRUCTOR,
+                TMeUrlTypeSupergroup.CONSTRUCTOR,
+                TMeUrlTypeChatInvite.CONSTRUCTOR,
+                TMeUrlTypeStickerSet.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public TMeUrlType() {
@@ -59434,6 +63232,23 @@ public class TdApi {
      */
     public abstract static class TargetChat extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                TargetChatCurrent.CONSTRUCTOR,
+                TargetChatChosen.CONSTRUCTOR,
+                TargetChatInternalLink.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public TargetChat() {
@@ -59564,6 +63379,25 @@ public class TdApi {
      * Describes a purpose of a payment toward Telegram.
      */
     public abstract static class TelegramPaymentPurpose extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                TelegramPaymentPurposePremiumGiftCodes.CONSTRUCTOR,
+                TelegramPaymentPurposePremiumGiveaway.CONSTRUCTOR,
+                TelegramPaymentPurposeStars.CONSTRUCTOR,
+                TelegramPaymentPurposeGiftedStars.CONSTRUCTOR,
+                TelegramPaymentPurposeJoinChat.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -60331,6 +64165,42 @@ public class TdApi {
      */
     public abstract static class TextEntityType extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                TextEntityTypeMention.CONSTRUCTOR,
+                TextEntityTypeHashtag.CONSTRUCTOR,
+                TextEntityTypeCashtag.CONSTRUCTOR,
+                TextEntityTypeBotCommand.CONSTRUCTOR,
+                TextEntityTypeUrl.CONSTRUCTOR,
+                TextEntityTypeEmailAddress.CONSTRUCTOR,
+                TextEntityTypePhoneNumber.CONSTRUCTOR,
+                TextEntityTypeBankCardNumber.CONSTRUCTOR,
+                TextEntityTypeBold.CONSTRUCTOR,
+                TextEntityTypeItalic.CONSTRUCTOR,
+                TextEntityTypeUnderline.CONSTRUCTOR,
+                TextEntityTypeStrikethrough.CONSTRUCTOR,
+                TextEntityTypeSpoiler.CONSTRUCTOR,
+                TextEntityTypeCode.CONSTRUCTOR,
+                TextEntityTypePre.CONSTRUCTOR,
+                TextEntityTypePreCode.CONSTRUCTOR,
+                TextEntityTypeBlockQuote.CONSTRUCTOR,
+                TextEntityTypeExpandableBlockQuote.CONSTRUCTOR,
+                TextEntityTypeTextUrl.CONSTRUCTOR,
+                TextEntityTypeMentionName.CONSTRUCTOR,
+                TextEntityTypeCustomEmoji.CONSTRUCTOR,
+                TextEntityTypeMediaTimestamp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public TextEntityType() {
@@ -60958,6 +64828,22 @@ public class TdApi {
      */
     public abstract static class TextParseMode extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                TextParseModeMarkdown.CONSTRUCTOR,
+                TextParseModeHTML.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public TextParseMode() {
@@ -61204,7 +65090,7 @@ public class TdApi {
         /**
          * The background to be used in chats; may be null.
          */
-        public Background background;
+        @Nullable public Background background;
         /**
          * The fill to be used as a background for outgoing messages.
          */
@@ -61316,6 +65202,27 @@ public class TdApi {
      * Describes format of a thumbnail.
      */
     public abstract static class ThumbnailFormat extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                ThumbnailFormatJpeg.CONSTRUCTOR,
+                ThumbnailFormatGif.CONSTRUCTOR,
+                ThumbnailFormatMpeg4.CONSTRUCTOR,
+                ThumbnailFormatPng.CONSTRUCTOR,
+                ThumbnailFormatTgs.CONSTRUCTOR,
+                ThumbnailFormatWebm.CONSTRUCTOR,
+                ThumbnailFormatWebp.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -61591,6 +65498,28 @@ public class TdApi {
      * Represents the categories of chats for which a list of frequently used chats can be retrieved.
      */
     public abstract static class TopChatCategory extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                TopChatCategoryUsers.CONSTRUCTOR,
+                TopChatCategoryBots.CONSTRUCTOR,
+                TopChatCategoryGroups.CONSTRUCTOR,
+                TopChatCategoryChannels.CONSTRUCTOR,
+                TopChatCategoryInlineBots.CONSTRUCTOR,
+                TopChatCategoryWebAppBots.CONSTRUCTOR,
+                TopChatCategoryCalls.CONSTRUCTOR,
+                TopChatCategoryForwardChats.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -61960,6 +65889,170 @@ public class TdApi {
      */
     public abstract static class Update extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                UpdateAuthorizationState.CONSTRUCTOR,
+                UpdateNewMessage.CONSTRUCTOR,
+                UpdateMessageSendAcknowledged.CONSTRUCTOR,
+                UpdateMessageSendSucceeded.CONSTRUCTOR,
+                UpdateMessageSendFailed.CONSTRUCTOR,
+                UpdateMessageContent.CONSTRUCTOR,
+                UpdateMessageEdited.CONSTRUCTOR,
+                UpdateMessageIsPinned.CONSTRUCTOR,
+                UpdateMessageInteractionInfo.CONSTRUCTOR,
+                UpdateMessageContentOpened.CONSTRUCTOR,
+                UpdateMessageMentionRead.CONSTRUCTOR,
+                UpdateMessageUnreadReactions.CONSTRUCTOR,
+                UpdateMessageFactCheck.CONSTRUCTOR,
+                UpdateMessageLiveLocationViewed.CONSTRUCTOR,
+                UpdateNewChat.CONSTRUCTOR,
+                UpdateChatTitle.CONSTRUCTOR,
+                UpdateChatPhoto.CONSTRUCTOR,
+                UpdateChatAccentColors.CONSTRUCTOR,
+                UpdateChatPermissions.CONSTRUCTOR,
+                UpdateChatLastMessage.CONSTRUCTOR,
+                UpdateChatPosition.CONSTRUCTOR,
+                UpdateChatAddedToList.CONSTRUCTOR,
+                UpdateChatRemovedFromList.CONSTRUCTOR,
+                UpdateChatReadInbox.CONSTRUCTOR,
+                UpdateChatReadOutbox.CONSTRUCTOR,
+                UpdateChatActionBar.CONSTRUCTOR,
+                UpdateChatBusinessBotManageBar.CONSTRUCTOR,
+                UpdateChatAvailableReactions.CONSTRUCTOR,
+                UpdateChatDraftMessage.CONSTRUCTOR,
+                UpdateChatEmojiStatus.CONSTRUCTOR,
+                UpdateChatMessageSender.CONSTRUCTOR,
+                UpdateChatMessageAutoDeleteTime.CONSTRUCTOR,
+                UpdateChatNotificationSettings.CONSTRUCTOR,
+                UpdateChatPendingJoinRequests.CONSTRUCTOR,
+                UpdateChatReplyMarkup.CONSTRUCTOR,
+                UpdateChatBackground.CONSTRUCTOR,
+                UpdateChatTheme.CONSTRUCTOR,
+                UpdateChatUnreadMentionCount.CONSTRUCTOR,
+                UpdateChatUnreadReactionCount.CONSTRUCTOR,
+                UpdateChatVideoChat.CONSTRUCTOR,
+                UpdateChatDefaultDisableNotification.CONSTRUCTOR,
+                UpdateChatHasProtectedContent.CONSTRUCTOR,
+                UpdateChatIsTranslatable.CONSTRUCTOR,
+                UpdateChatIsMarkedAsUnread.CONSTRUCTOR,
+                UpdateChatViewAsTopics.CONSTRUCTOR,
+                UpdateChatBlockList.CONSTRUCTOR,
+                UpdateChatHasScheduledMessages.CONSTRUCTOR,
+                UpdateChatFolders.CONSTRUCTOR,
+                UpdateChatOnlineMemberCount.CONSTRUCTOR,
+                UpdateSavedMessagesTopic.CONSTRUCTOR,
+                UpdateSavedMessagesTopicCount.CONSTRUCTOR,
+                UpdateQuickReplyShortcut.CONSTRUCTOR,
+                UpdateQuickReplyShortcutDeleted.CONSTRUCTOR,
+                UpdateQuickReplyShortcuts.CONSTRUCTOR,
+                UpdateQuickReplyShortcutMessages.CONSTRUCTOR,
+                UpdateForumTopicInfo.CONSTRUCTOR,
+                UpdateScopeNotificationSettings.CONSTRUCTOR,
+                UpdateReactionNotificationSettings.CONSTRUCTOR,
+                UpdateNotification.CONSTRUCTOR,
+                UpdateNotificationGroup.CONSTRUCTOR,
+                UpdateActiveNotifications.CONSTRUCTOR,
+                UpdateHavePendingNotifications.CONSTRUCTOR,
+                UpdateDeleteMessages.CONSTRUCTOR,
+                UpdateChatAction.CONSTRUCTOR,
+                UpdateUserStatus.CONSTRUCTOR,
+                UpdateUser.CONSTRUCTOR,
+                UpdateBasicGroup.CONSTRUCTOR,
+                UpdateSupergroup.CONSTRUCTOR,
+                UpdateSecretChat.CONSTRUCTOR,
+                UpdateUserFullInfo.CONSTRUCTOR,
+                UpdateBasicGroupFullInfo.CONSTRUCTOR,
+                UpdateSupergroupFullInfo.CONSTRUCTOR,
+                UpdateServiceNotification.CONSTRUCTOR,
+                UpdateFile.CONSTRUCTOR,
+                UpdateFileGenerationStart.CONSTRUCTOR,
+                UpdateFileGenerationStop.CONSTRUCTOR,
+                UpdateFileDownloads.CONSTRUCTOR,
+                UpdateFileAddedToDownloads.CONSTRUCTOR,
+                UpdateFileDownload.CONSTRUCTOR,
+                UpdateFileRemovedFromDownloads.CONSTRUCTOR,
+                UpdateApplicationVerificationRequired.CONSTRUCTOR,
+                UpdateCall.CONSTRUCTOR,
+                UpdateGroupCall.CONSTRUCTOR,
+                UpdateGroupCallParticipant.CONSTRUCTOR,
+                UpdateNewCallSignalingData.CONSTRUCTOR,
+                UpdateUserPrivacySettingRules.CONSTRUCTOR,
+                UpdateUnreadMessageCount.CONSTRUCTOR,
+                UpdateUnreadChatCount.CONSTRUCTOR,
+                UpdateStory.CONSTRUCTOR,
+                UpdateStoryDeleted.CONSTRUCTOR,
+                UpdateStorySendSucceeded.CONSTRUCTOR,
+                UpdateStorySendFailed.CONSTRUCTOR,
+                UpdateChatActiveStories.CONSTRUCTOR,
+                UpdateStoryListChatCount.CONSTRUCTOR,
+                UpdateStoryStealthMode.CONSTRUCTOR,
+                UpdateOption.CONSTRUCTOR,
+                UpdateStickerSet.CONSTRUCTOR,
+                UpdateInstalledStickerSets.CONSTRUCTOR,
+                UpdateTrendingStickerSets.CONSTRUCTOR,
+                UpdateRecentStickers.CONSTRUCTOR,
+                UpdateFavoriteStickers.CONSTRUCTOR,
+                UpdateSavedAnimations.CONSTRUCTOR,
+                UpdateSavedNotificationSounds.CONSTRUCTOR,
+                UpdateDefaultBackground.CONSTRUCTOR,
+                UpdateChatThemes.CONSTRUCTOR,
+                UpdateAccentColors.CONSTRUCTOR,
+                UpdateProfileAccentColors.CONSTRUCTOR,
+                UpdateLanguagePackStrings.CONSTRUCTOR,
+                UpdateConnectionState.CONSTRUCTOR,
+                UpdateTermsOfService.CONSTRUCTOR,
+                UpdateUsersNearby.CONSTRUCTOR,
+                UpdateUnconfirmedSession.CONSTRUCTOR,
+                UpdateAttachmentMenuBots.CONSTRUCTOR,
+                UpdateWebAppMessageSent.CONSTRUCTOR,
+                UpdateActiveEmojiReactions.CONSTRUCTOR,
+                UpdateAvailableMessageEffects.CONSTRUCTOR,
+                UpdateDefaultReactionType.CONSTRUCTOR,
+                UpdateSavedMessagesTags.CONSTRUCTOR,
+                UpdateActiveLiveLocationMessages.CONSTRUCTOR,
+                UpdateOwnedStarCount.CONSTRUCTOR,
+                UpdateChatRevenueAmount.CONSTRUCTOR,
+                UpdateStarRevenueStatus.CONSTRUCTOR,
+                UpdateSpeechRecognitionTrial.CONSTRUCTOR,
+                UpdateDiceEmojis.CONSTRUCTOR,
+                UpdateAnimatedEmojiMessageClicked.CONSTRUCTOR,
+                UpdateAnimationSearchParameters.CONSTRUCTOR,
+                UpdateSuggestedActions.CONSTRUCTOR,
+                UpdateSpeedLimitNotification.CONSTRUCTOR,
+                UpdateContactCloseBirthdays.CONSTRUCTOR,
+                UpdateAutosaveSettings.CONSTRUCTOR,
+                UpdateBusinessConnection.CONSTRUCTOR,
+                UpdateNewBusinessMessage.CONSTRUCTOR,
+                UpdateBusinessMessageEdited.CONSTRUCTOR,
+                UpdateBusinessMessagesDeleted.CONSTRUCTOR,
+                UpdateNewInlineQuery.CONSTRUCTOR,
+                UpdateNewChosenInlineResult.CONSTRUCTOR,
+                UpdateNewCallbackQuery.CONSTRUCTOR,
+                UpdateNewInlineCallbackQuery.CONSTRUCTOR,
+                UpdateNewBusinessCallbackQuery.CONSTRUCTOR,
+                UpdateNewShippingQuery.CONSTRUCTOR,
+                UpdateNewPreCheckoutQuery.CONSTRUCTOR,
+                UpdateNewCustomEvent.CONSTRUCTOR,
+                UpdateNewCustomQuery.CONSTRUCTOR,
+                UpdatePoll.CONSTRUCTOR,
+                UpdatePollAnswer.CONSTRUCTOR,
+                UpdateChatMember.CONSTRUCTOR,
+                UpdateNewChatJoinRequest.CONSTRUCTOR,
+                UpdateChatBoost.CONSTRUCTOR,
+                UpdateMessageReaction.CONSTRUCTOR,
+                UpdateMessageReactions.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public Update() {
@@ -62249,7 +66342,7 @@ public class TdApi {
         /**
          * New message reply markup; may be null.
          */
-        public ReplyMarkup replyMarkup;
+        @Nullable public ReplyMarkup replyMarkup;
 
         /**
          * A message was edited. Changes in the message content will come in a separate updateMessageContent.
@@ -62351,7 +66444,7 @@ public class TdApi {
         /**
          * New information about interactions with the message; may be null.
          */
-        public MessageInteractionInfo interactionInfo;
+        @Nullable public MessageInteractionInfo interactionInfo;
 
         /**
          * The information about interactions with a message has changed.
@@ -62723,7 +66816,7 @@ public class TdApi {
         /**
          * The new chat photo; may be null.
          */
-        public ChatPhotoInfo photo;
+        @Nullable public ChatPhotoInfo photo;
 
         /**
          * A chat photo was changed.
@@ -62873,7 +66966,7 @@ public class TdApi {
         /**
          * The new last message in the chat; may be null if the last message became unknown. While the last message is unknown, new messages can be added to the chat without corresponding updateNewMessage update.
          */
-        public Message lastMessage;
+        @Nullable public Message lastMessage;
         /**
          * The new chat positions in the chat lists.
          */
@@ -63149,7 +67242,7 @@ public class TdApi {
         /**
          * The new value of the action bar; may be null.
          */
-        public ChatActionBar actionBar;
+        @Nullable public ChatActionBar actionBar;
 
         /**
          * The chat action bar was changed.
@@ -63193,7 +67286,7 @@ public class TdApi {
         /**
          * The new value of the business bot manage bar; may be null.
          */
-        public BusinessBotManageBar businessBotManageBar;
+        @Nullable public BusinessBotManageBar businessBotManageBar;
 
         /**
          * The bar for managing business bot was changed in a chat.
@@ -63281,7 +67374,7 @@ public class TdApi {
         /**
          * The new draft message; may be null if none.
          */
-        public DraftMessage draftMessage;
+        @Nullable public DraftMessage draftMessage;
         /**
          * The new chat positions in the chat lists.
          */
@@ -63331,7 +67424,7 @@ public class TdApi {
         /**
          * The new chat emoji status; may be null.
          */
-        public EmojiStatus emojiStatus;
+        @Nullable public EmojiStatus emojiStatus;
 
         /**
          * Chat emoji status has changed.
@@ -63375,7 +67468,7 @@ public class TdApi {
         /**
          * New value of messageSenderId; may be null if the user can't change message sender.
          */
-        public MessageSender messageSenderId;
+        @Nullable public MessageSender messageSenderId;
 
         /**
          * The message sender that is selected to send messages in a chat has changed.
@@ -63507,7 +67600,7 @@ public class TdApi {
         /**
          * The new data about pending join requests; may be null.
          */
-        public ChatJoinRequestsInfo pendingJoinRequests;
+        @Nullable public ChatJoinRequestsInfo pendingJoinRequests;
 
         /**
          * The chat pending join requests were changed.
@@ -63595,7 +67688,7 @@ public class TdApi {
         /**
          * The new chat background; may be null if background was reset to default.
          */
-        public ChatBackground background;
+        @Nullable public ChatBackground background;
 
         /**
          * The chat background was changed.
@@ -64035,7 +68128,7 @@ public class TdApi {
         /**
          * Block list to which the chat is added; may be null if none.
          */
-        public BlockList blockList;
+        @Nullable public BlockList blockList;
 
         /**
          * A chat was blocked or unblocked.
@@ -66099,7 +70192,7 @@ public class TdApi {
         /**
          * Type of the error; may be null if unknown.
          */
-        public CanSendStoryResult errorType;
+        @Nullable public CanSendStoryResult errorType;
 
         /**
          * A story failed to send. If the story sending is canceled, then updateStoryDeleted will be received instead of this update.
@@ -66599,7 +70692,7 @@ public class TdApi {
         /**
          * The new default background; may be null.
          */
-        public Background background;
+        @Nullable public Background background;
 
         /**
          * The default background has changed.
@@ -66935,7 +71028,7 @@ public class TdApi {
         /**
          * The unconfirmed session; may be null if none.
          */
-        public UnconfirmedSession session;
+        @Nullable public UnconfirmedSession session;
 
         /**
          * The first unconfirmed session has changed.
@@ -67689,7 +71782,7 @@ public class TdApi {
         /**
          * The new autosave settings; may be null if the settings are reset to default.
          */
-        public ScopeAutosaveSettings settings;
+        @Nullable public ScopeAutosaveSettings settings;
 
         /**
          * Autosave settings for some type of chats were updated.
@@ -67913,11 +72006,11 @@ public class TdApi {
         /**
          * User location; may be null.
          */
-        public Location userLocation;
+        @Nullable public Location userLocation;
         /**
          * The type of the chat from which the query originated; may be null if unknown.
          */
-        public ChatType chatType;
+        @Nullable public ChatType chatType;
         /**
          * Text of the query.
          */
@@ -67977,7 +72070,7 @@ public class TdApi {
         /**
          * User location; may be null.
          */
-        public Location userLocation;
+        @Nullable public Location userLocation;
         /**
          * Text of the query.
          */
@@ -68313,7 +72406,7 @@ public class TdApi {
         /**
          * Information about the order; may be null.
          */
-        public OrderInfo orderInfo;
+        @Nullable public OrderInfo orderInfo;
 
         /**
          * A new incoming pre-checkout query; for bots only. Contains full information about a checkout.
@@ -68551,7 +72644,7 @@ public class TdApi {
         /**
          * If user has joined the chat using an invite link, the invite link; may be null.
          */
-        public ChatInviteLink inviteLink;
+        @Nullable public ChatInviteLink inviteLink;
         /**
          * True, if the user has joined the chat after sending a join request and being approved by an administrator.
          */
@@ -68631,7 +72724,7 @@ public class TdApi {
         /**
          * The invite link, which was used to send join request; may be null.
          */
-        public ChatInviteLink inviteLink;
+        @Nullable public ChatInviteLink inviteLink;
 
         /**
          * A user sent a join request to a chat; for bots only.
@@ -68893,7 +72986,7 @@ public class TdApi {
         /**
          * Usernames of the user; may be null.
          */
-        public Usernames usernames;
+        @Nullable public Usernames usernames;
         /**
          * Phone number of the user.
          */
@@ -68905,7 +72998,7 @@ public class TdApi {
         /**
          * Profile photo of the user; may be null.
          */
-        public ProfilePhoto profilePhoto;
+        @Nullable public ProfilePhoto profilePhoto;
         /**
          * Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview. For Telegram Premium users only.
          */
@@ -68925,7 +73018,7 @@ public class TdApi {
         /**
          * Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only.
          */
-        public EmojiStatus emojiStatus;
+        @Nullable public EmojiStatus emojiStatus;
         /**
          * The user is a contact of the current user.
          */
@@ -69081,19 +73174,19 @@ public class TdApi {
         /**
          * User profile photo set by the current user for the contact; may be null. If null and user.profilePhoto is null, then the photo is empty; otherwise, it is unknown. If non-null, then it is the same photo as in user.profilePhoto and chat.photo. This photo isn't returned in the list of user photos.
          */
-        public ChatPhoto personalPhoto;
+        @Nullable public ChatPhoto personalPhoto;
         /**
          * User profile photo; may be null. If null and user.profilePhoto is null, then the photo is empty; otherwise, it is unknown. If non-null and personalPhoto is null, then it is the same photo as in user.profilePhoto and chat.photo.
          */
-        public ChatPhoto photo;
+        @Nullable public ChatPhoto photo;
         /**
          * User profile photo visible if the main photo is hidden by privacy settings; may be null. If null and user.profilePhoto is null, then the photo is empty; otherwise, it is unknown. If non-null and both photo and personalPhoto are null, then it is the same photo as in user.profilePhoto and chat.photo. This photo isn't returned in the list of user photos.
          */
-        public ChatPhoto publicPhoto;
+        @Nullable public ChatPhoto publicPhoto;
         /**
          * Block list to which the user is added; may be null if none.
          */
-        public BlockList blockList;
+        @Nullable public BlockList blockList;
         /**
          * True, if the user can be called.
          */
@@ -69133,11 +73226,11 @@ public class TdApi {
         /**
          * A short user bio; may be null for bots.
          */
-        public FormattedText bio;
+        @Nullable public FormattedText bio;
         /**
          * Birthdate of the user; may be null if unknown.
          */
-        public Birthdate birthdate;
+        @Nullable public Birthdate birthdate;
         /**
          * Identifier of the personal chat of the user; 0 if none.
          */
@@ -69153,11 +73246,11 @@ public class TdApi {
         /**
          * Information about business settings for Telegram Business accounts; may be null if none.
          */
-        public BusinessInfo businessInfo;
+        @Nullable public BusinessInfo businessInfo;
         /**
          * For bots, information about the bot; may be null if the user isn't a bot.
          */
-        public BotInfo botInfo;
+        @Nullable public BotInfo botInfo;
 
         /**
          * Contains full information about a user.
@@ -69275,6 +73368,31 @@ public class TdApi {
      * Describes available user privacy settings.
      */
     public abstract static class UserPrivacySetting extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                UserPrivacySettingShowStatus.CONSTRUCTOR,
+                UserPrivacySettingShowProfilePhoto.CONSTRUCTOR,
+                UserPrivacySettingShowLinkInForwardedMessages.CONSTRUCTOR,
+                UserPrivacySettingShowPhoneNumber.CONSTRUCTOR,
+                UserPrivacySettingShowBio.CONSTRUCTOR,
+                UserPrivacySettingShowBirthdate.CONSTRUCTOR,
+                UserPrivacySettingAllowChatInvites.CONSTRUCTOR,
+                UserPrivacySettingAllowCalls.CONSTRUCTOR,
+                UserPrivacySettingAllowPeerToPeerCalls.CONSTRUCTOR,
+                UserPrivacySettingAllowFindingByPhoneNumber.CONSTRUCTOR,
+                UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -69562,6 +73680,29 @@ public class TdApi {
      * Represents a single rule for managing user privacy settings.
      */
     public abstract static class UserPrivacySettingRule extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                UserPrivacySettingRuleAllowAll.CONSTRUCTOR,
+                UserPrivacySettingRuleAllowContacts.CONSTRUCTOR,
+                UserPrivacySettingRuleAllowPremiumUsers.CONSTRUCTOR,
+                UserPrivacySettingRuleAllowUsers.CONSTRUCTOR,
+                UserPrivacySettingRuleAllowChatMembers.CONSTRUCTOR,
+                UserPrivacySettingRuleRestrictAll.CONSTRUCTOR,
+                UserPrivacySettingRuleRestrictContacts.CONSTRUCTOR,
+                UserPrivacySettingRuleRestrictUsers.CONSTRUCTOR,
+                UserPrivacySettingRuleRestrictChatMembers.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -69890,6 +74031,26 @@ public class TdApi {
      */
     public abstract static class UserStatus extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                UserStatusEmpty.CONSTRUCTOR,
+                UserStatusOnline.CONSTRUCTOR,
+                UserStatusOffline.CONSTRUCTOR,
+                UserStatusRecently.CONSTRUCTOR,
+                UserStatusLastWeek.CONSTRUCTOR,
+                UserStatusLastMonth.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public UserStatus() {
@@ -70166,6 +74327,24 @@ public class TdApi {
      * Represents the type of user. The following types are possible: regular users, deleted users and bots.
      */
     public abstract static class UserType extends Object {
+        /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                UserTypeRegular.CONSTRUCTOR,
+                UserTypeDeleted.CONSTRUCTOR,
+                UserTypeBot.CONSTRUCTOR,
+                UserTypeUnknown.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
         /**
          * Default class constructor.
          */
@@ -70484,6 +74663,22 @@ public class TdApi {
      */
     public abstract static class VectorPathCommand extends Object {
         /**
+         * Describes possible values returned by getConstructor().
+         */
+        @Retention(RetentionPolicy.SOURCE)
+        @IntDef({
+                VectorPathCommandLine.CONSTRUCTOR,
+                VectorPathCommandCubicBezierCurve.CONSTRUCTOR
+        })
+        public @interface Constructors {}
+
+        /**
+         * @return identifier uniquely determining type of the object.
+         */
+        @Constructors
+        @Override
+        public abstract int getConstructor();
+        /**
          * Default class constructor.
          */
         public VectorPathCommand() {
@@ -70681,11 +74876,11 @@ public class TdApi {
         /**
          * Video minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * File containing the video.
          */
@@ -70753,7 +74948,7 @@ public class TdApi {
         /**
          * Default group call participant identifier to join the video chat; may be null.
          */
-        public MessageSender defaultParticipantId;
+        @Nullable public MessageSender defaultParticipantId;
 
         /**
          * Describes a video chat.
@@ -70807,15 +75002,15 @@ public class TdApi {
         /**
          * Video minithumbnail; may be null.
          */
-        public Minithumbnail minithumbnail;
+        @Nullable public Minithumbnail minithumbnail;
         /**
          * Video thumbnail in JPEG format; as defined by the sender; may be null.
          */
-        public Thumbnail thumbnail;
+        @Nullable public Thumbnail thumbnail;
         /**
          * Result of speech recognition in the video note; may be null.
          */
-        public SpeechRecognitionResult speechRecognitionResult;
+        @Nullable public SpeechRecognitionResult speechRecognitionResult;
         /**
          * File containing the video.
          */
@@ -70881,7 +75076,7 @@ public class TdApi {
         /**
          * Result of speech recognition in the voice note; may be null.
          */
-        public SpeechRecognitionResult speechRecognitionResult;
+        @Nullable public SpeechRecognitionResult speechRecognitionResult;
         /**
          * File containing the voice note.
          */
@@ -70947,7 +75142,7 @@ public class TdApi {
         /**
          * Web App animation; may be null.
          */
-        public Animation animation;
+        @Nullable public Animation animation;
 
         /**
          * Describes a Web App. Use getInternalLink with internalLinkTypeWebApp to share the Web App.
