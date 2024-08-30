@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/.name
+/.idea/appInsightsSettings.xml
+/.idea/git_toolbox_blame.xml

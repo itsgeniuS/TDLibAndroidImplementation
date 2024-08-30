@@ -1,4 +1,4 @@
-package org.drinkless.tdlib;
+package org.drinkless.td;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;

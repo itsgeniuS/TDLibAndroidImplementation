@@ -28,6 +28,7 @@ android {
 
     sourceSets {
         getByName("main") {
+            java.srcDirs(listOf("com.genius.tdlibandroid", "org.drinkless.td"))
             jniLibs.srcDir("src/main/libs")
             jni.srcDirs(emptyList<String>())
         }
