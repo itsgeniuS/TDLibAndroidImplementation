@@ -1,10 +1,9 @@
-package org.drinkless.td;
+package org.drinkless.tdlib;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 
 import java.lang.annotation.Retention;
-
 import java.lang.annotation.RetentionPolicy;
 
 /**

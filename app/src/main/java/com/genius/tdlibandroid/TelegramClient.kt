@@ -4,8 +4,8 @@ import android.util.Log
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
-import org.drinkless.td.Client
-import org.drinkless.td.TdApi
+import org.drinkless.tdlib.Client
+import org.drinkless.tdlib.TdApi
 
 /*
  * Go to https://my.telegram.org to obtain api id (integer) and api hash (string).
