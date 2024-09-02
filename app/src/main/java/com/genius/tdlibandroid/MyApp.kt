@@ -3,12 +3,14 @@ package com.genius.tdlibandroid
 import android.util.Log
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
+import dagger.hilt.android.HiltAndroidApp
 
 /**
  * @Author: Thulasirajan P
  * @github: https:github.com/itsgeniuS
  * @Date: 29/08/24
  */
+@HiltAndroidApp
 class MyApp : MultiDexApplication() {
 
     override fun onCreate() {

@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid
+package com.genius.tdlibandroid.data
 
 enum class Authentication {
     UNAUTHENTICATED,
