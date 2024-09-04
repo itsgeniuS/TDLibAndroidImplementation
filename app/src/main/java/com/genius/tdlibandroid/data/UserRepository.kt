@@ -8,12 +8,12 @@ import org.drinkless.tdlib.TdApi
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-class UserRepository @Inject constructor(private val client: TelegramClient) {
+class UserRepository @Inject constructor(/*private val client: TelegramClient*/) {
 
     fun getUser(userId: Int): Flow<TdApi.User> = callbackFlow {
-        client.client.send(TdApi.GetUser(userId.toLong())) {
+        /*client.client.send(TdApi.GetUser(userId.toLong())) {
             trySend(it as TdApi.User).isSuccess
-        }
+        }*/
         awaitClose { }
     }
 }

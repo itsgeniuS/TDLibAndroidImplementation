@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,6 +37,10 @@ fun LoginScreen(
     onOpenHome: () -> Unit,
 ) {
     val uiState by viewModel.uiState
+
+    LaunchedEffect(key1 = Unit) {
+        viewModel.getCC()
+    }
 
     when (uiState) {
         is LoginStates.InsertNumber -> WaitForNumberScreen {
