@@ -55,25 +55,25 @@ class TgClient @Inject constructor(
 
         when (`object`) {
             is TdApi.CountryInfo -> {
-                Log.e("TgClient line 58", "CountryInfo called $`object`")
+
             }
 
             is TdApi.Countries -> {
-                Log.e("TgClient line 61", "Countries called $`object`")
+
             }
 
             is TdApi.GetCountryCode -> {
-                Log.e("TgClient line 64", "GetCountryCode called $`object`")
+
             }
 
             else -> {
-                Log.e("TgClient line 67", "onResult called $`object`")
+
             }
         }
     }
 
     override fun onException(e: Throwable?) {
-        Log.e("TgClient line 59", "onException called ${e?.message}")
+
     }
 
     fun sendAsFlow(query: TdApi.Function<*>): Flow<TdApi.Object> = callbackFlow {
