@@ -43,4 +43,11 @@ class TgAuthRepository @Inject constructor(
         }
         awaitClose {}
     }
+
+    fun logOutUser() = callbackFlow {
+        tgCore.client?.send(TdApi.LogOut()) {
+            trySend(it)
+        }
+        awaitClose { }
+    }
 }
