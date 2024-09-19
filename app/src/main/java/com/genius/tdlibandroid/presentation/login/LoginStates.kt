@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid.screens.login
+package com.genius.tdlibandroid.presentation.login
 
 /**
  * @Author: Thulasirajan P
@@ -11,4 +11,5 @@ sealed class LoginStates {
     data class InsertCode(val previousError: Throwable? = null) : LoginStates()
     data class InsertPassword(val previousError: Throwable? = null) : LoginStates()
     data object Authenticated : LoginStates()
+    data object LoggedOut : LoginStates()
 }

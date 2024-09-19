@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid.screens.home
+package com.genius.tdlibandroid.presentation.home
 
 import androidx.compose.runtime.Composable
 

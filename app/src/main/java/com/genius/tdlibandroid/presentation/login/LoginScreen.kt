@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid.screens.login
+package com.genius.tdlibandroid.presentation.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -38,8 +38,10 @@ fun LoginScreen(
 ) {
     val uiState by viewModel.uiState
 
+    val authState by viewModel.authState
+
     LaunchedEffect(key1 = Unit) {
-        viewModel.getCC()
+        viewModel.getAuthStatus()
     }
 
     when (uiState) {
@@ -63,9 +65,7 @@ fun LoginScreen(
 
         LoginStates.Authenticated -> onOpenHome.invoke()
 
-        else -> WaitForNumberScreen {
-            viewModel.insertPhoneNumber(it)
-        }
+        else -> Text(text = authState)
     }
 }
 

@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid.screens.splash
+package com.genius.tdlibandroid.presentation.splash
 
 import androidx.compose.runtime.Composable
 

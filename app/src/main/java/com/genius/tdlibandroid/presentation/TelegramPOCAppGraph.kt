@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid.screens
+package com.genius.tdlibandroid.presentation
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -9,12 +9,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.genius.tdlibandroid.MainActivity
-import com.genius.tdlibandroid.screens.home.HomeScreen
-import com.genius.tdlibandroid.screens.home.HomeViewModel
-import com.genius.tdlibandroid.screens.login.LoginScreen
-import com.genius.tdlibandroid.screens.login.LoginViewModel
-import com.genius.tdlibandroid.screens.splash.SplashScreen
-import com.genius.tdlibandroid.screens.splash.SplashViewModel
+import com.genius.tdlibandroid.presentation.home.HomeScreen
+import com.genius.tdlibandroid.presentation.home.HomeViewModel
+import com.genius.tdlibandroid.presentation.login.LoginScreen
+import com.genius.tdlibandroid.presentation.login.LoginViewModel
+import com.genius.tdlibandroid.presentation.splash.SplashScreen
+import com.genius.tdlibandroid.presentation.splash.SplashViewModel
 import com.genius.tdlibandroid.ui.theme.TDLibAndroidTheme
 
 /**

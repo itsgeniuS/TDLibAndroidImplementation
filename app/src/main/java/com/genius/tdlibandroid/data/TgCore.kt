@@ -1,9 +1,13 @@
-package com.genius.tdlibandroid.data.tgClient
+package com.genius.tdlibandroid.data
 
 import android.content.Context
 import android.os.Build
 import android.util.Log
 import com.genius.tdlibandroid.R
+import com.genius.tdlibandroid.data.TgCore.TdLibLoggerLevels.Companion.ALL_ERRORS
+import com.genius.tdlibandroid.data.TgCore.TdLibLoggerLevels.Companion.DEBUG
+import com.genius.tdlibandroid.data.TgCore.TdLibLoggerLevels.Companion.EXTRA_LOGS
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
@@ -19,11 +23,24 @@ import javax.inject.Singleton
  * @Date: 03/09/24
  */
 @Singleton
-class TgClient @Inject constructor(
+class TgCore
+@Inject constructor(
     val context: Context,
 ) : Client.ResultHandler, Client.ExceptionHandler {
 
-    private var client: Client? = null
+    var client: Client? = null
+
+    interface TdLibLoggerLevels {
+        companion object {
+            const val FATAL_ERRORS = 0
+            const val ALL_ERRORS = 1
+            const val WARNINGS = 2
+            const val INFO = 3
+            const val DEBUG = 4
+            const val VERBOSE = 5
+            const val EXTRA_LOGS = 1023 //5 <= 1023 any number within this range
+        }
+    }
 
     fun initializeClient() {
         kotlin.runCatching {
@@ -32,7 +49,9 @@ class TgClient @Inject constructor(
                 this,
                 this,
             ).apply {
-                send(TdApi.SetLogVerbosityLevel(1), this@TgClient)
+                send(TdApi.SetLogVerbosityLevel(EXTRA_LOGS), this@TgCore)
+                send(TdApi.SetLogVerbosityLevel(ALL_ERRORS), this@TgCore)
+                send(TdApi.SetLogVerbosityLevel(DEBUG), this@TgCore)
                 send(TdApi.SetTdlibParameters().apply {
                     apiId = context.resources.getInteger(R.integer.telegram_api_id)
                     apiHash = context.getString(R.string.telegram_api_hash)
@@ -43,11 +62,11 @@ class TgClient @Inject constructor(
                     deviceModel = Build.MODEL
                     systemVersion = Build.VERSION.RELEASE
                     applicationVersion = "0.1"
-                }, this@TgClient)
+                }, this@TgCore)
             }
         }.onFailure {
-            Log.e("TgClient", "Exception while TgClient initializing")
-            Log.e("TgClient", "Exception $it")
+            Log.e("TgCore", "Exception while TgCore initializing")
+            Log.e("TgCore", "Exception $it")
         }
     }
 
@@ -76,17 +95,17 @@ class TgClient @Inject constructor(
 
     }
 
-    fun sendAsFlow(query: TdApi.Function<*>): Flow<TdApi.Object> = callbackFlow {
+    fun callApi(query: TdApi.Function<*>): Flow<TdApi.Object> = callbackFlow {
         client?.send(query) {
-//            when (it.constructor) {
-//                TdApi.Error.CONSTRUCTOR -> {
-//                    error("")
-//                }
-//
-//                else -> {
-//                    trySend(it)
-//                }
-//            }
+            when (it.constructor) {
+                TdApi.Error.CONSTRUCTOR -> {
+                    error("")
+                }
+
+                else -> {
+                    trySend(it)
+                }
+            }
             trySend(it)
         }
         awaitClose { }
@@ -106,7 +125,7 @@ class TgClient @Inject constructor(
 
         client?.send(TdApi.GetCountryFlagEmoji("ZM")) {
             val response = it as TdApi.Text
-            Log.e("TgClient", "Country code emoji $response")
+            Log.e("TgCore", "Country code emoji $response")
         }
     }
 

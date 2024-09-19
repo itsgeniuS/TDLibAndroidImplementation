@@ -1,4 +1,4 @@
-package com.genius.tdlibandroid.screens
+package com.genius.tdlibandroid.presentation
 
 import androidx.navigation.NavBackStackEntry
 

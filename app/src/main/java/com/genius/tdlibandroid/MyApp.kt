@@ -3,7 +3,7 @@ package com.genius.tdlibandroid
 import android.util.Log
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
-import com.genius.tdlibandroid.data.tgClient.TgClient
+import com.genius.tdlibandroid.data.TgCore
 import dagger.hilt.android.HiltAndroidApp
 import org.drinkless.tdlib.Client
 import org.drinkless.tdlib.TdApi
@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltAndroidApp
 class MyApp : MultiDexApplication(), Client.ResultHandler, Client.ExceptionHandler {
 
-    @Inject lateinit var client: TgClient
+    @Inject lateinit var client: TgCore
 
     override fun onCreate() {
         super.onCreate()

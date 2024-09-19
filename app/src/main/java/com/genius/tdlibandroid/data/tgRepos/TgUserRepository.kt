@@ -1,5 +1,6 @@
-package com.genius.tdlibandroid.data
+package com.genius.tdlibandroid.data.tgRepos
 
+import com.genius.tdlibandroid.data.TgCore
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -8,12 +9,13 @@ import org.drinkless.tdlib.TdApi
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-class UserRepository @Inject constructor(/*private val client: TelegramClient*/) {
-
+class TgUserRepository @Inject constructor(
+    private val tgCore: TgCore,
+) {
     fun getUser(userId: Int): Flow<TdApi.User> = callbackFlow {
-        /*client.client.send(TdApi.GetUser(userId.toLong())) {
+        tgCore.client?.send(TdApi.GetUser(userId.toLong())) {
             trySend(it as TdApi.User).isSuccess
-        }*/
+        }
         awaitClose { }
     }
 }
